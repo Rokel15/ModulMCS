@@ -3,31 +3,29 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:mcs_bab_2/models/cat.dart';
 
 class DetailPage extends StatefulWidget {
-  Cat cat;
-  DetailPage({super.key, required this.cat});
-
+  // Cat cat;
+  // DetailPage({super.key, required this.cat});
+  const DetailPage({Key? key, required this.cat}) : super(key: key);
+  final Cat cat;
   @override
-  State<DetailPage> createState() => _DetailPageState(cat: cat);
+  State<DetailPage> createState() => _DetailPageState();
 }
 
 class _DetailPageState extends State<DetailPage> {
-  Cat cat;
-  _DetailPageState({required this.cat});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(cat.name),
+        title: Text(widget.cat.name),
       ),
       body: Material(
         child: ListView(
           children: [
-            Image.network(cat.urlImage),
+            Image.network(widget.cat.urlImage),
             Padding(
               padding: const EdgeInsets.only(top: 20, left: 15, right: 15),
               child: Text(
-                cat.desc,
+                widget.cat.desc,
                 style: GoogleFonts.openSans(
                     textStyle: const TextStyle(
                         fontSize: 14, fontWeight: FontWeight.w500)),

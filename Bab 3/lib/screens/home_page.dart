@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mcs_bab_2/data/cats_data.dart';
-import 'package:mcs_bab_2/DetailPage.dart';
+import 'package:mcs_bab_2/screens/detail_page.dart';
 import 'package:mcs_bab_2/models/cat.dart';
 
 class HomePage extends StatefulWidget {

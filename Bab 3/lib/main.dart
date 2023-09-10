@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
-import 'package:mcs_bab_2/HomaPage.dart';
+import 'package:mcs_bab_2/screens/home_page.dart';
 import 'package:mcs_bab_2/bloc/cat_bloc.dart';
 import 'package:mcs_bab_2/screens/cats_overview_screen.dart';
 
