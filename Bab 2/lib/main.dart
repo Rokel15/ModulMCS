@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mcs_bab_2/HomaPage.dart';
+import 'package:mcs_bab_2/screens/home_page.dart';
 
 void main() {
-  runApp(CatBreedApp());
+  runApp(const CatBreedApp());
 }
 
 class CatBreedApp extends StatelessWidget {
@@ -14,12 +14,8 @@ class CatBreedApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Cat Breed',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.dark()
-      ),
-      home: HomePage(),
+      theme: ThemeData(colorScheme: const ColorScheme.dark()),
+      home: const HomePage(),
     );
   }
 }
-
-
