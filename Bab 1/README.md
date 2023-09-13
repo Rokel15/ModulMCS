@@ -1,7 +1,7 @@
 # BAB 1 
 # Widget-widget dasar pada Flutter
 
-## Pada bab ini akan diperkenalkan cara membentuk sebuah halaman aplikasi beserta isinya dengan komponen-komponen yang tersedia dari flutter
+### Pada bab ini akan diperkenalkan cara membentuk sebuah halaman aplikasi beserta isinya dengan komponen-komponen yang tersedia dari flutter
 
 ### Material App
 MaterialApp adalah Widget paling dasar dalam membentuk suatu aplikasi, untuk menggunakan MaterialApp maka perlu import 'package:flutter/material.dart';
@@ -31,9 +31,41 @@ Struktur dri Scaffold :
     )
 
 untuk dapat menggunakan komponen-komponen pada flutter maka widget ditulis dalam class yang di**extend** dari StatelessWidget ataupun StatefulWidget. StatelessWidget dan StatfulWidget memiliki beberapa perbedaan. Beberpa perbedaan tersebut ialah
+
+StatelessWidget
 - Hanya fokus pada tampilan
-- Tudak dapat menangani perubahan tampilan. Misal terdapat angka 1 pada halaman kemudian user membuat perubahan pada angka tersebut, dengan StatelessWdget hal tersebut tidak bisa dilakukan
+- Tidak dapat menangani perubahan tampilan. Misal terdapat angka 1 pada halaman kemudian ingin dilakukakn perubahan tertentu dengan aktivitas tertentu pada angka tersebut, dengan StatelessWdget hal tersebut tidak bisa dilakukan
 - Dibuat dengan extends dari StatelessWidget
 - Biasanya hanya digunakan untuk mengembalikan MaterialApp
 - Contoh StatelessWidget :
   
+        class MyApp extends StatelessWidget {
+          const MyApp({super.key});
+          @override
+          Widget build(BuildContext context) {
+            return MaterialApp(
+              title: ...,
+              theme: ...,
+              home: ...,
+            );
+          }
+        }
+
+StatefulWidget
+- Dapat menangani perubahan tampilan,  Misal terdapat angka 1 pada halaman kemudian ingin dilakukakn perubahan tertentu dengan aktivitas tertentu pada angka tersebut, dengan StatefulWdget hal tersebut bisa dilakukan
+- Dibuat dengan extends dari StatefulWidget
+- Menggunakan 2 class(widget dan state)
+- Contoh StatefulWidget :
+
+        class MyHomePage extends StatefulWidget {
+          
+            @override
+            State<MyHomePage> createState() => _MyHomePageState();
+        }
+        
+        class _MyHomePageState extends State<MyHomePage> {
+            @override
+            ...
+        }
+
+## Praktikum Bab 1
