@@ -85,7 +85,10 @@ button untuk menuju link [Google](https://flutter.dev)
 
 Buatlah project baru dan beri nama praktikum_mcs_bab1(untuk nama bebas) dan pilihlah folder untuk tempat menyimpan project. Buka main.dart untuk memulai penulisan code. perhatikan struktur folder project seperti di bawah ini dan lihat main.dart berada
 
-![Struktur Folder](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%201/Struktur%20Folder.PNG)
+Tampilan Message Receiver
+<div align="center">
+  <img src="https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%201/Struktur%20Folder.PNG" alt="Teks Pengganti">
+</div>
 
 code bawaan dari flutter pada main.dart bisa dihapus atau bisa juga tidak pada bagian-bagian tertentu seperti
 
