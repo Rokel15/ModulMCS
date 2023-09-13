@@ -69,3 +69,4 @@ StatefulWidget
         }
 
 ## Praktikum Bab 1
+Buatlah project baru dan beri nama praktikum_mcs_bab1(untuk nama bebas) dan pilihlah folder tempat untuk menyimpan project. Buka main.dart untuk memulai penulisan code 
