@@ -82,7 +82,7 @@ dan
       runApp(const MyApp());
     }
 
-dari kode diatas bisa dianjut untuk melanjutkan praktikum dan buatlah kelas MyApp dengan extends StatelessWidget
+dari kode diatas bisa dianjut untuk melanjutkan praktikum dan buatlah kelas MyApp dengan extends StatelessWidget, runApp pada fungsi main menjalankan class MyApp dan pada MyApp terdapat method Widget build dengan return MaterialApp
     
     class MyApp extends StatelessWidget {
       const MyApp({super.key});
@@ -100,3 +100,18 @@ dari kode diatas bisa dianjut untuk melanjutkan praktikum dan buatlah kelas MyAp
       }
     }
 
+
+title adalah label atau deskripsi aplikasi, debugShowCheckedModeBanner dikondisikan false agar menghilangkan banner yang terletak di kana atas, theme untuk mengatur tema warna tampilan dan home adalah properti yang digunakan untuk mengatur hal apa yang dijalankan pertama. home bisa diisi dengan suatu class ataupun langsung memanggil Scaffold. Di sini home berisi HomePage artinya class HomePage akan dijalankan terlebih dahulu sebelum class yang lain.
+
+Buatalah HomePage.dart berisi class HomePage
+
+    class HomePage extends StatefulWidget {
+        const HomePage({Key? key}) : super(key: key);
+    
+        @override
+        State<HomePage> createState() => _HomePageState();
+    }
+    
+    class _HomePageState extends State<HomePage> {
+        //...
+    }
