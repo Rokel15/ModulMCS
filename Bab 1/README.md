@@ -1,8 +1,6 @@
 # BAB 1 
 # Widget-widget dasar pada Flutter
-
 ### Pada bab ini akan diperkenalkan cara membentuk sebuah halaman aplikasi beserta isinya dengan komponen-komponen yang tersedia dari flutter
-
 ### Material App
 MaterialApp adalah Widget paling dasar dalam membentuk suatu aplikasi, untuk menggunakan MaterialApp maka perlu import 'package:flutter/material.dart';
 
@@ -67,7 +65,6 @@ StatefulWidget
             @override
             ...
         }
-
 ## Praktikum Bab 1
 Tampilan aplikasi yang akan dibangun
 
@@ -82,14 +79,6 @@ Tampilan Message Receiver
 <div align="center">
   <img src="https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%201/message%20receiver.PNG" alt="Teks Pengganti">
 </div>
-
-
-![Tampilan Home](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%201/tampilan%20bab%201.PNG)
-
-
-
-![message Receiver](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%201/message%20receiver.PNG)
-
 
 Dari tampilan di atas terdapat button '<' dan '>' untuk menambah angka dan mengurangi angka. Di bawahnya merupakan kalkulator penjumlahan sederhana, tampilan result adalah hasil dari penjumlahan dan icon restart untuk reset hasil penjumlahan. Di bawahnya lagi terdapat textfield, apabila user mengisi textfield tersebut lalu klik icon send maka halaman akan berpindah dan data yang diisi akan dikirim ke halaman berikutnya untuk ditampilkan. Terakhir yang paling bawah adalah 
 button untuk menuju link [Google](https://flutter.dev)
