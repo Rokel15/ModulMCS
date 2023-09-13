@@ -29,3 +29,11 @@ Struktur dri Scaffold :
       drawer: ...,
       bottomNavigationBar: ...,
     )
+
+untuk dapat menggunakan komponen-komponen pada flutter maka widget ditulis dalam class yang di**extend** dari StatelessWidget ataupun StatefulWidget. StatelessWidget dan StatfulWidget memiliki beberapa perbedaan. Beberpa perbedaan tersebut ialah
+- Hanya fokus pada tampilan
+- Tudak dapat menangani perubahan tampilan. Misal terdapat angka 1 pada halaman kemudian user membuat perubahan pada angka tersebut, dengan StatelessWdget hal tersebut tidak bisa dilakukan
+- Dibuat dengan extends dari StatelessWidget
+- Biasanya hanya digunakan untuk mengembalikan MaterialApp
+- Contoh StatelessWidget :
+  
