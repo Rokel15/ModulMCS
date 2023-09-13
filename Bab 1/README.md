@@ -72,3 +72,31 @@ StatefulWidget
 Buatlah project baru dan beri nama praktikum_mcs_bab1(untuk nama bebas) dan pilihlah folder untuk tempat menyimpan project. Buka main.dart untuk memulai penulisan code. perhatikan struktur folder project seperti di bawah ini dan lihat main.dart berada
 
 ![Struktur Folder](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/Struktur%20Folder.PNG)
+
+code bawaan dari flutter pada main.dart bisa dihapus atau bisa juga tidak pada bagian-bagian tertentu seperti
+
+    import 'package:flutter/material.dart';
+dan
+
+    void main() {
+      runApp(const MyApp());
+    }
+
+dari kode diatas bisa dianjut untuk melanjutkan praktikum dan buatlah kelas MyApp dengan extends StatelessWidget
+    
+    class MyApp extends StatelessWidget {
+      const MyApp({super.key});
+    
+      @override
+      Widget build(BuildContext context) {
+        return MaterialApp(
+          title: 'Bab 1',
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            primarySwatch: Colors.green
+          ),
+          home: HomePage()
+        );
+      }
+    }
+
