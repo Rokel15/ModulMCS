@@ -74,6 +74,9 @@ Tampilan aplikasi yang akan dibangun
 ![Tampilan Home](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%201/tampilan%20bab%201.PNG)
 ![message Receiver](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%201/message%20receiver.PNG)
 
+Dari tampilan di atas terdapat button '<' dan '>' untuk menambah angka dan mengurangi angka. Di bawahnya merupakan kalkulator penjumlahan sederhana, tampilan result adalah hasil dari penjumlahan dan icon restart untuk reset hasil penjumlahan. Di bawahnya lagi terdapat textfield, apabila user mengisi textfield tersebut lalu klik icon send maka halaman akan berpindah dan data yang diisi akan dikirim ke halaman berikutnya untuk ditampilkan. Terakhir yang paling bawah adalah 
+button untuk menuju link [Google](https://flutter.dev)
+
 Buatlah project baru dan beri nama praktikum_mcs_bab1(untuk nama bebas) dan pilihlah folder untuk tempat menyimpan project. Buka main.dart untuk memulai penulisan code. perhatikan struktur folder project seperti di bawah ini dan lihat main.dart berada
 
 ![Struktur Folder](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%201/Struktur%20Folder.PNG)
