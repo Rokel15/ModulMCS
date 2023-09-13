@@ -71,6 +71,10 @@ StatefulWidget
 ## Praktikum Bab 1
 Tampilan aplikasi yang akan dibangun
 
+<div align="center">
+  <img src="[URL_Gambar" alt="Teks Pengganti](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%201/tampilan%20bab%201.PNG)">
+</div>
+
 Tampilan Awal
 
 ![Tampilan Home](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%201/tampilan%20bab%201.PNG)
