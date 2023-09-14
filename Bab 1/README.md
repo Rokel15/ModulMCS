@@ -454,4 +454,6 @@ Dan tambahkan code
         ],
       ),
 
-s
+BApabila Button ini di*klik* maka pengguna akan menuju halaman web https://flutter.dev di browser. Button yang terakhir bukan button bawaan dari flutter melainkan button yang terbuat dari Container dan GestureDetector yang diatur panjang lebarnya.
+
+
