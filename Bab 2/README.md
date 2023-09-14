@@ -17,7 +17,6 @@ Tampilan halaman data detail
 
 Pada bab 2 ini kita akan membuat beberapa file .dart untuk membuat aplikasi. Pembuatan aplikasi dalam beberapa kasus file-file yang digunakan sering dikelompokkan pada folder-folder tertentu. Namun tidak setiap orang ketika membangun project memiliki struktur folder-folder yang sama, artinya pembuatan file-file dan folder-folder terpisah bersifat opsional. Perhatikan struktur folder-folder dan file-file untuk bab 2 kali ini sebagai berikut
 Tampilan halaman data detail
-
 <div align="center">
   <img src="https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%202/halaman%20salah%20satu%20data%20detail.PNG" alt="Teks Pengganti">
 </div>
