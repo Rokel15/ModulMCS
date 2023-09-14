@@ -132,3 +132,115 @@ Buatalah HomePage.dart berisi class HomePage
     class _HomePageState extends State<HomePage> {
         //...
     }
+Masukkan semua atribut dan method yang nantinya akan dibutuhkan untuk membangun project di dalam class _HomePageState
+
+    class _HomePageState extends State<HomePage> {
+      int start = 0;
+    
+      void increment(){
+        setState(() {
+          start++;
+        });
+      }
+    
+      void decrement(){
+        setState(() {
+          start--;
+          if(start<=0){
+            start = 0;
+          }
+        });
+      }
+    
+      TextEditingController input1 = TextEditingController();
+      TextEditingController input2 = TextEditingController();
+      int result = 0;
+    
+      void sumOfTwo(){
+        dynamic x = int.parse(input1.text);
+        dynamic y = int.parse(input2.text);
+        setState(() {
+          this.result = x + y;
+        });
+      }
+    
+      TextEditingController message = TextEditingController();
+    
+      @override
+      Widget build(BuildContext context) {...}
+    }
+Pada method override build berikan return Scaffold untuk membuat halaman aplikasi, ListView pada property body berguna untuk membuat halaman dapat bergulitr ke bawah
+
+    class _HomePageState extends State<HomePage> {
+    
+      //...
+      
+      @override
+      Widget build(BuildContext context) {
+        return Scaffold(
+          appBar: AppBar(title: Text('Bab 1')),
+          body: Material(
+            color: Colors.white,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20),
+              child: ListView(
+                children: [
+    
+                    //...
+    
+                ],
+              ),
+            ),
+          ),
+        );
+      }
+    }
+
+Di dalam ListView disini akan menggunakan komponen-komponen(Widget) untuk membangun isi halaman aplikasi
+            
+            child: ListView(
+                children: [
+    
+                  Container(
+                    width: double.infinity,
+                    padding: EdgeInsets.only(top: 40),
+                    child: Center(
+                        child: Text(
+                            '$start',
+                            style: TextStyle(
+                                fontSize: 52
+                            )
+                        )
+                    ),
+                  ),
+    
+                  //incrementButton and decrementButton
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20, bottom: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        ElevatedButton(
+                            child: Icon(Icons.keyboard_arrow_left),
+                            onPressed: (){
+                              decrement();
+                            }
+                        ),
+                        
+                        ElevatedButton(
+                            child: Icon(Icons.keyboard_arrow_right),
+                            onPressed: (){
+                              increment();
+                            }
+                        )
+                      ],
+                    ),
+                  ),
+
+                  //...
+                  
+                ],
+              ),
+
+Text dibuat untuk menampilkan int start dan 2 ElevatedButton untuk membuat perubahan pada nilai start dengan memanggil method increment() dan decrement
+
