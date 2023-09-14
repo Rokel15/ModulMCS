@@ -242,5 +242,116 @@ Di dalam ListView disini akan menggunakan komponen-komponen(Widget) untuk memban
                 ],
               ),
 
-Text dibuat untuk menampilkan int start dan 2 ElevatedButton untuk membuat perubahan pada nilai start dengan memanggil method increment() dan decrement
+Text dibuat untuk menampilkan int start dan 2 ElevatedButton(kiri dan kanan) untuk membuat perubahan pada nilai start dengan memanggil method increment() dan decrement. Lalu selanjutnya
+
+        child: ListView(
+            children: [
+
+              //...
+
+              //controller: input1
+              Padding(
+                padding: const EdgeInsets.only(top: 20, bottom: 20),
+                child: TextFormField(
+                  controller: input1,
+                  inputFormatters: <TextInputFormatter>[
+                    FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))
+                  ],
+                  keyboardType: TextInputType.number,
+                  decoration: InputDecoration(
+                    hintText: 'input angka',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                      borderSide: BorderSide(
+                        color: Colors.orange,
+                        style: BorderStyle.solid,
+                        width: 5
+                      ),
+                    ),
+                    labelText: 'input angka'
+                  ),
+                ),
+              ),
+
+              //controller: input2
+              Padding(
+                padding: const EdgeInsets.only(top: 20, bottom: 20),
+                child: TextFormField(
+                  controller: input2,
+                  inputFormatters: <TextInputFormatter>[
+                    FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))
+                  ],
+                  keyboardType: TextInputType.number,
+                  decoration: InputDecoration(
+                      hintStyle: TextStyle(fontSize: 22),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      labelText: 'input angka'
+                  ),
+                ),
+              ),
+
+              //sumButton
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  ElevatedButton(
+                    child: Text('+', style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),),
+                    onPressed: (){
+                      sumOfTwo();
+                    },
+                  ),
+                ],
+              ),
+
+              //Result
+              Padding(
+                padding: const EdgeInsets.only(top: 20, bottom: 20),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Row(
+                        children: [
+                          Text('Result : ',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight:
+                                FontWeight.w600
+                            ),
+                          ),
+                          Text(
+                            '$result',
+                            style: TextStyle(
+                                fontSize: 16,
+                                fontWeight:
+                                FontWeight.w600
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    GestureDetector(
+                      child: Icon(
+                        Icons.restart_alt,
+                        size: 26,
+                        color: Colors.black,
+                      ),
+                      onTap: (){
+                        setState(() {
+                          input1.text = '';
+                          input2.text = '';
+                          result = 0;
+                        });
+                      },
+                    )
+                  ],
+                ),
+              ),
+
+              //...
+              
+            ],
+          ),
+Untuk meng*input* angka maka dibutuhkan TextFormField(bisa dilihat atas dan bawah) dan dibungkus dengan Padding untuk merapihkan tampilan, kemudian pada bawahnya terdapat ElevatedButton yang memanggil methos sumOfTwo() untuk menjumlahkan 2 angka yang di*input*, ElevatedButton dibungkus didalam Row dan mengatur mainAxisAlignment: MainAxisAlignment.end agar Button berada di kiri. Pada bagian Text yang mngambil nilai result digunakan untuk menampilkan hasil penjumlahan dan yang terakhir Icons.restart_alt digunakan untuk membuat result menjadi 0 dan mengosongkan controller pada 2 TextFormField atas dan bawah. Lalu selanjutnya
 
