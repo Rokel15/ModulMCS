@@ -7,12 +7,12 @@ Tampilan aplikasi yang akan dibangun
 
 Tampilan Awal dengan ListView.Builder
 <div align="center">
-  <img src="https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%201/tampilan%20bab%201.PNG" alt="Teks Pengganti">
+  <img src="https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%202/tampilan%20awal%20dengan%20ListView.Builder.png" alt="Teks Pengganti">
 </div>
 
 ---
 
 Tampilan halaman data detail
 <div align="center">
-  <img src="https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%201/message%20receiver.PNG" alt="Teks Pengganti">
+  <img src="https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%202/halaman%20salah%20satu%20data%20detail.PNG" alt="Teks Pengganti">
 </div>
