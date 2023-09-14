@@ -31,6 +31,8 @@ Sebelumnya kita tambahkan dependencies pada pubspec.yaml, buka link [https://pub
 ---
 code pada main.dart
 
+    import 'package:get/get.dart';
+    
     void main() {
       runApp(const CatBreedApp());
     }
@@ -48,6 +50,12 @@ code pada main.dart
         );
       }
     }
+Fungsi main menjalankan CatBreedApp() yang mana CatBreedApp() memiliki nilai balik return GetMaterialApp(). Apabila ingin menggunakan GetX(dependencies) maka yang digunakan bukanlah MaterialApp() melainkan GetMaterialApp(). GetMaterialApp() masih memiliki fungsi yang sama dengan MaterialApp() namun dengan GetMaterialApp() kita bisa menggnukanakan semua yang ada pada dependencies GetX. Singkatnya tujuan dari GetX ini adalah memudahkan pengembang ataupun pengguna aplikasi, GetX mempunyai 3 prinsip
+- Productivity
+- Performance
+- Organization
+
+Pada Bab 2 ini kita menggunakan GetX untuk perpindahan halaman, perpindahan halaman pada Bab 1 menggunakan Navigator.push(context, MaterialPageRoute()); maka dengan GetX cukup tulis Get.to()
 
 ---
 code pada cat.dart
@@ -64,7 +72,9 @@ code pada cat.dart
       });
     }
 
-jkkj
+
+class Cat adalah modeling untuk memuat atribut-atribut kebutuhan pada tampilan, ketika class Cat dipanggil maka akan diminta mengisi sesuai yang ada pada constructor. Pada Dalam kasus ini model yang dibuat adalah urlImage, name, desc.
+
 ---
 code pada cats_data.dart
 
