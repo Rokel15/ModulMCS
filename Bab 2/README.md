@@ -288,4 +288,29 @@ Code pada detail_page.dart
         );
       }
     }
-Pada detail_page terdapat class DetailPage(), berfungsi untuk menampilkan detail dari data, pada HomePage hanya menampilkan preview dan pada halaman ini menampilkan lengkap detail data. class DetailPage mempunya constructor untuk mengambil data.
+Pada detail_page terdapat class DetailPage(), berfungsi untuk menampilkan detail dari data, pada HomePage hanya menampilkan preview dan pada halaman ini menampilkan lengkap detail data. Class DetailPage mempunyai constructor untuk mengambil data.
+
+Pada ListView.builder yang berada pada class HomePage terdapat InkWell(). InkWell() berfungsi sama seperti GestureDetector() untuk melakukan suatu aksi. Ketika user *klik* pada salah satu isi ListView.builder() maka halaman berpindah dan menampilkan data detailnya.
+
+    onTap: () {
+      Get.to(DetailPage(cat: cat,));
+    },
+
+Dengan Get.to(DetailPage(cat: cat,)); maka halaman akan berpindah, karena class DetailPage mempunyai constructor yang meminta untuk mengisi cat maka constructor tersebut diisi dengan variabel cat
+
+variabel cat yang dimaksud untuk mengisi constructor adalah
+
+    Cat cat = cats[index];
+
+  ---
+  ## Laporan Pendahuluan(LP)
+1. Jelaskan apa itu Android
+   
+2. Jelaskan apa itu data dummy
+ 
+3. Jelas apa itu ListView
+
+4. Berikan perbedaan singkat antara GestureDetector dan InkWell
+
+## Laporan Akhir(LA)
+1. Berikan kesimpulan singkat pada Bab 2
