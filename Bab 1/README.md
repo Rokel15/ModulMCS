@@ -63,7 +63,7 @@ StatefulWidget
         
         class _MyHomePageState extends State<MyHomePage> {
             @override
-            ...
+            //...
         }
 ## Praktikum Bab 1
 Tampilan aplikasi yang akan dibangun
