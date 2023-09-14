@@ -405,7 +405,7 @@ Import Receiver.dart terlebih dahulu pada file HomePage.dart agar bisa memanggil
 
 cara 1
 
-    import 'package:<nama app>/Receiver.dart';
+    import 'package:<nama_app>/Receiver.dart';
 Cara 2
 
     import 'Receiver.dart';
