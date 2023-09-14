@@ -9,6 +9,7 @@ Tampilan Awal dengan ListView.Builder
 <div align="center">
   <img src="https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%202/tampilan%20awal%20dengan%20ListView.Builder.png" alt="Teks Pengganti">
 </div>
+
 ---
 Tampilan halaman data detail
 <div align="center">
