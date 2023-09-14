@@ -120,7 +120,7 @@ dari kode diatas bisa dianjut untuk melanjutkan praktikum dan buatlah kelas MyAp
 
 title adalah label atau deskripsi aplikasi, debugShowCheckedModeBanner dikondisikan false agar menghilangkan banner yang terletak di kana atas, theme untuk mengatur tema warna tampilan dan home adalah properti yang digunakan untuk mengatur hal apa yang dijalankan pertama. home bisa diisi dengan suatu class ataupun langsung memanggil Scaffold. Di sini home berisi HomePage artinya class HomePage akan dijalankan terlebih dahulu sebelum class yang lain.
 
-Buatalah HomePage.dart berisi class HomePage
+Buatalah file baru bernama HomePage.dart berisi class HomePage
 
     class HomePage extends StatefulWidget {
         const HomePage({Key? key}) : super(key: key);
@@ -353,5 +353,51 @@ Text dibuat untuk menampilkan int start dan 2 ElevatedButton(kiri dan kanan) unt
               
             ],
           ),
-Untuk meng*input* angka maka dibutuhkan TextFormField(bisa dilihat atas dan bawah) dan dibungkus dengan Padding untuk merapihkan tampilan, kemudian pada bawahnya terdapat ElevatedButton yang memanggil methos sumOfTwo() untuk menjumlahkan 2 angka yang di*input*, ElevatedButton dibungkus didalam Row dan mengatur mainAxisAlignment: MainAxisAlignment.end agar Button berada di kiri. Pada bagian Text yang mngambil nilai result digunakan untuk menampilkan hasil penjumlahan dan yang terakhir Icons.restart_alt digunakan untuk membuat result menjadi 0 dan mengosongkan controller pada 2 TextFormField atas dan bawah. Lalu selanjutnya
+Untuk meng*input* angka maka dibutuhkan TextFormField(bisa dilihat atas dan bawah) dan dibungkus dengan Padding untuk merapihkan tampilan, kemudian pada bawahnya terdapat ElevatedButton yang memanggil methos sumOfTwo() untuk menjumlahkan 2 angka yang di*input*, ElevatedButton dibungkus didalam Row dan mengatur mainAxisAlignment: MainAxisAlignment.end agar Button berada di kiri. Pada bagian Text yang mngambil nilai result digunakan untuk menampilkan hasil penjumlahan dan yang terakhir Icons.restart_alt digunakan untuk membuat result menjadi 0 dan mengosongkan controller pada 2 TextFormField atas dan bawah, pada dasarnya banyak icon biasa tidak mampu membuat perubahan(seperti onTap, onPress, onChanged) maka harus menggunakan GestureDetector. Lalu selanjutnya 
 
+    child: ListView(
+        children: [
+
+          //...
+
+          // send message
+              Padding(
+                padding: const EdgeInsets.only(top: 20, bottom: 20),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: TextFormField(
+                        controller: message,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15)
+                          ),
+                          labelText: 'Message',
+                          hintText: 'type the message'
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 10,),
+                    GestureDetector(
+                      child: Icon(
+                        Icons.send,
+                        color: Colors.black,
+                        size: 26,
+                      ),
+                      onTap: (){
+                        final route = MaterialPageRoute(builder: (BuildContext context) => Receiver(receiveMessage: message.text,));
+                        Navigator.push(
+                            context,
+                            route
+                        );
+                      },
+                    )
+                  ],
+                ),
+              ),
+
+          //...
+          
+        ],
+      ),
+TextFormField manampung isian dari pengguna aplikasi, lalu dengan Icons.send yang dibungkus dengan GestureDetector apabila di*click* maka akan berpindah halaman dan pada halaman baru terdapat pesan yang di*input* oleh user.
