@@ -400,7 +400,73 @@ Untuk meng*input* angka maka dibutuhkan TextFormField(bisa dilihat atas dan bawa
           
         ],
       ),
-TextFormField manampung isian dari user, lalu dengan Icons.send yang dibungkus dengan GestureDetector apabila di*click* maka akan berpindah halaman dan pada halaman baru terdapat pesan yang di*input* oleh user. Lalu Widget terakhir pada halaman
+TextFormField manampung isian dari user, lalu dengan Icons.send yang dibungkus dengan GestureDetector apabila di*click* maka akan berpindah halaman dan pada halaman baru terdapat pesan yang di*input* oleh user. Buatlah file baru bernama Receiver.dart untuk membuat class, pada class tersebut membuat halaman untuk menerima pesan yang telah dikirim.
+
+Import Receiver.dart terlebih dahulu pada file HomePage.dart agar bisa memanggil class yang terdapat pada Receiver.dart. import bisa dilakukan dengan 2 cara
+
+cara 1
+
+    import 'package:<nama app>/Receiver.dart';
+Cara 2
+
+    import 'Receiver.dart';
+Code yang ada pada Receeiver.dart
+
+    import 'package:flutter/material.dart';
+    
+    class Receiver extends StatefulWidget {
+      String? receiveMessage;
+      Receiver({required this.receiveMessage});
+    
+      @override
+      State<Receiver> createState() => _ReceiverState(receiveMessage: receiveMessage);
+    }
+    
+    class _ReceiverState extends State<Receiver> {
+      String? receiveMessage;
+    
+      _ReceiverState({required this.receiveMessage});
+    
+      @override
+      Widget build(BuildContext context) {
+        return Scaffold(
+          appBar: AppBar(
+            automaticallyImplyLeading: false, //menghapus backbutton pada AppBar
+          ),
+          body: Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20),
+            child: ListView(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 20),
+                  child: Text(
+                    'the message :',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600
+                    ),
+                  ),
+                ),
+    
+                SizedBox(
+                  height: 8,
+                ),
+                Text(
+                  '$receiveMessage',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600
+                  ),
+                  textAlign: TextAlign.justify,
+                )
+    
+              ],
+            ),
+          ),
+        );
+      }
+    }
+
+Lalu Widget terakhir pada halaman
 
 Sebelumnya buka link [https://pub.dev/](https://pub.dev/) dan cari url_launcher: ^6.1.12(versi bisa berubah). Salin dan paste ke file pubspec.yaml pada bagian dependencies, lihat gambar di bawah
 
@@ -457,3 +523,14 @@ Dan tambahkan code
 BApabila Button ini di*klik* maka pengguna akan menuju halaman web https://flutter.dev di browser. Button yang terakhir bukan button bawaan dari flutter melainkan button yang terbuat dari Container dan GestureDetector yang diatur panjang lebarnya.
 
 
+## Laporan Pendahuluan(LP)
+1. Jelaskan apa itu Android
+   
+2. Jelaskan apa itu Flutter
+ 
+3. Jelas apa itu MaterialApp
+
+4. Berikan keterangan perbedaan StatelessWidget dan StatefulWidget
+
+## Laporan Akhir(LA)
+1. Berikan kesimpulan singkat pada Bab 1
