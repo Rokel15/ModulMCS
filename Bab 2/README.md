@@ -216,6 +216,8 @@ Code pada home_page.dart
         );
       }
     }
-Property body diisi dengan ListView agar halaman dapat bergulis ke bawah dan dibungkus dengan Padding, yang pertama diletakkan pada ListView adalah Text 
+Property body diisi dengan ListView agar halaman dapat bergulis ke bawah dan dibungkus dengan Padding, yang pertama diletakkan pada ListView adalah Text hanya untuk menampilkan tulisan 'Jenis-jenis Kucing', lalu pada bawahnya menggunakan ListView.builder()
+
+
 
 ---
