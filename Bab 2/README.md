@@ -218,6 +218,34 @@ Code pada home_page.dart
     }
 Property body diisi dengan ListView agar halaman dapat bergulis ke bawah dan dibungkus dengan Padding, yang pertama diletakkan pada ListView adalah Text hanya untuk menampilkan tulisan 'Jenis-jenis Kucing', lalu pada bawahnya menggunakan ListView.builder()
 
+ListView.builder mempunyai beberapa property seperti
+- itemCount:
+Berguna untuk menentukan berapa panjang/jumlah untuk ListView.builder()
+
+- shrinkWrap:
+jika shrinkWrap diatur menjadi true ListView.builder akan mengambil ruang sesuai yang diatur, artinya apabila ukuran ListView.builder() sudah diatur maka ListView.builder() tidak akan mengambil ruang lebih dari yang ditentukan.
+
+- physics:
+jika physics diatur menjadi NeverScrollableScrollPhysics() maka kemampuan scrolling akan dimatikan pada ListView.builder. Biasanya apabila physics diatur menjadi NeverScrollableScrollPhysics() maka physics diatur enjadi true
+
+- itemBuilder: () {}
+itemBuilder digunakan untuk membangun ui nya dengan return Widget. parameter biasanya diisi (context, index) atau bisa juga(_, index). Parameter index biasa digunakan untuk mengakses index urutan data, pada code di atas ditampung di variabel cat
+
+      contoh :  Cat cat = cats[index];
+lalu untuk mendapatkan data pada code di atas bisa dengan 
+
+    cat.name
+Terletak pada code bagian
+
+    Text(
+      cat.name,
+      style: GoogleFonts.openSans(
+        textStyle: const TextStyle(
+          fontSize: 16, 
+          fontWeight: FontWeight.w600
+        )
+      ),
+    )
 
 
 ---
