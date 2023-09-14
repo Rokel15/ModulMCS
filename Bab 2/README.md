@@ -7,7 +7,7 @@ Tampilan aplikasi yang akan dibangun
 
 Tampilan Awal dengan ListView.builder
 <div align="center">
-  <img src="https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%202/tampilan%20awal%20dengan%20ListView.builder.png" alt="Teks Pengganti">
+  <img src="https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%202/tampilan%20awal%20dengan%20ListView.Builder.png" alt="Teks Pengganti">
 </div>
 
 ---
