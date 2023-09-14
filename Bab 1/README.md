@@ -99,6 +99,8 @@ dan
     }
 
 dari kode diatas bisa dianjut untuk melanjutkan praktikum dan buatlah kelas MyApp dengan extends StatelessWidget, runApp pada fungsi main menjalankan class MyApp dan pada MyApp terdapat method Widget build dengan return MaterialApp
+
+    import 'package:flutter/material.dart';
     
     class MyApp extends StatelessWidget {
       const MyApp({super.key});
@@ -121,6 +123,8 @@ title adalah label atau deskripsi aplikasi, debugShowCheckedModeBanner dikondisi
 
 Buatalah file baru bernama HomePage.dart berisi class HomePage
 
+    import 'package:flutter/material.dart';
+    
     class HomePage extends StatefulWidget {
         const HomePage({Key? key}) : super(key: key);
     
