@@ -405,7 +405,7 @@ TextFormField manampung isian dari user, lalu dengan Icons.send yang dibungkus d
 Sebelumnya buka link [https://pub.dev/](https://pub.dev/) dan cari url_launcher: ^6.1.12(versi bisa berubah). Salin dan paste ke file pubspec.yaml pada bagian dependencies, lihat gambar di bawah
 
 <div align="center">
-  <img src="https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%201/Struktur%20Folder.PNG" alt="Teks Pengganti">
+  <img src="https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%201/url_launcher%20on%20pubspec.yaml.png">
 </div>
 
     child: ListView(
