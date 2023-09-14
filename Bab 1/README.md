@@ -400,6 +400,47 @@ Untuk meng*input* angka maka dibutuhkan TextFormField(bisa dilihat atas dan bawa
           
         ],
       ),
-TextFormField manampung isian dari user, lalu dengan Icons.send yang dibungkus dengan GestureDetector apabila di*click* maka akan berpindah halaman dan pada halaman baru terdapat pesan yang di*input* oleh user. Lalu selanjutnya
+TextFormField manampung isian dari user, lalu dengan Icons.send yang dibungkus dengan GestureDetector apabila di*click* maka akan berpindah halaman dan pada halaman baru terdapat pesan yang di*input* oleh user. Lalu Widget terakhir pada halaman
 
+Sebelumnya buka link [https://pub.dev/](https://pub.dev/)
 
+    child: ListView(
+        children: [
+    
+          //...
+
+          //go_to_websiteButton
+              Padding(
+                padding: const EdgeInsets.only(top: 20, bottom: 30),
+                child: Align(
+                  alignment: Alignment.center,
+                  child: GestureDetector(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Color(0xff445069),
+                        borderRadius: BorderRadius.circular(20)
+                      ),
+                      width: MediaQuery.of(context).size.width/2,
+                      height: 50,
+                      child: Center(
+                        child: Text(
+                          'https://flutter.dev',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white
+                          ),
+                        ),
+                      ),
+                    ),
+                    onTap: () async{
+                      await launchUrl(Uri.parse('https://flutter.dev'));
+                    },
+                  ),
+                ),
+              )
+          
+        ],
+      ),
+
+s
