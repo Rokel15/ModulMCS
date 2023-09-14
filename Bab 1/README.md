@@ -409,7 +409,7 @@ cara 1
 Cara 2
 
     import 'Receiver.dart';
-Code yang ada pada Receeiver.dart
+Code yang ada pada Receiver.dart
 
     import 'package:flutter/material.dart';
     
