@@ -408,6 +408,13 @@ Sebelumnya buka link [https://pub.dev/](https://pub.dev/) dan cari url_launcher:
   <img src="https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%201/url_launcher%20on%20pubspec.yaml.png">
 </div>
 
+import pada file HomePage.dart
+
+    import 'package:url_launcher/url_launcher.dart';
+    import 'package:flutter/services.dart';
+
+Dan tambahkan code
+
     child: ListView(
         children: [
     
