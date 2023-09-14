@@ -22,4 +22,32 @@ Tampilan halaman data detail
   <img src="https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%202/struktur%20folder%20dan%20file.PNG" alt="Teks Pengganti">
 </div>
 
+Sebelumnya kita tambahkan dependencies pada pubspec.yaml, buka link [https://pub.dev/](https://pub.dev/) cari get 4.6.6(versi bisa berubah) dan google_fonts: ^5.1.0(versi bisa berubah). Salin dan paste ke file pubspec.yaml pada bagian dependencies, lihat gambar di bawah
+
+<div align="center">
+  <img src="https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%202/dependencies.PNG" alt="Teks Pengganti">
+</div>
+
+code pada main.dart
+
+    void main() {
+      runApp(const CatBreedApp());
+    }
+    
+    class CatBreedApp extends StatelessWidget {
+      const CatBreedApp({Key? key}) : super(key: key);
+    
+      @override
+      Widget build(BuildContext context) {
+        return GetMaterialApp(
+          title: 'Cat Breed',
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(colorScheme: const ColorScheme.dark()),
+          home: const HomePage(),
+        );
+      }
+    }
+
+
+
 
