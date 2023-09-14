@@ -400,4 +400,6 @@ Untuk meng*input* angka maka dibutuhkan TextFormField(bisa dilihat atas dan bawa
           
         ],
       ),
-TextFormField manampung isian dari pengguna aplikasi, lalu dengan Icons.send yang dibungkus dengan GestureDetector apabila di*click* maka akan berpindah halaman dan pada halaman baru terdapat pesan yang di*input* oleh user.
+TextFormField manampung isian dari user, lalu dengan Icons.send yang dibungkus dengan GestureDetector apabila di*click* maka akan berpindah halaman dan pada halaman baru terdapat pesan yang di*input* oleh user. Lalu selanjutnya
+
+
