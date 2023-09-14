@@ -402,7 +402,11 @@ Untuk meng*input* angka maka dibutuhkan TextFormField(bisa dilihat atas dan bawa
       ),
 TextFormField manampung isian dari user, lalu dengan Icons.send yang dibungkus dengan GestureDetector apabila di*click* maka akan berpindah halaman dan pada halaman baru terdapat pesan yang di*input* oleh user. Lalu Widget terakhir pada halaman
 
-Sebelumnya buka link [https://pub.dev/](https://pub.dev/) dan cari url_launcher: ^6.1.12(versi bisa berubah). tambahkan ke file pubspec.yaml pada bagian dependencies
+Sebelumnya buka link [https://pub.dev/](https://pub.dev/) dan cari url_launcher: ^6.1.12(versi bisa berubah). Salin dan paste ke file pubspec.yaml pada bagian dependencies, lihat gambar di bawah
+
+<div align="center">
+  <img src="https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%201/Struktur%20Folder.PNG" alt="Teks Pengganti">
+</div>
 
     child: ListView(
         children: [
