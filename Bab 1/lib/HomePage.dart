@@ -70,7 +70,7 @@ class _HomePageState extends State<HomePage> {
               Padding(
                 padding: const EdgeInsets.only(top: 20, bottom: 20),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     ElevatedButton(
                         child: Icon(Icons.keyboard_arrow_left),
@@ -78,7 +78,7 @@ class _HomePageState extends State<HomePage> {
                           decrement();
                         }
                     ),
-                    SizedBox(width: 40,),
+                    // SizedBox(width: 40,),
                     ElevatedButton(
                         child: Icon(Icons.keyboard_arrow_right),
                         onPressed: (){
@@ -219,7 +219,6 @@ class _HomePageState extends State<HomePage> {
                             context,
                             route
                         );
-
                       },
                     )
                   ],
