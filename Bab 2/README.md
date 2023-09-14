@@ -1,16 +1,18 @@
-# mcs_bab_2
+# BAB 2
+# Dinamis UI
+### Pada bab ini akan diperkenalkan cara membuat ui secara dinamis menggunakan ListView.Builder(), sebelumnya pada bab 1 kita sudah menggunakan ListView untuk menampung beberapa widget, dengan ListView.Builder akan *generate* komponen-komponen yang diatur sedemikian rupa sebanyak data yang tersedia. Data yang tersedia bisa diambil dari database ataupun data dummy. Namun pada bab 2 ini kita akan membuat dinamis ui yang mana datanya berasal dari data dummy.
 
-A new Flutter project.
+## Praktikum Bab 2
+Tampilan aplikasi yang akan dibangun
 
-## Getting Started
+Tampilan Awal dengan ListView.Builder
+<div align="center">
+  <img src="https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%201/tampilan%20bab%201.PNG" alt="Teks Pengganti">
+</div>
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Tampilan halaman data detail
+<div align="center">
+  <img src="https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%201/message%20receiver.PNG" alt="Teks Pengganti">
+</div>
