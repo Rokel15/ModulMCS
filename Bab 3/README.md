@@ -49,5 +49,40 @@ Folder dan file yang akan digenerate melalui langkah-langkah di atas akan menjad
 <div align="center">
   <img src="https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%203/folder%20dan%20file%20bloc.PNG" alt="Teks Pengganti">
 </div>
+Di dalam file yang di generate terdapat code yang dibuat otomatis
 
-dsdwfwefwe wefwefewf  wef wef wefwewefwefds fdsfdsfsd fwerf sdfrgrfres sfdfrferf dsferferer 
+---
+Code pada cat_bloc.dart
+
+    import 'package:bloc/bloc.dart';
+    import 'package:meta/meta.dart';
+    
+    part 'cat_event.dart';
+    part 'cat_state.dart';
+    
+    class CatBloc extends Bloc<CatEvent, CatState> {
+      CatBloc() : super(CatInitial()) {
+        on<CatEvent>((event, emit) async {});
+      }
+    }
+
+---
+Code pada cat_event.dart
+
+    part of 'cat_bloc.dart';
+    
+    @immutable
+    sealed class CatEvent {}
+
+---
+Code pada cat_state.dart
+
+    part of 'cat_bloc.dart';
+    
+    @immutable
+    sealed class CatState {}
+    
+    final class CatInitial extends CatState {}
+
+---
+Jika pengembang menggunakan Android Studio maka hal diatas tidak bisa di*generate*, maka sebagai gantinya struktur folder dan file dibuat secara manual Ikuti struktur folder dan file untuk State Management Bloc beserta codenya juga.
