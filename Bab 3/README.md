@@ -85,4 +85,14 @@ Code pada cat_state.dart
     final class CatInitial extends CatState {}
 
 ---
-Jika pengembang menggunakan Android Studio maka hal diatas tidak bisa di*generate*, maka sebagai gantinya struktur folder dan file dibuat secara manual Ikuti struktur folder dan file untuk State Management Bloc beserta codenya juga.
+Jika pengembang menggunakan Android Studio maka hal diatas tidak bisa di*generate*, maka sebagai gantinya struktur folder dan file dibuat secara manual Ikuti struktur folder dan file untuk State Management Bloc beserta codenya juga 😅.
+
+Buatlah class OnCatEventCalled{} dan extends dari class CatEvent{}, code menjadi berikut
+
+    part of 'cat_bloc.dart';
+    
+    @immutable
+    sealed class CatEvent {}
+    
+    class OnCatEventCalled extends CatEvent {}
+class OnCatEventCalled{} merupakan extends dari CatEvent{}, ini adalah bentuk umum yang digunakan. Pengembang dapat membuat class baru lagi dengan extends dari CatEvent dengan kondisi tertentu dan mendapat warisan tertentu ketika ingin membuat suatu event. Dalam melakukan event tidak hanya menggunakan class yang extends dari abstrac class atau sealed class saja namun dapat juga langsung menggunakan abstrat atau selaed class. Penulisan di atas adalah agar class baru yang extends dari abstract atau sealed class dapat mewarisi dari abstract atau sealed class. Terakhir pengembang juga dapat membuat lebih dari 1 abstract clas sataupun sealed class.
