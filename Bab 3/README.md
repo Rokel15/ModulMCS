@@ -25,3 +25,19 @@ Tampilan aplikasi setelah isLoading, yaitu isLoaded
   <img src="https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%203/isLoaded.PNG" alt="Teks Pengganti">
 </div>
 Pada kondisi isLoaded aplikasi menampilkan informasi tentang kucing.
+
+---
+Pertama-tama tambahkan dependencies berikut
+
+    bloc: ^8.1.2
+    flutter_bloc: ^8.1.3
+    get: ^4.6.5
+    google_fonts: ^5.1.0
+
+Cek versi paling update di [https://pub.dev/](https://pub.dev/), cari dan salin ke dalam pubspec.yaml
+
+Jika pengembang menggunakan Visual Studio Code untuk menulis code maka pengembang bisa unduh extension bloc dengan nama publisher Felix Angelov atau bisa diunduh manual pada [marketplace Visual Studio Code](https://marketplace.visualstudio.com/), klik [link ini](https://marketplace.visualstudio.com/items?itemName=FelixAngelov.bloc) untuk menuju langsung ke tempat mengunduh extension bloc dengan nama publisher Felix Angelov.
+
+Keuntungan dari extension ini adalah pengembang bisa generate otomatis folder dan file untuk kebutuhan Bloc. folder dan file untuk kebutuhan Bloc akan digenerate secara terstruktur sehingga Bloc siap edit dan pakai. caranya 
+
+
