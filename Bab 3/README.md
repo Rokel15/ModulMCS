@@ -495,4 +495,4 @@ Halaman berpindah dengan
 4. Apakah bisa menggunakan jenis Event yang sama pada 2 method on atau lebih?
 
 ## Laporan Akhir(LA)
-1. Berikan kesimpulan singkat pada Bab 3
+1. Berikan kesimpulan singkat pada Bab 3!
