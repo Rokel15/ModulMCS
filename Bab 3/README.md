@@ -483,3 +483,16 @@ Halaman berpindah dengan
         cat: cat,
       ));
     },
+
+---
+## Laporan Pendahuluan(LP)
+1. Sebutkan jenis-jenis State Management pada Flutter!
+
+2. Jelaskan apa itu State Management Bloc!
+   
+3. Jelaskan apa yang dimaksud dengan Event dan State!
+ 
+4. Apakah bisa menggunakan jenis Event yang sama pada 2 method on atau lebih?
+
+## Laporan Akhir(LA)
+1. Berikan kesimpulan singkat pada Bab 3
