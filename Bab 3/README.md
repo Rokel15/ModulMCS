@@ -478,8 +478,8 @@ Halaman dapat berpindah dari halaman tentang informasi beberapa kucing menjadi h
                 )
 Halaman berpindah dengan 
 
-onTap: () {
-  Get.to(DetailPage(
-    cat: cat,
-  ));
-},
+    onTap: () {
+      Get.to(DetailPage(
+        cat: cat,
+      ));
+    },
