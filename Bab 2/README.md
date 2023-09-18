@@ -303,7 +303,7 @@ variabel cat yang dimaksud untuk mengisi constructor adalah
     Cat cat = cats[index];
 
   ---
-  ## Laporan Pendahuluan(LP)
+## Laporan Pendahuluan(LP)
 1. Jelaskan apa itu Android
    
 2. Jelaskan apa itu data dummy
