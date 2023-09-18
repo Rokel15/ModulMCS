@@ -27,7 +27,12 @@ Tampilan aplikasi setelah isLoading, yaitu isLoaded
 Pada kondisi isLoaded aplikasi menampilkan informasi tentang kucing.
 
 ---
-Pertama-tama tambahkan dependencies berikut
+Pertama-tama perhatikan struktur folder dan file project untuk bab 3
+<div align="center">
+  <img src="https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%203/struktur%20folder%20dan%20file%20bab%203.PNG" alt="Teks Pengganti">
+</div>
+
+Tambahkan dependencies berikut
 
     bloc: ^8.1.2
     flutter_bloc: ^8.1.3
@@ -184,3 +189,139 @@ Buatlah beberapa state untuk isLoading dan isLoaded, code pada file cat_state.da
     }
 class CatInitial digunakan untuk menginisialisasi state, class CatLoading akan digunakan untuk membuat menunggu dengan menampilkan CircularProgressIndicator() sebelum halaman informasi kucing ditampilkan dan CatLoaded digunakan untuk menampilkan informasi kucing. Pada dasarnya class-class state inilah yang akan digunakan untuk membuat ketentuan state(kondisi pada aplikasi) akan jadi seperti apa.
 
+---
+Terakhir atur Event dengan ketentuan state-state tertentu
+
+    import 'package:bloc/bloc.dart';
+    import 'package:meta/meta.dart';
+    
+    part 'cat_event.dart';
+    part 'cat_state.dart';
+    
+    class CatBloc extends Bloc<CatEvent, CatState> {
+      CatBloc() : super(CatInitial()) {
+        on<OnCatEventCalled>((event, emit) async {
+          emit(CatLoading());
+          await Future.delayed(const Duration(seconds: 2));
+          emit(CatLoaded(catsData));
+        });
+      }
+    }
+Dalam pengaturan kali in method on berfungsi untuk mengatur sebuah Event dan menetukan statenya. Pada code di atas bisa dilihat mengatur bloc dalam class extends dari CatEvent dan CatState, di dalam class ini kita membuat 1 method on dengan parameter OnCatEventCalled lalu di dalam method ini kita mengatur statenya. Umumnya dalam membuat State Management Bloc kita dapat membuat banyak method on dengan paraeter Event yang sudah dibuat, namun parameter pada method on tidak bisa dengan Event yang sama, parameter pada method on juga bisa menggunakan class abstract/sealed.
+
+---
+Sudah sejauh ini penulisan code kita akan lanjut membuat aplikasinya, masukkan code berikut pada file main.dart
+
+    import 'package:flutter_bloc/flutter_bloc.dart';
+    import 'package:get/get.dart';
+    
+    void main() {
+      runApp(const CatBreedApp());
+    }
+    
+    class CatBreedApp extends StatelessWidget {
+      const CatBreedApp({Key? key}) : super(key: key);
+    
+      @override
+      Widget build(BuildContext context) {
+        return BlocProvider(
+          create: (context) => CatBloc()..add(OnCatEventCalled()),
+          child: GetMaterialApp(
+            title: 'Cat Breed',
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(colorScheme: const ColorScheme.dark()),
+            home: const CatOverviewScreen(),
+          ),
+        );
+      }
+    }
+Jika biasanya dalam menginisialisasi/memulai aplikasi return dari Widget build adalah MaterialApp maka kali ini menggunakan BlocProvider, karena Event akan dilakukan ketika aplikasi dijalankan/dibuka. Pada kasus yang lain Event dijalankan pada saat pengguna apllikasi meng*klik* suatu button.
+pada bagian
+
+    create: (context) => CatBloc()..add(OnCatEventCalled())
+penggunaan ..add() bertujuan agar mempersingkat penulisan, jadi tidak perlu menggunakan objek lagi untuk mengakses OnCatEventCalled()
+
+---
+Masukkan code pada file cats_overview_screen.dart untuk membuat ui
+
+    class CatOverviewScreen extends StatelessWidget {
+      const CatOverviewScreen({super.key});
+    
+      @override
+      Widget build(BuildContext context) {
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text('My Cats'),
+          ),
+          body: BlocBuilder<CatBloc, CatState>(
+            builder: (context, state) {
+              if (state is CatLoading) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+    
+              if (state is CatLoaded) {
+                final cats = state.result;
+                return ListView(
+                  children: [
+                    Center(
+                      child: Text(
+                        'Jenis-jenis Kucing',
+                        style: GoogleFonts.openSans(
+                            textStyle: const TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.w600)),
+                      ),
+                    ),
+                    ListView.builder(
+                      itemCount: cats.length,
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemBuilder: (context, index) {
+                        final cat = cats[index];
+                        return Padding(
+                          padding: const EdgeInsets.only(top: 30),
+                          child: InkWell(
+                            child: SizedBox(
+                              width: double.infinity,
+                              child: Row(
+                                children: [
+                                  SizedBox(
+                                    width: MediaQuery.of(context).size.width / 4,
+                                    height: MediaQuery.of(context).size.width / 4,
+                                    child: Image.network(
+                                      cat.urlImage,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    width: 30,
+                                  ),
+                                  Text(
+                                    cat.name,
+                                    style: GoogleFonts.openSans(
+                                        textStyle: const TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w600)),
+                                  )
+                                ],
+                              ),
+                            ),
+                            onTap: () {
+                              Get.to(DetailPage(
+                                cat: cat,
+                              ));
+                            },
+                          ),
+                        );
+                      },
+                    )
+                  ],
+                );
+              }
+              return Container();
+            },
+          ),
+        );
+      }
+    }
