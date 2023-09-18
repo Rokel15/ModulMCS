@@ -527,13 +527,13 @@ BApabila Button ini di*klik* maka pengguna akan menuju halaman web https://flutt
 
 
 ## Laporan Pendahuluan(LP)
-1. Jelaskan apa itu Android
+1. Jelaskan apa itu Android!
    
-2. Jelaskan apa itu Flutter
+2. Jelaskan apa itu Flutter!
  
-3. Jelas apa itu MaterialApp
+3. Jelas apa itu MaterialApp!
 
-4. Berikan keterangan perbedaan StatelessWidget dan StatefulWidget
+4. Berikan keterangan perbedaan StatelessWidget dan StatefulWidget!
 
 ## Laporan Akhir(LA)
-1. Berikan kesimpulan singkat pada Bab 1
+1. Berikan kesimpulan singkat pada Bab 1!
