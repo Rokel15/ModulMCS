@@ -11,16 +11,16 @@ State adalah keadaan atau kondisi. State menggambarkan tampilan dan State beruba
 
 Maksud dari event dan state dalam BLoC adalah untuk memisahkan bagaimana peristiwa dan tindakan mempengaruhi keadaan aplikasi. Event digunakan untuk memicu perubahan dalam state. Ketika event diterima, BLoC akan memprosesnya dan menghasilkan state yang sesuai. State ini kemudian diberikan ke tampilan untuk di-render.
 ## Praktikum Bab 3
-Pada bab ini kita akan menggunakan studi yang sudah ada bab 2 namun menambahkan State Management Bloc di dalamnya, dengan State Management Bloc aplikasi pada bab 2 akan dibuat tampilan loading selama beberapa detik ketika aplikasi dijalankan, setelah tampilan loading selama beberapa detik kemudian muncul informasi tentang beberapa kucing sama seperti pada bab 2. Kita akan membuat kondisi ini bernama isLoading dan isLoaded. State kita atur untuk dalam kondisi isLoading(menampilkan widget CircularProgressIndicator()) terlebih dahulu kemudian setelah itu State kita atur dlam kondisi isLoaded(menampilkan informasi kucing).
+Pada bab ini kita akan menggunakan studi yang sudah ada bab 2 namun menambahkan State Management Bloc di dalamnya, dengan State Management Bloc aplikasi pada bab 2 akan dibuat tampilan loading selama beberapa detik ketika aplikasi dijalankan, setelah tampilan loading selama beberapa detik kemudian muncul informasi tentang beberapa kucing sama seperti pada bab 2. Kita akan membuat kondisi ini bernama CatLoading dan isLoaded. State kita atur untuk dalam kondisi CatLoaded(menampilkan widget CircularProgressIndicator()) terlebih dahulu kemudian setelah itu State kita atur dlam kondisi isLoaded(menampilkan informasi kucing).
 
 Tampilan ketika aplikasi dijalankan/dibuka
 <div align="center">
-  <img src="https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%203/isLoading.PNG" alt="Teks Pengganti">
+  <img src="https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%203/CatLoaded.PNG" alt="Teks Pengganti">
 </div>
-Ketika aplikasi dibuka/dijalankan maka aknan menampilkan CircularProgressIndicator() selama beberapa detik sebelum menampilkan informasi tentang kucing. Kondisi ini kita beri nama isLoading
+Ketika aplikasi dibuka/dijalankan maka aknan menampilkan CircularProgressIndicator() selama beberapa detik sebelum menampilkan informasi tentang kucing. Kondisi ini kita beri nama CatLoaded
 
 ---
-Tampilan aplikasi setelah isLoading, yaitu isLoaded
+Tampilan aplikasi setelah CatLoaded, yaitu isLoaded
 <div align="center">
   <img src="https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%203/isLoaded.PNG" alt="Teks Pengganti">
 </div>
@@ -171,7 +171,7 @@ Lanjut untuk membuat state managemenet bloc. Buatlah class OnCatEventCalled{} da
 class OnCatEventCalled{} merupakan extends dari CatEvent{}, ini adalah bentuk umum yang digunakan. Pengembang dapat membuat class baru lagi dengan extends dari CatEvent dengan kondisi tertentu dan mendapat warisan tertentu ketika ingin membuat suatu event. Dalam melakukan event tidak hanya menggunakan class yang extends dari abstrac class atau sealed class saja namun dapat juga langsung menggunakan abstrat atau selaed class. Penulisan di atas adalah agar class baru yang extends dari abstract atau sealed class dapat mewarisi dari abstract atau sealed class. Terakhir pengembang juga dapat membuat lebih dari 1 abstract clas sataupun sealed class.
 
 ---
-Buatlah beberapa state untuk isLoading dan isLoaded, code pada file cat_state.dart menjadi berikut
+Buatlah beberapa state untuk CatLoaded dan isLoaded, code pada file cat_state.dart menjadi berikut
 
     part of 'cat_bloc.dart';
     
@@ -325,4 +325,161 @@ Masukkan code pada file cats_overview_screen.dart untuk membuat ui
         );
       }
     }
+Dalam code ini terdapat percabangan untuk menilai kondisi dan memutuskan bagaimana halaman akan dibentuk sesuai dengan pengaturan pada bloc
+          
+          if (state is CatLoading) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
 
+          if (state is CatLoaded) {
+            final cats = state.result;
+            return ListView(
+              children: [
+                Center(
+                  child: Text(
+                    'Jenis-jenis Kucing',
+                    style: GoogleFonts.openSans(
+                        textStyle: const TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.w600)),
+                  ),
+                ),
+                ListView.builder(
+                  itemCount: cats.length,
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) {...},
+                )
+              ],
+            );
+          }
+          return Container();
+Sebelumnya kita sudah atur dalam bloc pada bagian
+
+    on<OnCatEventCalled>((event, emit) async {
+      emit(CatLoading());
+      await Future.delayed(const Duration(seconds: 2));
+      emit(CatLoaded(catsData));
+    });
+pada method on<OnCatEventCalled> kita akan atur state/kondisi menjadi CatLoading, dan loading akan berjalan selama 2 detik kemudian state/kondisi akan menjadi CatLoaded yang mengemnbalikan List catsData, ketika dalam kondisi CatLoading maka tampilan aplikasi akan menampilkan CircularProgressIndicator()
+
+    if (state is CatLoading) {
+      return const Center(
+        child: CircularProgressIndicator(),
+      );
+    }
+dan ketika dalam kondisi catLoaded maka aplikasi akan menampilkan informasi tentang kucing
+
+          if (state is CatLoaded) {
+            final cats = state.result;
+            return ListView(
+              children: [
+                Center(
+                  child: Text(
+                    'Jenis-jenis Kucing',
+                    style: GoogleFonts.openSans(
+                        textStyle: const TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.w600)),
+                  ),
+                ),
+                ListView.builder(
+                  itemCount: cats.length,
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) {...},
+                )
+              ],
+            );
+          }
+Karena CatLoaded mengembalikan nilai bertipe List maka untuk mengakses nilai tersebut dapat menggunakan
+
+    final cats = state.result;
+Sehingga variabel cats berisikan nilai List yang dikembalikan oleh CatLoaded. Terakhir adalah code untuk menampilkan halaman detail informasi kucing berdasarkan index.
+
+    class DetailPage extends StatefulWidget {
+      const DetailPage({Key? key, required this.cat}) : super(key: key);
+      final Cat cat;
+      @override
+      State<DetailPage> createState() => _DetailPageState();
+    }
+    
+    class _DetailPageState extends State<DetailPage> {
+      @override
+      Widget build(BuildContext context) {
+        return Scaffold(
+          appBar: AppBar(
+            title: Text(widget.cat.name),
+          ),
+          body: Material(
+            child: ListView(
+              children: [
+                Image.network(widget.cat.urlImage),
+                Padding(
+                  padding: const EdgeInsets.only(top: 20, left: 15, right: 15),
+                  child: Text(
+                    widget.cat.desc,
+                    style: GoogleFonts.openSans(
+                        textStyle: const TextStyle(
+                            fontSize: 14, fontWeight: FontWeight.w500)),
+                    textAlign: TextAlign.justify,
+                  ),
+                )
+              ],
+            ),
+          ),
+        );
+      }
+    }
+Halaman dapat berpindah dari halaman tentang informasi beberapa kucing menjadi halaman detail kucing berdasarkan index menggunakan InkWell(), InkWell() ditulis pada saat membuat halaman informasi kucing dengan menggunakan ListView.builder()
+
+                ListView.builder(
+                  itemCount: cats.length,
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    final cat = cats[index];
+                    return Padding(
+                      padding: const EdgeInsets.only(top: 30),
+                      child: InkWell(
+                        child: SizedBox(
+                          width: double.infinity,
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                width: MediaQuery.of(context).size.width / 4,
+                                height: MediaQuery.of(context).size.width / 4,
+                                child: Image.network(
+                                  cat.urlImage,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 30,
+                              ),
+                              Text(
+                                cat.name,
+                                style: GoogleFonts.openSans(
+                                    textStyle: const TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w600)),
+                              )
+                            ],
+                          ),
+                        ),
+                        onTap: () {
+                          Get.to(DetailPage(
+                            cat: cat,
+                          ));
+                        },
+                      ),
+                    );
+                  },
+                )
+Halaman berpindah dengan 
+
+onTap: () {
+  Get.to(DetailPage(
+    cat: cat,
+  ));
+},
