@@ -304,13 +304,13 @@ variabel cat yang dimaksud untuk mengisi constructor adalah
 
   ---
 ## Laporan Pendahuluan(LP)
-1. Jelaskan apa itu Android
+1. Jelaskan apa itu Dinamis Ui!
    
-2. Jelaskan apa itu data dummy
+2. Jelaskan apa itu data dummy!
  
-3. Jelas apa itu ListView
+3. Jelas apa itu ListView!
 
-4. Berikan perbedaan singkat antara GestureDetector dan InkWell
+4. Berikan perbedaan singkat antara GestureDetector dan InkWell!
 
 ## Laporan Akhir(LA)
-1. Berikan kesimpulan singkat pada Bab 2
+1. Berikan kesimpulan singkat pada Bab 2!
