@@ -5,7 +5,7 @@
 MaterialApp adalah Widget paling dasar dalam membentuk suatu aplikasi, untuk menggunakan MaterialApp maka perlu import 'package:flutter/material.dart';
 
 Struktur dari Material App
-
+```dart
     MaterialApp(
       title: ...,
       debugShowCheckedModeBanner: ...,
@@ -15,11 +15,12 @@ Struktur dari Material App
       routes: {...}
       //dan lain lain
     );
+```
 ### Scaffold
 Scaffold adalah Widget yang umum untuk membuat halaman pada aplikasi, pada Scaffold mempunyai prpperty untuk membiat halaman seperti appBar:, body:, floatingActionButton: drawer: bottomNavigationBar: dan lain-lain
 
 Struktur dri Scaffold :
-
+```dart
     Scaffold(
       appBar: ...,
       body: ...,
@@ -27,7 +28,7 @@ Struktur dri Scaffold :
       drawer: ...,
       bottomNavigationBar: ...,
     )
-
+```
 untuk dapat menggunakan komponen-komponen pada flutter maka widget ditulis dalam class yang di**extend** dari StatelessWidget ataupun StatefulWidget. StatelessWidget dan StatfulWidget memiliki beberapa perbedaan. Beberpa perbedaan tersebut ialah
 
 StatelessWidget
@@ -36,7 +37,7 @@ StatelessWidget
 - Dibuat dengan extends dari StatelessWidget
 - Biasanya hanya digunakan untuk mengembalikan MaterialApp
 - Contoh StatelessWidget :
-  
+  ```dart
         class MyApp extends StatelessWidget {
           const MyApp({super.key});
           @override
@@ -48,6 +49,7 @@ StatelessWidget
             );
           }
         }
+    ```
 
 StatefulWidget
 - Dapat menangani perubahan tampilan,  Misal terdapat angka 1 pada halaman kemudian ingin dilakukakn perubahan tertentu dengan aktivitas tertentu pada angka tersebut, dengan StatefulWdget hal tersebut bisa dilakukan
