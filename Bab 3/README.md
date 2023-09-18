@@ -15,12 +15,12 @@ Pada bab ini kita akan menggunakan studi yang sudah ada bab 2 namun menambahkan 
 
 Tampilan ketika aplikasi dijalankan/dibuka
 <div align="center">
-  <img src="https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%203/CatLoaded.PNG" alt="Teks Pengganti">
+  <img src="https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%203/isLoading.PNG" alt="Teks Pengganti">
 </div>
-Ketika aplikasi dibuka/dijalankan maka aknan menampilkan CircularProgressIndicator() selama beberapa detik sebelum menampilkan informasi tentang kucing. Kondisi ini kita beri nama CatLoaded
+Ketika aplikasi dibuka/dijalankan maka aknan menampilkan CircularProgressIndicator() selama beberapa detik sebelum menampilkan informasi tentang kucing. Kondisi ini kita beri nama CatLoading
 
 ---
-Tampilan aplikasi setelah CatLoaded, yaitu isLoaded
+Tampilan aplikasi setelah CatLoading, yaitu isLoaded
 <div align="center">
   <img src="https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%203/isLoaded.PNG" alt="Teks Pengganti">
 </div>
