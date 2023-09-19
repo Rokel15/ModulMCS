@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mcs_bab_2/bloc/cat_bloc.dart';
-import 'package:mcs_bab_2/data/cats_data.dart';
 import 'package:mcs_bab_2/screens/detail_page.dart';
 
 class CatOverviewScreen extends StatelessWidget {

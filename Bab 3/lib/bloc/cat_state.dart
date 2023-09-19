@@ -12,7 +12,3 @@ final class CatLoaded extends CatState {
 
   CatLoaded(this.result);
 }
-
-final class CatLoadedGrid extends CatLoaded {
-  CatLoadedGrid(List<Cat> result) : super(result);
-}

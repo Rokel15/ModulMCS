@@ -1,6 +1,6 @@
 import 'package:mcs_bab_2/models/cat.dart';
 
-List<Cat> catsData = [
+List<Cat> _catsData = [
   Cat(
       urlImage:
           "https://raw.githubusercontent.com/Fahmisbas/acsl-mcs/master/Bab%203%20-%20RecyclerView%20%26%20OnItemClickListener/cats/persia.jpg",
@@ -50,3 +50,7 @@ List<Cat> catsData = [
       desc:
           '''British Shorthair memiliki penampilan gemuk dengan wajah yang bulat dan mata besar. Mereka cenderung tenang, santai, dan mudah diurus, membuat mereka menjadi kucing peliharaan yang populer.''')
 ];
+
+List<Cat> get catsData {
+  return [..._catsData];
+}
