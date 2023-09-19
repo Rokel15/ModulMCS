@@ -4,3 +4,5 @@ part of 'cat_bloc.dart';
 sealed class CatEvent {}
 
 class OnCatEventCalled extends CatEvent {}
+
+class OnClickChange extends CatEvent {}

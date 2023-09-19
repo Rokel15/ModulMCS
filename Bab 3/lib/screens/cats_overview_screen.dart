@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mcs_bab_2/screens/detail_page.dart';
 import 'package:mcs_bab_2/bloc/cat_bloc.dart';
+import 'package:mcs_bab_2/data/cats_data.dart';
+import 'package:mcs_bab_2/screens/detail_page.dart';
 
 class CatOverviewScreen extends StatelessWidget {
   const CatOverviewScreen({super.key});
@@ -25,29 +26,8 @@ class CatOverviewScreen extends StatelessWidget {
           if (state is CatLoaded) {
             final cats = state.result;
 
-            // return GridView.builder(
-            //   itemCount: cats.length,
-            //   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            //       crossAxisCount: 2,
-            //       crossAxisSpacing: 10,
-            //       mainAxisSpacing: 10,
-            //       childAspectRatio: 3 / 2),
-            //   itemBuilder: (context, index) {
-            //     final cat = cats[index];
-            //     return GridTile(child: Image.network(cat.urlImage));
-            //   },
-            // );
-
             return ListView(
               children: [
-                Center(
-                  child: Text(
-                    'Jenis-jenis Kucing',
-                    style: GoogleFonts.openSans(
-                        textStyle: const TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.w600)),
-                  ),
-                ),
                 ListView.builder(
                   itemCount: cats.length,
                   shrinkWrap: true,
@@ -83,9 +63,9 @@ class CatOverviewScreen extends StatelessWidget {
                           ),
                         ),
                         onTap: () {
-                          Get.to(DetailPage(
-                            cat: cat,
-                          ));
+                          Get.to(() => DetailPage(
+                                cat: cat,
+                              ));
                         },
                       ),
                     );
@@ -94,6 +74,7 @@ class CatOverviewScreen extends StatelessWidget {
               ],
             );
           }
+
           return Container();
         },
       ),

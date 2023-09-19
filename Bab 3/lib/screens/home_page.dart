@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Bab 2',
+          'Bab 3',
           style: GoogleFonts.openSans(),
         ),
       ),
@@ -27,14 +27,6 @@ class _HomePageState extends State<HomePage> {
             const EdgeInsets.only(top: 20, left: 15, right: 15, bottom: 20),
         child: ListView(
           children: [
-            Center(
-              child: Text(
-                'Jenis-jenis Kucing',
-                style: GoogleFonts.openSans(
-                    textStyle: const TextStyle(
-                        fontSize: 20, fontWeight: FontWeight.w600)),
-              ),
-            ),
             ListView.builder(
               itemCount: catsData.length,
               shrinkWrap: true,
