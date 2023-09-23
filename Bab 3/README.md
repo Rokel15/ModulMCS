@@ -22,7 +22,7 @@ Ketika aplikasi dibuka/dijalankan maka aknan menampilkan CircularProgressIndicat
 ---
 Tampilan aplikasi setelah CatLoading, yaitu CatLoaded
 <div align="center">
-  <img src="https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%203/CatLoaded.PNG" alt="Teks Pengganti">
+  <img src="https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%203/isLoaded.PNG" alt="Teks Pengganti">
 </div>
 Pada kondisi CatLoaded aplikasi menampilkan informasi tentang kucing.
 
