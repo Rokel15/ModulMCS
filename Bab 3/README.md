@@ -11,7 +11,7 @@ State adalah keadaan atau kondisi. State menggambarkan tampilan dan State beruba
 
 Maksud dari event dan state dalam BLoC adalah untuk memisahkan bagaimana peristiwa dan tindakan mempengaruhi keadaan aplikasi. Event digunakan untuk memicu perubahan dalam state. Ketika event diterima, BLoC akan memprosesnya dan menghasilkan state yang sesuai. State ini kemudian diberikan ke tampilan untuk di-render.
 ## Praktikum Bab 3
-Pada bab ini kita akan menggunakan studi yang sudah ada bab 2 namun menambahkan State Management Bloc di dalamnya, dengan State Management Bloc aplikasi pada bab 2 akan dibuat tampilan loading selama beberapa detik ketika aplikasi dijalankan, setelah tampilan loading selama beberapa detik kemudian muncul informasi tentang beberapa kucing sama seperti pada bab 2. Kita akan membuat kondisi ini bernama CatLoading dan isLoaded. State kita atur untuk dalam kondisi CatLoaded(menampilkan widget CircularProgressIndicator()) terlebih dahulu kemudian setelah itu State kita atur dlam kondisi isLoaded(menampilkan informasi kucing).
+Pada bab ini kita akan menggunakan studi yang sudah ada bab 2 namun menambahkan State Management Bloc di dalamnya, dengan State Management Bloc aplikasi pada bab 2 akan dibuat tampilan loading selama beberapa detik ketika aplikasi dijalankan, setelah tampilan loading selama beberapa detik kemudian muncul informasi tentang beberapa kucing sama seperti pada bab 2. Kita akan membuat kondisi ini bernama CatLoading dan CatLoaded. State kita atur untuk dalam kondisi CatLoaded(menampilkan widget CircularProgressIndicator()) terlebih dahulu kemudian setelah itu State kita atur dlam kondisi CatLoaded(menampilkan informasi kucing).
 
 Tampilan ketika aplikasi dijalankan/dibuka
 <div align="center">
@@ -20,11 +20,11 @@ Tampilan ketika aplikasi dijalankan/dibuka
 Ketika aplikasi dibuka/dijalankan maka aknan menampilkan CircularProgressIndicator() selama beberapa detik sebelum menampilkan informasi tentang kucing. Kondisi ini kita beri nama CatLoading
 
 ---
-Tampilan aplikasi setelah CatLoading, yaitu isLoaded
+Tampilan aplikasi setelah CatLoading, yaitu CatLoaded
 <div align="center">
-  <img src="https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%203/isLoaded.PNG" alt="Teks Pengganti">
+  <img src="https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%203/CatLoaded.PNG" alt="Teks Pengganti">
 </div>
-Pada kondisi isLoaded aplikasi menampilkan informasi tentang kucing.
+Pada kondisi CatLoaded aplikasi menampilkan informasi tentang kucing.
 
 ---
 Pertama-tama perhatikan struktur folder dan file project untuk bab 3
@@ -170,7 +170,7 @@ Lanjut untuk membuat state managemenet bloc. Buatlah class OnCatEventCalled{} da
 class OnCatEventCalled{} merupakan extends dari CatEvent{}, ini adalah bentuk umum yang digunakan. Pengembang dapat membuat class baru lagi dengan extends dari CatEvent dengan kondisi tertentu dan mendapat warisan tertentu ketika ingin membuat suatu event. Dalam melakukan event tidak hanya menggunakan class yang extends dari abstrac class atau sealed class saja namun dapat juga langsung menggunakan abstrat atau selaed class. Penulisan di atas adalah agar class baru yang extends dari abstract atau sealed class dapat mewarisi dari abstract atau sealed class. Terakhir pengembang juga dapat membuat lebih dari 1 abstract clas sataupun sealed class.
 
 ---
-Buatlah beberapa state untuk CatLoaded dan isLoaded, code pada file cat_state.dart menjadi berikut
+Buatlah beberapa state untuk CatLoaded dan CatLoaded, code pada file cat_state.dart menjadi berikut
 
     part of 'cat_bloc.dart';
     
