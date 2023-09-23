@@ -44,11 +44,13 @@ Cek versi paling update di [https://pub.dev/](https://pub.dev/), cari dan salin 
 Jika pengembang menggunakan Visual Studio Code untuk menulis code maka pengembang bisa unduh extension bloc dengan nama publisher Felix Angelov atau bisa diunduh manual pada [marketplace Visual Studio Code](https://marketplace.visualstudio.com/), klik [link ini](https://marketplace.visualstudio.com/items?itemName=FelixAngelov.bloc) untuk menuju langsung ke tempat mengunduh extension bloc dengan nama publisher Felix Angelov.
 
 Keuntungan dari extension ini adalah pengembang bisa *generate* otomatis folder dan file untuk kebutuhan Bloc. Folder dan file untuk kebutuhan Bloc akan di*generate* secara terstruktur sehingga Bloc siap edit dan pakai. Cara *generate* bloc
-1. Click kanan folder lib yang ada pada folder project
+1. *Click* kanan folder lib yang ada pada folder project
  
 2. Pilih Bloc: New Bloc
 
 3. Isi nama Bloc, pada kasus bab ini kita beri nama cat
+
+Sedangkan di Android Studio juga terdapat extension bloc. Cara menggunakannya hampir sama dengan VSCode, dengan *click* kanan pada folder lib > new > bloc class > beri nama bloc dan pilih basic(pada bab ini kita menggunakan basic)
 
 Folder dan file yang akan digenerate melalui langkah-langkah di atas akan menjadi seperti berikut
 <div align="center">
