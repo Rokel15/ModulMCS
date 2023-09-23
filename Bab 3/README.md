@@ -88,7 +88,6 @@ Code pada cat_state.dart
     sealed class CatState {}
     
     final class CatInitial extends CatState {}
-Jika pengembang menggunakan Android Studio maka hal diatas tidak bisa di*generate*, maka sebagai gantinya struktur folder dan file dibuat secara manual Ikuti struktur folder dan file untuk State Management Bloc beserta codenya juga 😅.
 
 ---
 Sebelumnya disiapkan terlebih dahulu data dummy dan modelnya
