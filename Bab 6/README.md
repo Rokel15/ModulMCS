@@ -35,7 +35,14 @@ http dibutuhkan untuk melakukan permintaan HTTP, dalam kasus mengambil data dari
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/letsar/flutter_staggered_grid_view/master/docs/images/staggered.png" width="400" alt="Gambar 1">
+  <br>
+  <em>Gambar 1</em>
+</p>
+
+<p align="center">
   <img src="https://raw.githubusercontent.com/letsar/flutter_staggered_grid_view/master/docs/images/staggered_example.png" width="400" alt="Gambar 2">
+  <br>
+  <em>Gambar 2</em>
 </p>
 
 ss
