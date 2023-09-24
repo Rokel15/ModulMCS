@@ -47,4 +47,4 @@ http dibutuhkan untuk melakukan permintaan HTTP, dalam kasus mengambil data dari
 
 Ukuran setiap item setiap menjadi berbeda-beda, namun kita hanya akan mengatur crossAxisCount: 2 artinya dalam 1 layar item akan generate kesamping hingga berjumlah 2 dan  dengan ukuran lebar yang sama namun panjang berbeda-beda.
 
-xxx
+xxxsss
