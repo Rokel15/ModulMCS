@@ -18,9 +18,11 @@ Dari website tersebut dapat dilihat terdapat beberapa api berita, dan tiap api m
 
 Selanjutnya adalah bagaimana cara mengambil data-data berita dari api. Untuk melihat dokumentasi bagaimana cara mengambil data dari internet buka [https://docs.flutter.dev/](https://docs.flutter.dev/). Cari pada kolom pencarian 'fetch data' lalu hasil pencarian akan menunjukan 'fetch data from the internet' dan klik, setelah diklik akan menuju halaman [https://docs.flutter.dev/cookbook/networking/fetch-data](https://docs.flutter.dev/cookbook/networking/fetch-data). Pada halaman ini menunjukan dokumentasi dan menggambarkan bagaimana data diambil dari internet.
 
+Setup project baru pada android studio lalu berikan internet permission AndroidManifest.xml. Path file AndroidManifest.xml terletetak di app > scr > main > AndroidManifest.xml. Tambahkan di atas <aplication...>.
 
-
-
-
-
-Setup project baru pada android studio lalu
+    <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+      <uses-permission android:name="android.permission.INTERNET" />
+    
+      <aplication...>
+    </manifest>
+x
