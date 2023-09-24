@@ -25,4 +25,12 @@ Setup project baru pada android studio lalu berikan internet permission AndroidM
     
       <aplication...>
     </manifest>
-x
+Tambahkan packages berikut
+
+- http: ^1.1.0 (versi bisa berubah, cek di[https://pub.dev/](https://pub.dev/))
+- get: ^4.6.6 (versi bisa berubah, cek di[https://pub.dev/](https://pub.dev/))
+- flutter_staggered_grid_view: ^0.7.0 (versi bisa berubah, cek di[https://pub.dev/](https://pub.dev/))
+
+http dibutuhkan untuk melakukan permintaan HTTP, dalam kasus mengambil data dari web server atau interaksi dengan API. Packages get akan digunakan untuk navigasi saja dan - flutter_staggered_grid_view digunakan untuk membuat setiap item pada tampilan grid berbeda-beda seperti pada gambar berikut :
+
+![https://raw.githubusercontent.com/letsar/flutter_staggered_grid_view/master/docs/images/staggered.png](https://raw.githubusercontent.com/letsar/flutter_staggered_grid_view/master/docs/images/staggered.png)
