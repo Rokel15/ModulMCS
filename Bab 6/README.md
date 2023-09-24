@@ -13,3 +13,5 @@ Pada bab ini kita akan mengambil data-data berita menggunakan newsapi. Untuk men
 ![news api](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%204/newsapi3.PNG)
 ![news api](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%204/newsapi4.PNG)
 ![news api](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%204/newsapi5.PNG)
+
+
