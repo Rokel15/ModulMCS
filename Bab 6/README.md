@@ -33,16 +33,12 @@ Tambahkan packages berikut
 
 http dibutuhkan untuk melakukan permintaan HTTP, dalam kasus mengambil data dari web server atau interaksi dengan API. Packages get akan digunakan untuk navigasi saja dan - flutter_staggered_grid_view digunakan untuk membuat setiap item pada tampilan grid berbeda-beda seperti pada gambar berikut :
 
-<table>
-  <tr>
-    <td align="center">
-      <img src="https://raw.githubusercontent.com/letsar/flutter_staggered_grid_view/master/docs/images/staggered.png" alt="Staggered Grid View" width="200"/>
-    </td>
-    <td align="center">
-      <img src="https://raw.githubusercontent.com/letsar/flutter_staggered_grid_view/master/docs/images/staggered_example.png" alt="Staggered Grid View" width="200"/>
-    </td>
-  </tr>
-</table>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/letsar/flutter_staggered_grid_view/master/docs/images/staggered.png" width="400" alt="Gambar 1">
+  <img src="https://raw.githubusercontent.com/letsar/flutter_staggered_grid_view/master/docs/images/staggered_example.png" width="400" alt="Gambar 2">
+</p>
+
+ss
 
 
 
