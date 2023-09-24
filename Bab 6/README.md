@@ -14,4 +14,13 @@ Pada bab ini kita akan mengambil data-data berita menggunakan newsapi. Untuk men
 ![news api](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%204/newsapi4.PNG)
 ![news api](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%204/newsapi5.PNG)
 
+Dari website tersebut dapat dilihat terdapat beberapa api berita, dan tiap api memiliki berita dengan tema yang berbeda-beda.
 
+Selanjutnya adalah bagaimana cara mengambil data-data berita dari api. Untuk melihat dokumentasi bagaimana cara mengambil data dari internet buka [https://docs.flutter.dev/](https://docs.flutter.dev/). Cari pada kolom pencarian 'fetch data' lalu hasil pencarian akan menunjukan 'fetch data from the internet' dan klik, setelah diklik akan menuju halaman [https://docs.flutter.dev/cookbook/networking/fetch-data](https://docs.flutter.dev/cookbook/networking/fetch-data). Pada halaman ini menunjukan dokumentasi dan menggambarkan bagaimana data diambil dari internet.
+
+
+
+
+
+
+Setup project baru pada android studio lalu
