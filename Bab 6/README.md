@@ -335,4 +335,45 @@ builder akan digunakan untuk menampilkan item/list berita nya, namun jika berita
             return Center(
               child: CircularProgressIndicator(),
             );
-jika data berhasil diambil maka berita akan ditampilkan per itemnya yang dibentuk menggunakan method buildView()
+jika data berhasil diambil maka berita akan ditampilkan per itemnya yang dibentuk menggunakan method buildView() dengan parameter snapshot.data as List<Album>. Data yang akan digunakan oleh buildView() adalah snapshot.data dianggap sebagai list. Berikut penjelasan method buildView()
+
+    Widget buildView(List<Album> albums){
+        return Padding(
+          padding: const EdgeInsets.only(left: 8, right: 8),
+          child: MasonryGridView.count(
+              mainAxisSpacing: 10,
+              crossAxisSpacing: 8,
+              crossAxisCount: 2,
+            itemCount: albums.length,
+            itemBuilder: (context, index){
+              final album = albums[index];
+              return InkWell(
+                child: Container(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Image.network(
+                        albums[index].urlToImage, //mengambil atau mengakses data cara 1
+                        fit: BoxFit.cover,
+                      ),
+                      Text(
+                        '${album.title}',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),//mengambil atau mengakses data cara 2, lebih recomended
+                      ),
+                      Text('${album.publishedAt}')
+                    ],
+                  ),
+                ),
+                onTap: (){
+                  Get.to(DetailPage(album: album,));
+                },
+              );
+            },
+          ),
+        );
+      }
+    }
+xxx
