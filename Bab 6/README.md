@@ -210,7 +210,7 @@ pada bagian ini membuat http get request ke url dan disimpan ke dalam variabel r
 pada bagian ini akan memeriksa apakah response dengan status code 200 yang berarti permintaan berhasil atau tidak, jika ya maka response.body akan diurai dan dimasukkan ke dalam variabel responseBody. Newsapi memiliki repsons bernama articles, varaibel result dibuat untuk bisa mengambil respons yang bernama articles dan membuat nya menjadi List dengan as List. Terakhir listNews dibuat untuk mengambil setiap objek dalam List 'result', dan memetakannya menjadi objek Album menggunakan konstruktor dari JSON data dan nilai listNews akan dikembalikan dengan return listNews.
 
 ---
-Kita lanjut untuk membuat code main.dart yang berisikan fungsi main
+Kita lanjut untuk membuat code pada file main.dart yang berisikan fungsi main
 
     import 'package:flutter/material.dart';
     import 'package:get/get.dart';
@@ -428,7 +428,9 @@ Lalu itemCount untuk membentuk seberapa panjang/banyak yang akan dibentuk dengan
               Get.to(DetailPage(album: album,));
             },
           );
-Terakhir buat file baru bernama NewsPage.dart untuk memuat tampilan detail berita berdasarkan index yang dipilih oleh pengguna aplikasi
+
+---
+Terakhir buat file baru bernama DetailPage.dart untuk memuat tampilan detail berita berdasarkan index yang dipilih oleh pengguna aplikasi
 
     import 'package:flutter/material.dart';
     import 'fetchData.dart';
