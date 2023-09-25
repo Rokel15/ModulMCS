@@ -238,7 +238,9 @@ Kita lanjut untuk membuat code main.dart yang berisikan fungsi main
 ---
 Buat file baru bernama NewsPage.dart dan buat class bernama NewsPage
 
-Di dalam NewsPage() akan diisi halaman untuk menampilkan list berita, dan kita lanjut untuk membuat halamannya
+Di dalam class NewsPage akan diisi halaman untuk menampilkan list berita, dan kita lanjut untuk membuat halamannya
+
+Berikut codenya :
 
     import 'package:bab_6/DetailPage.dart';
     import 'package:bab_6/fetchData.dart';
@@ -384,4 +386,141 @@ jika data berhasil diambil maka berita akan ditampilkan per itemnya yang dibentu
         );
       }
     }
-Untuk menampilkan berita kita akan menggunakan flutter_staggered_grid_view, 
+Tampilan list berita akan kita buat menggunakan flutter_staggered_grid_view, tampilan list berita akan menjadi seperti pada gambar di atas.
+
+    child: MasonryGridView.count(
+          mainAxisSpacing: 10,
+          crossAxisSpacing: 8,
+          crossAxisCount: 2,
+        ...)
+mainAxisSpacing: 10, jarak ke samping antara 2 item adala 10 pixel
+
+crossAxisSpacing: 8, jarak ke bawah antara 2 item adala 8 pixel
+
+crossAxisCount: 2, membuat tampilan hanya 2 item ke samping
+
+Lalu itemCount untuk membentuk seberapa panjang/banyak yang akan dibentuk dengan MasonryGridView.count(bawaan dari package flutter_staggered_grid_view), dan itemBuilder untuk membuat tampilan setiap item. Variabel album untuk menampung albums[index], dan tampilan menggunakan Container dengan child Column dan Container dibungkus dengan InkWell agar dapat berpindah halaman sekaligus membawa data berita berdasarkan index.
+        
+        itemCount: albums.length,
+        itemBuilder: (context, index){
+          final album = albums[index];
+          return InkWell(
+            child: Container(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Image.network(
+                    albums[index].urlToImage, //mengambil atau mengakses data cara 1
+                    fit: BoxFit.cover,
+                  ),
+                  Text(
+                    '${album.title}',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),//mengambil atau mengakses data cara 2, lebih recomended
+                  ),
+                  Text('${album.publishedAt}')
+                ],
+              ),
+            ),
+            onTap: (){
+              Get.to(DetailPage(album: album,));
+            },
+          );
+Terakhir buat file baru bernama NewsPage.dart untuk memuat tampilan detail berita berdasarkan index yang dipilih oleh pengguna aplikasi
+
+    import 'package:flutter/material.dart';
+    import 'fetchData.dart';
+    
+    class DetailPage extends StatefulWidget {
+      Album album;
+    
+      DetailPage({
+        required this.album,
+      });
+    
+      @override
+      State<DetailPage> createState() => _DetailPageState(album: album);
+    }
+    
+    class _DetailPageState extends State<DetailPage> {
+      Album album;
+    
+      _DetailPageState({
+        required this.album,
+      });
+    
+      @override
+      Widget build(BuildContext context) {
+        return Scaffold(
+          appBar: AppBar(
+            title: Text('Detail Page}'),
+          ),
+          body: ListView(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  '${album.title}',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600
+                  ),
+                  textAlign: TextAlign.justify,
+                ),
+              ),
+    
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  '${album.author}',
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600
+                  ),
+                  textAlign: TextAlign.justify,
+                ),
+              ),
+              
+              Image.network(
+                album.urlToImage,
+                width: double.infinity,
+              ),
+    
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text('${album.description}'),
+              ),
+            ],
+          ),
+        );
+      }
+    }
+Pada code ini terdapat contructor untuk meminta data album ketika class ini dipanggil.
+
+    class DetailPage extends StatefulWidget {
+      Album album;
+    
+      DetailPage({
+        required this.album,
+      });
+
+class DetailPage() dipanggil di dalam class NewsPage() untuk berpindah halaman menampilkan detail berita, ketika class DetailPage() dipanggil class DetailPage() meminta data album
+            
+            onTap: (){
+              Get.to(DetailPage(album: album,));
+            },
+
+---
+## Laporan Pendahuluan(LP)
+1. Sebutkan jenis-jenis State Management pada Flutter!
+
+2. Jelaskan apa itu State Management Bloc!
+   
+3. Jelaskan apa yang dimaksud dengan Event dan State!
+ 
+4. Apakah bisa menggunakan jenis Event yang sama pada 2 method on atau lebih?
+
+## Laporan Akhir(LA)
+1. Berikan kesimpulan singkat pada Bab 3!
