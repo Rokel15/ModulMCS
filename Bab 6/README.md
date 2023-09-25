@@ -514,13 +514,13 @@ class DetailPage() dipanggil di dalam class NewsPage() untuk berpindah halaman m
 
 ---
 ## Laporan Pendahuluan(LP)
-1. Sebutkan jenis-jenis State Management pada Flutter!
+1. Berikan penjelasan apa itu Berita!
 
-2. Jelaskan apa itu State Management Bloc!
+2. Jelaskan apa itu api!
    
-3. Jelaskan apa yang dimaksud dengan Event dan State!
+3. Bagaimana cara mendapatkan data dari api?
  
-4. Apakah bisa menggunakan jenis Event yang sama pada 2 method on atau lebih?
+4. Apa kegunaan dari flutter_staggered_grid_view?
 
 ## Laporan Akhir(LA)
-1. Berikan kesimpulan singkat pada Bab 3!
+1. Berikan kesimpulan singkat pada Bab 6!
