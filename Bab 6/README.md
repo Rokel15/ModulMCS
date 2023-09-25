@@ -7,7 +7,15 @@
 API adalah cara agar sebuah perangkat lunak atau lebih dapat berkomunikasi dengan server berisikan data. Data pada server diambil dan digunakan oleh pengembang aplikasi untuk diolah, API menjadi perantara developer untuk mengambil data pada server. Jika dianalogikan pada kegiatan di restoran maka seperti pelanggan yang melihat daftar menu makanan dan memesan makanan kepada restoran tersebut lalu restoran memberikannya, pelanggan tidak tahu bagaimana caranya sebuah makanan disiapkan, begitu juga developer tidak tahu bagaimana data tersebut disiapkan tapi yang penting adalah data didapat oleh developer.
 ## Praktikum Bab 6
 
-gambar
+Tampilan halaman list berita
+<div align="center">
+  <img src="https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%204/newsPage.PNG" alt="Tampilan halaman list berita">
+</div>
+
+Tampilan detail berita
+<div align="center">
+  <img src="https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%204/detailPage.PNG" alt="Tampilan halaman list berita">
+</div>
 
 Pada bab ini kita akan mengambil data berita menggunakan newsapi. Untuk mendapatkan api dari newsapi buka website [https://newsapi.org/](https://newsapi.org/) dan disana terdapat beberapa api yang bisa digunakan untuk digunakan seperti contoh berikut :
 
