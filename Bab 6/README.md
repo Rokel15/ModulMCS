@@ -376,4 +376,4 @@ jika data berhasil diambil maka berita akan ditampilkan per itemnya yang dibentu
         );
       }
     }
-xxx
+Untuk menampilkan berita kita akan menggunakan flutter_staggered_grid_view, 
