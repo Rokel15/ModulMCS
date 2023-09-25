@@ -6,6 +6,9 @@
 ### Application Programming Interface(API)
 API adalah cara agar sebuah perangkat lunak atau lebih dapat berkomunikasi dengan server berisikan data. Data pada server diambil dan digunakan oleh pengembang aplikasi untuk diolah, API menjadi perantara developer untuk mengambil data pada server. Jika dianalogikan pada kegiatan di restoran maka seperti pelanggan yang melihat daftar menu makanan dan memesan makanan kepada restoran tersebut lalu restoran memberikannya, pelanggan tidak tahu bagaimana caranya sebuah makanan disiapkan, begitu juga developer tidak tahu bagaimana data tersebut disiapkan tapi yang penting adalah data didapat oleh developer.
 ## Praktikum Bab 6
+
+gambar
+
 Pada bab ini kita akan mengambil data berita menggunakan newsapi. Untuk mendapatkan api dari newsapi buka website [https://newsapi.org/](https://newsapi.org/) dan disana terdapat beberapa api yang bisa digunakan untuk digunakan seperti contoh berikut :
 
 ![news api](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%204/newsapi1.PNG)
@@ -47,6 +50,7 @@ http dibutuhkan untuk melakukan permintaan HTTP, dalam kasus mengambil data dari
 
 Ukuran setiap item setiap menjadi berbeda-beda, namun kita hanya akan mengatur crossAxisCount: 2 artinya dalam 1 layar item akan generate kesamping hingga berjumlah 2 dan  dengan ukuran lebar yang sama namun panjang berbeda-beda.
 
+---
 setelah menambahkan packages buatlah file baru di dalam folder lib bernama fetchData.dart dan buat code sebagai berikut
 
     import 'dart:convert';
@@ -182,4 +186,126 @@ Dan pada class model album dibuat seperti ini
         throw Exception('Failed to load album');
       }
     }
-Lalu pada function fetchAlbum untuk mengambil data dari newsapi dengan menggunakan http request
+Lalu pada function fetchAlbum untuk mengambil data dari newsapi dengan menggunakan http request secara asynchronous.
+
+    final response = await http.get(Uri.parse(...)
+pada bagian ini membuat http get request ke url dan disimpan ke dalam variabel response
+
+    if (response.statusCode == 200) {
+        final responseBody = jsonDecode(response.body);
+        final result = responseBody['articles'] as List;
+        final listNews = result.map((e) => Album.fromJson(e)).toList();
+        return listNews;
+    } else {
+        throw Exception('Failed to load album');
+    }
+pada bagian ini akan memeriksa apakah response dengan status code 200 yang berarti permintaan berhasil atau tidak, jika ya maka response.body akan diurai dan dimasukkan ke dalam variabel responseBody. Newsapi memiliki repsons bernama articles, varaibel result dibuat untuk bisa mengambil respons yang bernama articles dan membuat nya menjadi List dengan as List. Terakhir listNews dibuat untuk mengambil setiap objek dalam List 'result', dan memetakannya menjadi objek Album menggunakan konstruktor dari JSON data dan nilai listNews akan dikembalikan dengan return listNews.
+
+---
+Kita lanjut untuk membuat code main.dart yang berisikan fungsi main
+
+    import 'package:flutter/material.dart';
+    import 'package:get/get.dart';
+    import 'NewsPage.dart';
+    
+    void main(){
+      runApp(newsApp());
+    }
+    
+    class newsApp extends StatelessWidget {
+      const newsApp({Key? key}) : super(key: key);
+    
+      @override
+      Widget build(BuildContext context) {
+        return GetMaterialApp(
+          title: "News App",
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            colorScheme: ColorScheme.dark(),
+          ),
+          home: NewsPage(),
+        );
+      }
+    }
+---
+Buat file baru bernama NewsPage.dart dan buat class bernama NewsPage
+
+Di dalam NewPage() akan diisi halaman untuk menampilkan list berita, dan kita lanjut untuk membuat halamannya
+
+    import 'package:bab_6/DetailPage.dart';
+    import 'package:bab_6/fetchData.dart';
+    import 'package:flutter/material.dart';
+    import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+    import 'package:get/get.dart';
+    
+    class NewsPage extends StatefulWidget {
+      const NewsPage({Key? key}) : super(key: key);
+    
+      @override
+      State<NewsPage> createState() => _NewsPageState();
+    }
+    
+    class _NewsPageState extends State<NewsPage> {
+      late Future<Album> futureAlbum;
+    
+      @override
+      Widget build(BuildContext context) {
+        return Scaffold(
+          appBar: AppBar(
+            title: Text('News App'),
+          ),
+          body:
+          FutureBuilder(
+            future: fetchAlbum(),
+            builder: (context, snapshot){
+              if(snapshot.hasData) {
+                return buildView(snapshot.data as List<Album>);
+              } else {
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
+          )
+        );
+      }
+    
+      Widget buildView(List<Album> albums){
+        return Padding(
+          padding: const EdgeInsets.only(left: 8, right: 8),
+          child: MasonryGridView.count(
+              mainAxisSpacing: 10,
+              crossAxisSpacing: 8,
+              crossAxisCount: 2,
+            itemCount: albums.length,
+            itemBuilder: (context, index){
+              final album = albums[index];
+              return InkWell(
+                child: Container(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Image.network(
+                        albums[index].urlToImage, //mengambil atau mengakses data cara 1
+                        fit: BoxFit.cover,
+                      ),
+                      Text(
+                        '${album.title}',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),//mengambil atau mengakses data cara 2, lebih recomended
+                      ),
+                      Text('${album.publishedAt}')
+                    ],
+                  ),
+                ),
+                onTap: (){
+                  Get.to(DetailPage(album: album,));
+                },
+              );
+            },
+          ),
+        );
+      }
+    }
