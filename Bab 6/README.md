@@ -230,7 +230,7 @@ Kita lanjut untuk membuat code main.dart yang berisikan fungsi main
 ---
 Buat file baru bernama NewsPage.dart dan buat class bernama NewsPage
 
-Di dalam NewPage() akan diisi halaman untuk menampilkan list berita, dan kita lanjut untuk membuat halamannya
+Di dalam NewsPage() akan diisi halaman untuk menampilkan list berita, dan kita lanjut untuk membuat halamannya
 
     import 'package:bab_6/DetailPage.dart';
     import 'package:bab_6/fetchData.dart';
@@ -309,3 +309,30 @@ Di dalam NewPage() akan diisi halaman untuk menampilkan list berita, dan kita la
         );
       }
     }
+Perhatikan pada bagian body
+
+      body:
+      FutureBuilder(
+        future: fetchAlbum(),
+        builder: (context, snapshot){
+          if(snapshot.hasData) {
+            return buildView(snapshot.data as List<Album>);
+          } else {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        },
+pada bagian body kita akan isi FutureBuilder untuk menampilkan list berita
+
+future kita akan masukkan fetchAlbum() untuk mengambil data
+
+builder akan digunakan untuk menampilkan item/list berita nya, namun jika berita gagal  hanya akan menampilkan tampilan loading
+
+          if(snapshot.hasData) {
+            return buildView(snapshot.data as List<Album>);
+          } else {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+jika data berhasil diambil maka berita akan ditampilkan per itemnya yang dibentuk menggunakan method buildView()
