@@ -10,7 +10,7 @@
   <img align="right" src="images/linkedin.png" width="30">
 </a>
 <br/><br/>
-<h2>Creator : Muhamad Sandi Hidayat</h2>
+<h4 align="right">Creator : Muhamad Sandi Hidayat</h4>
 <br/><br/>
 
 ## Tujuan
