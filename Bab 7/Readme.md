@@ -7,7 +7,7 @@
   <img align="right" src="images/Github.png" width="30">
 </a>
 <a href="https://www.linkedin.com/in/muhamad-sandi-hidayat-330a97260/">
-  <img align="right" src="images/LinkedIn.png" width="30">
+  <img align="right" src="images/linkedin.png" width="30">
 </a>
 <br/><br/><br/><br/>
 
