@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "503155010988",
+    "firebase_url": "https://fir-mcs-app-7668e-default-rtdb.firebaseio.com",
+    "project_id": "fir-mcs-app-7668e",
+    "storage_bucket": "fir-mcs-app-7668e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:503155010988:android:06e32c3e7739eedf635e09",
+        "android_client_info": {
+          "package_name": "com.example.firebase_mcs_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "503155010988-i9itjsgp3cji3cb0ib8a92t29k6avq7f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkOu0ZnHw0Xr_hjj4jF3CRZonxS1HKi6k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "503155010988-i9itjsgp3cji3cb0ib8a92t29k6avq7f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
