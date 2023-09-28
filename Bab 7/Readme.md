@@ -9,7 +9,9 @@
 <a href="https://www.linkedin.com/in/muhamad-sandi-hidayat-330a97260/">
   <img align="right" src="images/linkedin.png" width="30">
 </a>
-<br/><br/><br/><br/>
+<br/><br/>
+<h2>Creator : Muhamad Sandi Hidayat</h2>
+<br/><br/>
 
 ## Tujuan
 Bab ini akan memberikan panduan langkah demi langkah tentang bagaimana menghubungkan mikrokontroler ESP32 dengan aplikasi Flutter melalui layanan Firebase Realtime Database. Anda akan belajar cara mengirim dan mengambil data antara ESP32 dan aplikasi Flutter menggunakan Firebase sebagai perantara.
