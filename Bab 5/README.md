@@ -31,3 +31,8 @@ Terakhir ini adalah halaman untuk user melakukan edit pada catatan
 Pertama-tama tambahkanlah terlebih dahulu packages yang akan kita gunakan
 
 ![Packages](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%206/packages.PNG)
+
+Perhatikan file-file berikut. 
+![Packages](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%206/file-file%20berisi%20kode.PNG)
+
+Buatlah file-file berikut pada project yang dibuat pada praktikum kali ini
