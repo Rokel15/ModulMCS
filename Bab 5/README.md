@@ -30,15 +30,4 @@ Terakhir ini adalah halaman untuk user melakukan edit pada catatan
 ---
 Pertama-tama tambahkanlah terlebih dahulu packages yang akan kita gunakan
 
-![Gambar 1](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%206/tampilan%20pengisian1.PNG)
-
-
-
-
-
-
-
-
-
-
-
+![Packages](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%206/packages.PNG)
