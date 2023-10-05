@@ -1,16 +1,12 @@
-# mcs_bab_5
+# BAB 5
+# Sqflite
+### Pada bab ini kita akan mempelajari database lokal pada suatu aplikasi yang dibangun dengan menggunakan flutter, database lokal yang kita akan gunakan adalah sqlite dengan package sqflite. Kita akan membangun aplikasi 'catatan' sederhana dengan konsep mirip seperti note pada smartphone umumnya dan datanya disimpan di database.
 
-A new Flutter project.
+## Praktikum Bab 5
+Tampilan aplikasi yang akan dibangun
 
-## Getting Started
+Tampilan awal halaman aplikasi sebelum ada data yang dimasukkan
+<div align="center">
+  <img src="https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%206/tampilan%20awal.PNG" alt="Teks Pengganti">
+</div>
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
