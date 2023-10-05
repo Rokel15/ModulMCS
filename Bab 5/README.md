@@ -21,6 +21,15 @@ Lalu ini adalah halaman jika user sudah memasukkan beberapa catatan
   <img src="https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%206/tampilan%20setelah%20diisi%20data.PNG" alt="tampilan setelah diisi data.PNG">
 </div>
 
+---
+Terakhir ini adalah halaman untuk user melakukan edit pada catatan
+<div align="center">
+  <img src="https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%206/tampilan%20editing%20data.PNG" alt="Teks Pengganti">
+</div>
+
+---
+
+
 
 
 
