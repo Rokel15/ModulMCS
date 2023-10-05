@@ -40,7 +40,7 @@ Buatlah file-file seperti di atas pada project yang dibuat pada praktikum kali i
 
 ---
 Code pada CatetanMhsModel.dart
-
+s
 class CatetanMhsModel {
   int? id;
   String? tanggal;
