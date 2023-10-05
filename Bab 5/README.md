@@ -15,3 +15,15 @@ Halaman pengisian data, apabila user menekan button add sebelah kanan atas appba
 
 ![Gambar 1](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%206/tampilan%20pengisian1.PNG) ![Gambar 2](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%206/tampilan%20pengisian2.PNG)
 
+---
+Lalu ini adalah halaman jika user sudah memasukkan beberapa catatan
+<div align="center">
+  <img src="https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%206/tampilan%20setelah%20diisi%20data.PNG" alt="tampilan setelah diisi data.PNG">
+</div>
+
+
+
+
+
+
+
