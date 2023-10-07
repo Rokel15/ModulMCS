@@ -218,3 +218,57 @@ deklarasi database dan inisialilsasi nama table database
       }
     }
 jika database tidak sama dengan null(sudah terdapat database) maka tidak ada nilai kembali(nilai kembali kosong). Kemudian dalam blok try dibuat objek path untuk file database '/catetanMhs.db' dan menginisialisasi database 'catetanMhsDB' yang berisi openDatabase untuk membuat database dengan return db.execute(sql). catch untuk menangkap error saja.
+
+    //insert
+    static Future<int> insert(CatetanMhsModel catetanMhsModel) async{
+      return await catetanMhsDB?.insert(catetanMhsDbTable, catetanMhsModel.tojson())??1;
+    }
+pada method ini digunakan untuk input data ke database
+
+    //retrieve
+    static Future<List<Map<String, dynamic>>> query() async{
+      return await catetanMhsDB!.query(
+        catetanMhsDbTable,
+        orderBy: 'entryTime DESC'
+      );
+    }
+pada method ini digunakan untuk membaca data di database
+
+    //update warna 0
+    static updateWarna0(int id) async{
+      return await catetanMhsDB!.rawUpdate('''UPDATE $catetanMhsDbTable SET warna = 0 WHERE id = ?''', [id]);
+    }
+  
+    //update warna 1
+    static updateWarna1(int id) async{
+      return await catetanMhsDB!.rawUpdate('''UPDATE $catetanMhsDbTable SET warna = 1 WHERE id = ?''', [id]);
+    }
+  
+    //update warna 2
+    static updateWarna2(int id) async{
+      return await catetanMhsDB!.rawUpdate('''UPDATE $catetanMhsDbTable SET warna = 2 WHERE id = ?''', [id]);
+    }
+  
+    //update warna 3
+    static updateWarna3(int id) async{
+      return await catetanMhsDB!.rawUpdate('''UPDATE $catetanMhsDbTable SET warna = 3 WHERE id = ?''', [id]);
+    }
+Beberapa method ini digunakan untuk mengubah nilai field warna, jadi nanti warna ditentukan/ditampilkan berdasarkan niali warna yang ada pada database
+
+    //empty tugas 1
+    static emptyTugas1(int id) async{
+      return await catetanMhsDB!.rawUpdate('''UPDATE $catetanMhsDbTable SET tugas1 = '' WHERE id = ?''', [id]);
+    }
+  
+    //empty tugas 2
+    static emptyTugas2(int id) async{
+      return await catetanMhsDB!.rawUpdate('''UPDATE $catetanMhsDbTable SET tugas2 = '' WHERE id = ?''', [id]);
+    }
+  
+    //empty tugas 3
+    static emptyTugas3(int id) async{
+      return await catetanMhsDB!.rawUpdate('''UPDATE $catetanMhsDbTable SET tugas3 = '' WHERE id = ?''', [id]);
+    }
+Beberapa method ini digunakan untuk mengosongkan data (field tugas1, tugas2, tugas3)
+
+---
