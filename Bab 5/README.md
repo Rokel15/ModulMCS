@@ -362,6 +362,7 @@ Method addCatetanMhs merupakan controller untuk user dapat menginput/menambah da
     void delete(CatetanMhsModel catetanMhsModel) async{
       DB.delete(catetanMhsModel);
     }
+
 Method ini digunakan untuk delete suatu record pada table database dengan return DB.delete()
 
     //update warna 0
