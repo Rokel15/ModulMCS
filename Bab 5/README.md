@@ -253,7 +253,15 @@ pada method ini digunakan untuk membaca data di database
     static updateWarna3(int id) async{
       return await catetanMhsDB!.rawUpdate('''UPDATE $catetanMhsDbTable SET warna = 3 WHERE id = ?''', [id]);
     }
-Beberapa method ini digunakan untuk mengubah nilai field warna, jadi nanti warna ditentukan/ditampilkan berdasarkan niali warna yang ada pada database
+Beberapa method ini digunakan untuk mengubah nilai field warna, jadi nanti warna ditentukan/ditampilkan berdasarkan value/nilai warna yang ada pada database. Warna yang dimaksud adalah warna tema setiap record. Perhaikan gambar berikut :
+
+![tema warna](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%206/tampilan%20setelah%20diisi%20data.PNG)
+
+nanti pada ui aplikasi warna setiap record akan dibuat seperti berikut :
+- apabila field warna bernilai 0 maka tema warna akan berwarna 4C4C6D (abu-abu)
+- apabila field warna bernilai 1 maka tema warna akan berwarna 6F61C0 (ungu memudar)
+- apabila field warna bernilai 2 maka tema warna akan berwarna biru tua [shade 900]
+- apabila field warna bernilai 3 maka tema warna akan berwarna pink [shade 500]
 
     //empty tugas 1
     static emptyTugas1(int id) async{
@@ -362,7 +370,6 @@ Method addCatetanMhs merupakan controller untuk user dapat menginput/menambah da
     void delete(CatetanMhsModel catetanMhsModel) async{
       DB.delete(catetanMhsModel);
     }
-
 Method ini digunakan untuk delete suatu record pada table database dengan return DB.delete()
 
     //update warna 0
@@ -384,4 +391,23 @@ Method ini digunakan untuk delete suatu record pada table database dengan return
     void warna3(int id) async{
       await DB.updateWarna3(id);
     }
-method yang ini adalah xx
+method yang ini adalah controller yang digunakan untuk mengubah warna tema pada setiap record. dengan return mengacu ke setiap fungsi yang ada pada class DB.
+
+    //empty Tugas 1
+    void emptyTugas1(int id) async{
+      await DB.emptyTugas1(id);
+    }
+  
+    //empty Tugas 2
+    void emptyTugas2(int id) async{
+      await DB.emptyTugas2(id);
+    }
+  
+    //empty Tugas 3
+    void emptyTugas3(int id) async{
+      await DB.emptyTugas3(id);
+    }
+Terakhir dari class CatetanMhsController adalah controller untuk mengosongkan field tugas1, tugas2, tugas3
+
+---
+xx
