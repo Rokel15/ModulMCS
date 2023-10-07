@@ -339,7 +339,15 @@ code pada CatetanMhsController.dart
       }
     }
 ### Penjelasan
-Pada file CatetanMhsController.dart membuat class 'CatetanMhsController' untuk dijadikan controller(mengontrol database) oleh karena itu class 'CatetanMhsController' diextends ke GetxController
 
     class CatetanMhsController extends GetxController{...}
-xxx
+Pada file CatetanMhsController.dart membuat class 'CatetanMhsController' untuk dijadikan controller(mengontrol database) oleh karena itu class 'CatetanMhsController' diextends ke GetxController
+
+    var CatetanMhsList = [].obs;
+  
+    //get all data from table
+    void getCatetanMhsData() async{
+      List<Map<String, dynamic>> CatetanMhsData = await DB.query();
+      CatetanMhsList.assignAll(CatetanMhsData.map((e) => new CatetanMhsModel.fromJson(e)).toList());
+    }
+membuat variabel CatetanMhsList untuk menampung list yang dapat diobservasi dengan .obs, jadi penggunaan .obs pada GetX adalah mengubah variabel biasa menjadi variabel obsevasi. Ini memungkinkan GetX untuk memantau perubahan pada variabel secara otomatis. Method getCatetanMhsData terdapat variabel CatetanMhsData untuk membaca/retrieve database  dengan memanggil method query yang ada pada class DB dan CatetanMhsList akan disi oleh CatetanMhsData yang dimaping dengan CatetanMhsModel.fromJson, karena CatetanMhsList adalah list maka konversikan ke bentuk list '.toList()'
