@@ -351,3 +351,36 @@ Pada file CatetanMhsController.dart membuat class 'CatetanMhsController' untuk d
       CatetanMhsList.assignAll(CatetanMhsData.map((e) => new CatetanMhsModel.fromJson(e)).toList());
     }
 membuat variabel CatetanMhsList untuk menampung list yang dapat diobservasi dengan .obs, jadi penggunaan .obs pada GetX adalah mengubah variabel biasa menjadi variabel obsevasi. Ini memungkinkan GetX untuk memantau perubahan pada variabel secara otomatis. Method getCatetanMhsData terdapat variabel CatetanMhsData untuk membaca/retrieve database  dengan memanggil method query yang ada pada class DB dan CatetanMhsList akan disi oleh CatetanMhsData yang dimaping dengan CatetanMhsModel.fromJson, karena CatetanMhsList adalah list maka konversikan ke bentuk list '.toList()'
+
+    //input atau tambah data
+    Future<int> addCatetanMhs({required CatetanMhsModel catetanMhsModel}) async{
+      return await DB.insert(catetanMhsModel!);
+    }
+Method addCatetanMhs merupakan controller untuk user dapat menginput/menambah data ke database dengan return DB.insert()
+
+    //delete
+    void delete(CatetanMhsModel catetanMhsModel) async{
+      DB.delete(catetanMhsModel);
+    }
+Method ini digunakan untuk delete suatu record pada table database dengan return DB.delete()
+
+    //update warna 0
+    void warna0(int id) async{
+      await DB.updateWarna0(id);
+    }
+  
+    //update warna 1
+    void warna1(int id) async{
+      await DB.updateWarna1(id);
+    }
+  
+    //update warna 2
+    void warna2(int id) async{
+      await DB.updateWarna2(id);
+    }
+  
+    //update warna 3
+    void warna3(int id) async{
+      await DB.updateWarna3(id);
+    }
+method yang ini adalah xx
