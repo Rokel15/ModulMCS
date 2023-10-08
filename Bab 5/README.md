@@ -1059,3 +1059,70 @@ apabila pada record warna bernilai selain dari 1/2/3 maka Container akan berwarn
 lihat pada contoh potongan gambar berikut
 
 ![value warna](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%206/field%20warna.PNG)
+
+Selanjutnya Column yang menjadi child dari Container
+
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            //display taggal, hapus tanggal, edit tanggal dan ganti warna
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    Text(
+                                      '${catetanMhsModel.tanggal}',
+                                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                                    ),
+                                    IconButton(
+                                        icon: Icon(Icons.edit),
+                                        onPressed: (){
+                                          setState(() {
+                                            ubahTanggal(context, catetanMhsController.CatetanMhsList[index]);
+                                            catetanMhsController.getCatetanMhsData();
+                                          });
+                                        }
+                                    ),
+                                    IconButton(
+                                        icon: Icon(Icons.brush),
+                                        onPressed: (){
+                                          setState(() {
+                                            if(catetanMhsModel.warna==0){
+                                              catetanMhsController.warna1(catetanMhsModel.id!);
+                                            } else if(catetanMhsModel.warna==1){
+                                              catetanMhsController.warna2(catetanMhsModel.id!);
+                                            } else if(catetanMhsModel.warna==2){
+                                              catetanMhsController.warna3(catetanMhsModel.id!);
+                                            } else{
+                                              catetanMhsController.warna0(catetanMhsModel.id!);
+                                            }
+                                            catetanMhsController.getCatetanMhsData();
+                                          });
+                                        }
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    IconButton(
+                                        icon: Icon(Icons.delete),
+                                        onPressed: (){
+                                          show_deleteRecordBottomSheet(context, catetanMhsController.CatetanMhsList[index]);
+                                        }
+                                    ),
+                                    IconButton(
+                                        icon: Icon(Icons.edit),
+                                        onPressed: (){
+                                          Get.to(EditPage(catetanMhsModel: catetanMhsModel));
+                                        }
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
+                            
+                            ...
+                            
+                            ])
+di dalam Column kitaakan membuat tampilan untuk menampilkan tanggal, icon edit untuk mengubah tanggal, icon brush untuk mengubah tema warna, icon delete untuk menghapus record, icon edit untuk mengedit record pada field tugas1, tugas2, tugas3. yang hasilnya akan seperti ini
