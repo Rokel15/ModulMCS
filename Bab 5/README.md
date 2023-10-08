@@ -983,4 +983,200 @@ code pada displayPage.dart
       }
     }
 ### Penjelasan
-xxx
+  
+    @override
+    void initState() {
+      super.initState();
+      catetanMhsController.getCatetanMhsData();
+    }
+Di dalam initState kita memanggil catetanMhsController.getCatetanMhsData(); agar langsung mendapatkan data dari database
+
+      appBar: AppBar(
+        title: Text('Catetan App'),
+        actions: [
+          GestureDetector(
+            child: Icon(
+              Icons.add_circle,
+            ),
+            onTap: (){
+              Get.to(AddDataPage());
+            },
+          ),
+          SizedBox(width: 10,)
+        ],
+      ),
+Pada appbar kita membuat tombol dengan Icons.add_circle untuk pindah ke halaman pengisian dan penambahan data ke database, halaman tersebut dimuat dengan class AddDataPage()
+
+                Container(
+                  width: double.infinity,
+                  margin: EdgeInsets.only(top: 30),
+                  child: Obx(()
+                  => ListView.builder(
+                    itemCount: catetanMhsController.CatetanMhsList.length,
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemBuilder: (_, index){
+                      CatetanMhsModel catetanMhsModel = catetanMhsController.CatetanMhsList[index];
+                      return Container(
+                        margin: EdgeInsets.only(top: 15, bottom: 15),
+                        padding: EdgeInsets.all(12),
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(13),
+                          color:
+                          catetanMhsModel.warna==0? Color(0xff4C4C6D) :
+                          catetanMhsModel.warna==1? Color(0xff6F61C0) :
+                          catetanMhsModel.warna==2? Colors.blue[900] :
+                          Colors.pink[500],
+                          border: Border.all(
+                            width: 3,
+                            color: Colors.white
+                          )
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            //display taggal, hapus tanggal, edit tanggal dan ganti warna
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    Text(
+                                      '${catetanMhsModel.tanggal}',
+                                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                                    ),
+                                    IconButton(
+                                        icon: Icon(Icons.edit),
+                                        onPressed: (){
+                                          setState(() {
+                                            ubahTanggal(context, catetanMhsController.CatetanMhsList[index]);
+                                            catetanMhsController.getCatetanMhsData();
+                                          });
+                                        }
+                                    ),
+                                    IconButton(
+                                        icon: Icon(Icons.brush),
+                                        onPressed: (){
+                                          setState(() {
+                                            if(catetanMhsModel.warna==0){
+                                              catetanMhsController.warna1(catetanMhsModel.id!);
+                                            } else if(catetanMhsModel.warna==1){
+                                              catetanMhsController.warna2(catetanMhsModel.id!);
+                                            } else if(catetanMhsModel.warna==2){
+                                              catetanMhsController.warna3(catetanMhsModel.id!);
+                                            } else{
+                                              catetanMhsController.warna0(catetanMhsModel.id!);
+                                            }
+                                            catetanMhsController.getCatetanMhsData();
+                                          });
+                                        }
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    IconButton(
+                                        icon: Icon(Icons.delete),
+                                        onPressed: (){
+                                          show_deleteRecordBottomSheet(context, catetanMhsController.CatetanMhsList[index]);
+                                        }
+                                    ),
+                                    IconButton(
+                                        icon: Icon(Icons.edit),
+                                        onPressed: (){
+                                          Get.to(EditPage(catetanMhsModel: catetanMhsModel));
+                                        }
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
+                            Container(
+                              width: double.infinity,
+                              height: 3,
+                              color: Colors.white,
+                            ),
+                            //tugas 1
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                    'Tugas 1',
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w600
+                                    )
+                                ),
+                                //hapus catetan tugas 1
+                                IconButton(
+                                  icon: Icon(Icons.restart_alt),
+                                  onPressed: (){
+                                    show_emptyTugas1BottomSheet(context, catetanMhsController.CatetanMhsList[index]);
+                                    catetanMhsController.getCatetanMhsData();
+                                  },
+                                ),
+                              ],
+                            ),
+                            Text(
+                              '${catetanMhsModel.tugas1}',
+                              textAlign: TextAlign.justify,
+                            ),
+                            SizedBox(height: 10,),
+                            //tugas 2
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                    'Tugas 2',
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w600
+                                    )
+                                ),
+                                //hapus catetan tugas 2
+                                IconButton(
+                                  icon: Icon(Icons.restart_alt,),
+                                  onPressed: (){
+                                    show_emptyTugas2BottomSheet(context, catetanMhsController.CatetanMhsList[index]);
+                                    catetanMhsController.getCatetanMhsData();
+                                  },
+                                ),
+                              ],
+                            ),
+                            Text(
+                              '${catetanMhsModel.tugas2}',
+                              textAlign: TextAlign.justify,
+                            ),
+                            SizedBox(height: 10,),
+                            //tugas 3
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                    'Tugas 3',
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w600
+                                    )
+                                ),
+                                //hapus catetan tugas 3
+                                IconButton(
+                                  icon: Icon(Icons.restart_alt),
+                                  onPressed: (){
+                                    show_emptyTugas3BottomSheet(context, catetanMhsController.CatetanMhsList[index]);
+                                    catetanMhsController.getCatetanMhsData();
+                                  },
+                                ),
+                              ],
+                            ),
+                            Text(
+                              '${catetanMhsModel.tugas3}',
+                              textAlign: TextAlign.justify,
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  ))
+                ),
