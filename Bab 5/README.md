@@ -1005,7 +1005,8 @@ Di dalam initState kita memanggil catetanMhsController.getCatetanMhsData(); agar
           SizedBox(width: 10,)
         ],
       ),
-Pada appbar kita membuat tombol dengan Icons.add_circle untuk pindah ke halaman pengisian dan penambahan data ke database, halaman tersebut dimuat dengan class AddDataPage()
+Pada appbar kita membuat tombol dengan Icons.add_circle untuk pindah ke halaman pengisian dan penambahan data ke database, halaman tersebut dimuat dengan class AddDataPage(), Icons.add_circledapat diperhatikan pada gambar berikut
+![appBar](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%206/appBar.PNG)
 
                 Container(
                   width: double.infinity,
