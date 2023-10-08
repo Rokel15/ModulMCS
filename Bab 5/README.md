@@ -1046,7 +1046,7 @@ Di dalam ListView.builder() terdapat beberapa property seperti kode di atas, ite
                         child: Column(...)
                         );
                       }
-itemBuilder akan membangun Container() dan catetanMhsModel merupakan objek untuk mengakses isi dari CatetanMhsList. Pada container disini akan diberi warna berdasarkan value yang ada pada record table database,
+itemBuilder akan membangun Container() dan catetanMhsModel merupakan objek untuk mengakses isi dari CatetanMhsList. Pada container disini akan diberi warna berdasarkan value yang ada pada record table database dan border Container berwarna putih.
 
 apabila pada record warna bernilai 0 maka Container akan berwarna 4C4C6D
 
@@ -1056,4 +1056,6 @@ apabila pada record warna bernilai 2 maka Container akan berwarna blue[shade : 9
 
 apabila pada record warna bernilai selain dari 1/2/3 maka Container akan berwarna pink[shade : 500]
 
-dan border Container berwarna putih.
+lihat pada contoh potongan gambar berikut
+
+![value warna](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%206/field%20warna.PNG)
