@@ -983,7 +983,9 @@ code pada displayPage.dart
       }
     }
 ### Penjelasan
-  
+    final CatetanMhsController catetanMhsController = Get.put(CatetanMhsController());
+penggunaan Put dari GetX untuk menginisialisasi dan mengatur instance dari CatetanMhsController. Dengan menginisialisasi dan mengatur instance controller ini, memungkinkan komponen-komponen lain dalam aplikasi kita untuk mengakses dan berinteraksi dengan data dari database SQFLite tersebut melalui controller ini.
+
     @override
     void initState() {
       super.initState();
@@ -1012,10 +1014,17 @@ Pada appbar kita membuat tombol dengan Icons.add_circle untuk pindah ke halaman 
                   width: double.infinity,
                   margin: EdgeInsets.only(top: 30),
                   child: Obx(()
+                  => ListView.builder(...)
+                ),
+Pada Container di atas memiliki child Obx, Ini adalah widget khusus yang digunakan untuk mengamati (observe) perubahan pada variabel-variabel yang telah di-deklarasikan sebagai observables dalam controller GetX. Ketika nilai dari variabel-variabel tersebut berubah, widget Obx akan secara otomatis membangun ulang tampilan (rebuild) sesuai dengan perubahan tersebut. Pada kode di atas Obx memiliki body (maksudnya {} yang diganti dengan =>) yang bernama ListView.builder(). Ketika terjadi perubahan pada variabel yang diamati, maka Obx akan membangun kembali daftar ListView sesuai dengan perubahan tersebut.
+
                   => ListView.builder(
                     itemCount: catetanMhsController.CatetanMhsList.length,
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
+                    itemBuilder: (_, index){...}
+Di dalam ListView.builder() terdapat beberapa property seperti kode di atas, itemCount akan menghitung untuk mengatur seberapa banyak/panjang yang akan dibangun oleh ListView.builder(). itemCount diisi catetanMhsController.CatetanMhsList.length yang mana CatetanMhsList adalah variabel observasi berbentuk list yang memuat database.
+
                     itemBuilder: (_, index){
                       CatetanMhsModel catetanMhsModel = catetanMhsController.CatetanMhsList[index];
                       return Container(
@@ -1179,5 +1188,27 @@ Pada appbar kita membuat tombol dengan Icons.add_circle untuk pindah ke halaman 
                         ),
                       );
                     },
-                  ))
-                ),
+s
+
+                    itemBuilder: (_, index){
+                      CatetanMhsModel catetanMhsModel = catetanMhsController.CatetanMhsList[index];
+                      return Container(
+                        margin: EdgeInsets.only(top: 15, bottom: 15),
+                        padding: EdgeInsets.all(12),
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(13),
+                          color:
+                          catetanMhsModel.warna==0? Color(0xff4C4C6D) :
+                          catetanMhsModel.warna==1? Color(0xff6F61C0) :
+                          catetanMhsModel.warna==2? Colors.blue[900] :
+                          Colors.pink[500],
+                          border: Border.all(
+                            width: 3,
+                            color: Colors.white
+                          )
+                        ),
+                        child: Column(...)
+                        );
+                      }
+s
