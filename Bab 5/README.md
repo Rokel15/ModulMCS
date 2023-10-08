@@ -1126,3 +1126,5 @@ Selanjutnya Column yang menjadi child dari Container
                             
                             ])
 di dalam Column kitaakan membuat tampilan untuk menampilkan tanggal, icon edit untuk mengubah tanggal, icon brush untuk mengubah tema warna, icon delete untuk menghapus record, icon edit untuk mengedit record pada field tugas1, tugas2, tugas3. yang hasilnya akan seperti ini
+
+![text pengganti](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%206/edit%20date%20edit%20color%20delete%20record%20edit%20record.PNG)
