@@ -282,7 +282,7 @@ Beberapa method ini digunakan untuk mengosongkan data (field tugas1, tugas2, tug
 
 ---
 code pada CatetanMhsController.dart
-
+```dart
     import 'package:get/get.dart';
     import 'package:mcs_bab_5/CatetanMhsModel.dart';
     import 'DB.dart';
@@ -347,6 +347,7 @@ code pada CatetanMhsController.dart
         await DB.emptyTugas3(id);
       }
     }
+```
 ### Penjelasan
 
     class CatetanMhsController extends GetxController{...}
@@ -412,7 +413,7 @@ Terakhir dari class CatetanMhsController adalah controller untuk mengosongkan fi
 
 ---
 code pada main.dart
-
+```dart
     import 'package:flutter/material.dart';
     import 'package:get/get.dart';
     import 'displayPage.dart';
@@ -439,6 +440,7 @@ code pada main.dart
         );
       }
     }
+```
 ### Penjelasan
 Dalam void main yang bersifat async terdapat WidgetsFlutterBinding.ensureInitialized(); yang dinisialisasi sebelum aplikasi dijalankan. Ini adalah langkah yang sangat penting dalam aplikasi karena banyak operasi yang terkait dengan UI dan rendering hanya dapat dilakukan setelah WidgetsBinding diinisialisasi. WidgetsFlutterBinding.ensureInitialized(); digunakan untuk memastikan bahwa sebelum menjalankan aplikasi Flutter, inisialisasi yang diperlukan untuk pengelolaan widget, rendering, dan fungsi-fungsi dasar lainnya telah selesai.
 
@@ -448,7 +450,7 @@ Pada aplikasi ini kita juga menggunakan package GetX sehingga agar GetX dapat di
 
 ---
 code pada displayPage.dart
-
+```dart
     import 'package:flutter/material.dart';
     import 'package:intl/intl.dart';
     import 'package:mcs_bab_5/CatetanMhsController.dart';
@@ -983,6 +985,7 @@ code pada displayPage.dart
         );
       }
     }
+```
 ### Penjelasan
     final CatetanMhsController catetanMhsController = Get.put(CatetanMhsController());
 penggunaan Put dari GetX untuk menginisialisasi dan mengatur instance dari CatetanMhsController. Dengan menginisialisasi dan mengatur instance controller ini, memungkinkan komponen-komponen lain dalam aplikasi kita untuk mengakses dan berinteraksi dengan data dari database SQFLite tersebut melalui controller ini.
@@ -1524,7 +1527,7 @@ Saat mengubah tanggal kita tidak menggunakan controller namun langsung menggunak
 
 ---
 code pada AddDataPage.dart
-
+```dart
     import 'package:flutter/material.dart';
     import 'package:intl/intl.dart';
     import 'package:get/get.dart';
@@ -1742,7 +1745,7 @@ code pada AddDataPage.dart
         );
         catetanMhsController.getCatetanMhsData();
       }
-    
     }
+```
 ### Penjelasan
 xxx
