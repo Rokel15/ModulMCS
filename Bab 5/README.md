@@ -90,7 +90,7 @@ Dalam class CatetanMhsModel merupakan model untuk memuat kerangka data yang akan
 
 ---
 code pada DB.dart
-
+```dart
     import 'package:sqflite/sqflite.dart';
     import 'package:mcs_bab_5/CatetanMhsModel.dart';
     
@@ -183,6 +183,7 @@ code pada DB.dart
         return await catetanMhsDB!.rawUpdate('''UPDATE $catetanMhsDbTable SET tugas3 = '' WHERE id = ?''', [id]);
       }
     }
+```
 ### Penjelasan
 Di dalam file DB.dart merupakan class untuk kebutuhan database seperti inisialisasi database dan bebera fungsi untuk melakukan beberapa aksi seperti retrieve, update dan delete.
 
