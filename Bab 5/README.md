@@ -1833,4 +1833,4 @@ boxShadow digunakan untuk membuat bayangan berwarna pada garis tepi
         )
 widget selanjutnya pada kode di atas digunakan untuk user dapat memilih tanggal, hasil dari widget yang dibuat seperti di atas akan menjadi seperti berikut
 
-![select date](xxx)
+![select date](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%206/user%20can%20select%20date.PNG)
