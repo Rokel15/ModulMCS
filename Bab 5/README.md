@@ -1128,3 +1128,89 @@ Selanjutnya Column yang menjadi child dari Container
 di dalam Column kitaakan membuat tampilan untuk menampilkan tanggal, icon edit untuk mengubah tanggal, icon brush untuk mengubah tema warna, icon delete untuk menghapus record, icon edit untuk mengedit record pada field tugas1, tugas2, tugas3. yang hasilnya akan seperti ini
 
 ![text pengganti](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%206/edit%20date%20edit%20color%20delete%20record%20edit%20record.PNG)
+
+                            Container(
+                              width: double.infinity,
+                              height: 3,
+                              color: Colors.white,
+                            ),
+                            //tugas 1
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                    'Tugas 1',
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w600
+                                    )
+                                ),
+                                //hapus catetan tugas 1
+                                IconButton(
+                                  icon: Icon(Icons.restart_alt),
+                                  onPressed: (){
+                                    show_emptyTugas1BottomSheet(context, catetanMhsController.CatetanMhsList[index]);
+                                    catetanMhsController.getCatetanMhsData();
+                                  },
+                                ),
+                              ],
+                            ),
+                            Text(
+                              '${catetanMhsModel.tugas1}',
+                              textAlign: TextAlign.justify,
+                            ),
+                            SizedBox(height: 10,),
+                            //tugas 2
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                    'Tugas 2',
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w600
+                                    )
+                                ),
+                                //hapus catetan tugas 2
+                                IconButton(
+                                  icon: Icon(Icons.restart_alt,),
+                                  onPressed: (){
+                                    show_emptyTugas2BottomSheet(context, catetanMhsController.CatetanMhsList[index]);
+                                    catetanMhsController.getCatetanMhsData();
+                                  },
+                                ),
+                              ],
+                            ),
+                            Text(
+                              '${catetanMhsModel.tugas2}',
+                              textAlign: TextAlign.justify,
+                            ),
+                            SizedBox(height: 10,),
+                            //tugas 3
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                    'Tugas 3',
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w600
+                                    )
+                                ),
+                                //hapus catetan tugas 3
+                                IconButton(
+                                  icon: Icon(Icons.restart_alt),
+                                  onPressed: (){
+                                    show_emptyTugas3BottomSheet(context, catetanMhsController.CatetanMhsList[index]);
+                                    catetanMhsController.getCatetanMhsData();
+                                  },
+                                ),
+                              ],
+                            ),
+                            Text(
+                              '${catetanMhsModel.tugas3}',
+                              textAlign: TextAlign.justify,
+                            ),
+Dalam 1 record terdapat 3 field yang diisi(tugas1, tugas2, tugas3), pada code di atas terdapat masing-masing icon restart alt untuk mengosongkan isi dari tugas1, tugas2, tugas3 dengan memanggil show_emptyTugas1BottomSheet(), show_emptyTugas2BottomSheet(), show_emptyTugas3BottomSheet yang memunculkan bottom sheet dan memberi pertanyaan apakah isi tersebut ingin dikosongklan atau tidak seperti pada contoh dibawah
+
+xx![]()
