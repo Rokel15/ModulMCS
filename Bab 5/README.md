@@ -1215,4 +1215,34 @@ Dalam 1 record terdapat 3 field yang diisi(tugas1, tugas2, tugas3), pada code di
 
 ![bottom sheet](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%206/bottom%20sheet%20for%20tugas.PNG)
 
+Tadi kita membuat fitur untuk mengubah tanggal, saat mengubah tanggal kita memanggil ubahTanggal() sehingga kita harus membuat method ubahTanggal() seperti berikut
 
+      final CatetanMhsController catetanMhsController = Get.put(CatetanMhsController());
+    
+      @override
+      void initState() {...}
+  
+      @override
+      Widget build(BuildContext context) {...}
+  
+      Future<Null> ubahTanggal(BuildContext context, CatetanMhsModel catetanMhsModel) async{
+      DateTime? setUbahTanggal = await showDatePicker(
+          context: context,
+          initialDate: DateTime.now(),
+          firstDate: DateTime(2023),
+          lastDate: DateTime(2100));
+  
+      if(setUbahTanggal != null && setUbahTanggal != DateTime.now()){
+        setState(() {
+          // String formattedDate = DateFormat.yMd().format(setUbahTanggal);  bisa begini
+          DB.catetanMhsDB!.rawUpdate(
+              '''UPDATE ${DB.catetanMhsDbTable} SET tanggal = '${DateFormat.yMd().format(setUbahTanggal)}' WHERE id = ?''',[catetanMhsModel.id]
+          );
+          catetanMhsController.getCatetanMhsData();
+        });
+      }
+    }
+Saat mengubah tanggal kita tidak menggunakan controller namun langsung menggunakan query DML dari sql untuk update tanggal seperti pada code di atas menggunakan  perintah
+
+    '''UPDATE ${DB.catetanMhsDbTable} SET tanggal = '${DateFormat.yMd().format(setUbahTanggal)}' WHERE id = ?''',[catetanMhsModel.id]
+xx
