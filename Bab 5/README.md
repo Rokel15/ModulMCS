@@ -1394,8 +1394,10 @@ Saat salah satu method ini dipanggil maka aplikasi akan memunculkan bottom sheet
 
 Tidak hanya pengosongan record pada field tugas1, tugas2, tugas3 saja namun untuk menghapus 1 record(semua data dalam 1 baris) juga menggunakan bottom sheet untuk bertanya kepada user apakah data ingin dihapus atau tidak, lihat gambar berikut
 
-![delete record]()
-xxx
+![delete record](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%206/bottom%20sheet%20delete%20record.PNG)
+
+Menghapus record dapat memanggil method show_deleteRecordBottomSheet(). isi dari show_deleteRecordBottomSheet()
+
 
 Di dalam bottom sheet terdapat button yang bertuliskan 'Yes' dan 'No', button akan kita buat widget terpisah di luar method yang digunakan untuk menampilkan bottom sheet seperti berikut
 
