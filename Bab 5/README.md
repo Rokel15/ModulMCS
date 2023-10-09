@@ -1211,11 +1211,222 @@ di dalam Column kitaakan membuat tampilan untuk menampilkan tanggal, icon edit u
                               '${catetanMhsModel.tugas3}',
                               textAlign: TextAlign.justify,
                             ),
-Dalam 1 record terdapat 3 field yang diisi(tugas1, tugas2, tugas3), pada code di atas terdapat masing-masing icon restart alt untuk mengosongkan isi dari tugas1, tugas2, tugas3 dengan memanggil show_emptyTugas1BottomSheet(), show_emptyTugas2BottomSheet(), show_emptyTugas3BottomSheet yang memunculkan bottom sheet dan memberi pertanyaan apakah isi tersebut ingin dikosongklan atau tidak seperti pada contoh dibawah
+Dalam 1 record terdapat 3 field yang diisi(tugas1, tugas2, tugas3), pada code di atas terdapat masing-masing icon restart alt untuk mengosongkan isi dari tugas1, tugas2, tugas3 dengan memanggil show_emptyTugas1BottomSheet(), show_emptyTugas2BottomSheet(), show_emptyTugas3BottomSheet yang memunculkan bottom sheet dan memberi pertanyaan apakah isi tersebut ingin dikosongkan atau tidak seperti pada contoh dibawah
 
 ![bottom sheet](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%206/bottom%20sheet%20for%20tugas.PNG)
 
-Tadi kita membuat fitur untuk mengubah tanggal, saat mengubah tanggal kita memanggil ubahTanggal() sehingga kita harus membuat method ubahTanggal() seperti berikut
+Jadi untuk mengosongkan record pada filed tugas1, tugas2, tugas3 dengan memanggil show_emptyTugas1BottomSheet, show_emptyTugas2BottomSheet, show_emptyTugas3BottomSheet kemudian user diberi pertanyaan apakah ingin dikosongkan atau tidak. Jika user memilih 'Yes' maka akan dihapus, jika memilih 'No' maka kembali ke halaman awal
+
+Isi dari method show_emptyTugas1BottomSheet, show_emptyTugas2BottomSheet, show_emptyTugas3BottomSheet
+
+    //...
+    show_emptyTugas1BottomSheet(BuildContext context, CatetanMhsModel catetanMhsModel){
+      Get.bottomSheet(
+          Container(
+            width: double.infinity,
+            height: MediaQuery.of(context).size.height/5.7,
+            decoration: BoxDecoration(
+                color: Color(0xff352F44),
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20),
+                  topRight: Radius.circular(20),
+                )
+            ),
+            child: Column(
+              children: [
+                Container(
+                  height: 7,
+                  width: MediaQuery.of(context).size.width/2,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.black
+                  ),
+                ),
+                Spacer(),
+                Container(
+                  padding: EdgeInsets.only(bottom: 30),
+                  child: Text('empty tugas 1?', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(bottom: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      YesOrNo_Button(
+                        text: 'Yes',
+                        color: Color(0xff5C5470),
+                        onTap: (){
+                          catetanMhsController.emptyTugas1(catetanMhsModel.id!);
+                          catetanMhsController.getCatetanMhsData();
+                          Get.back();
+                        },
+                      ),
+                      YesOrNo_Button(
+                          text: 'No',
+                          color: Color(0xffB9B4C7),
+                          onTap: (){
+                            Get.back();
+                          }
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
+          )
+      );
+    }
+    show_emptyTugas2BottomSheet(BuildContext context, CatetanMhsModel catetanMhsModel){
+      Get.bottomSheet(
+          Container(
+            width: double.infinity,
+            height: MediaQuery.of(context).size.height/5.7,
+            decoration: BoxDecoration(
+                color: Color(0xff352F44),
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20),
+                  topRight: Radius.circular(20),
+                )
+            ),
+            child: Column(
+              children: [
+                Container(
+                  height: 7,
+                  width: MediaQuery.of(context).size.width/2,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.black
+                  ),
+                ),
+                Spacer(),
+                Container(
+                  padding: EdgeInsets.only(bottom: 30),
+                  child: Text('empty tugas 2?', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(bottom: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      YesOrNo_Button(
+                        text: 'Yes',
+                        color: Color(0xff5C5470),
+                        onTap: (){
+                          catetanMhsController.emptyTugas2(catetanMhsModel.id!);
+                          catetanMhsController.getCatetanMhsData();
+                          Get.back();
+                        },
+                      ),
+                      YesOrNo_Button(
+                          text: 'No',
+                          color: Color(0xffB9B4C7),
+                          onTap: (){
+                            Get.back();
+                          }
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
+          )
+      );
+    }
+    show_emptyTugas3BottomSheet(BuildContext context, CatetanMhsModel catetanMhsModel){
+      Get.bottomSheet(
+          Container(
+            width: double.infinity,
+            height: MediaQuery.of(context).size.height/5.7,
+            decoration: BoxDecoration(
+                color: Color(0xff352F44),
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20),
+                  topRight: Radius.circular(20),
+                )
+            ),
+            child: Column(
+              children: [
+                Container(
+                  height: 7,
+                  width: MediaQuery.of(context).size.width/2,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.black
+                  ),
+                ),
+                Spacer(),
+                Container(
+                  padding: EdgeInsets.only(bottom: 30),
+                  child: Text('empty tugas 3?', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(bottom: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      YesOrNo_Button(
+                        text: 'Yes',
+                        color: Color(0xff5C5470),
+                        onTap: (){
+                          catetanMhsController.emptyTugas3(catetanMhsModel.id!);
+                          catetanMhsController.getCatetanMhsData();
+                          Get.back();
+                        },
+                      ),
+                      YesOrNo_Button(
+                          text: 'No',
+                          color: Color(0xffB9B4C7),
+                          onTap: (){
+                            Get.back();
+                          }
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
+          )
+      );
+    }
+
+    //...
+Saat salah satu method ini dipanggil maka aplikasi akan memunculkan bottom sheet untuk bertanya kepada usetr apakah benar data ingin dihapus atau tidak.
+
+Tidak hanya pengosongan record pada field tugas1, tugas2, tugas3 saja namun untuk menghapus 1 record(semua data dalam 1 baris) juga menggunakan bottom sheet untuk bertanya kepada user apakah data ingin dihapus atau tidak, lihat gambar berikut
+
+![delete record]()
+xxx
+
+Di dalam bottom sheet terdapat button yang bertuliskan 'Yes' dan 'No', button akan kita buat widget terpisah di luar method yang digunakan untuk menampilkan bottom sheet seperti berikut
+
+    YesOrNo_Button({
+      required String text,
+      required Color color,
+      required Function() onTap}){
+      return GestureDetector(
+        child: Container(
+          width: MediaQuery.of(context).size.width/2.8,
+          height: MediaQuery.of(context).size.height/17,
+          decoration: BoxDecoration(
+            color: color,
+            borderRadius: BorderRadius.circular(13),
+          ),
+          child: Center(
+            child: Text(
+              text,
+              style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white
+              )
+            ),
+          ),
+        ),
+        onTap: onTap,
+      );
+    }
+
+Tadi kita membuat fitur untuk mengubah tanggal, saat mengubah tanggal kita memanggil ubahTanggal() sehingga kita harus membuat method ubahTanggal(). Isi dari method ubahTanggal() adalah seperti berikut
 
       final CatetanMhsController catetanMhsController = Get.put(CatetanMhsController());
     
@@ -1226,23 +1437,24 @@ Tadi kita membuat fitur untuk mengubah tanggal, saat mengubah tanggal kita meman
       Widget build(BuildContext context) {...}
   
       Future<Null> ubahTanggal(BuildContext context, CatetanMhsModel catetanMhsModel) async{
-      DateTime? setUbahTanggal = await showDatePicker(
-          context: context,
-          initialDate: DateTime.now(),
-          firstDate: DateTime(2023),
-          lastDate: DateTime(2100));
-  
-      if(setUbahTanggal != null && setUbahTanggal != DateTime.now()){
-        setState(() {
-          // String formattedDate = DateFormat.yMd().format(setUbahTanggal);  bisa begini
-          DB.catetanMhsDB!.rawUpdate(
-              '''UPDATE ${DB.catetanMhsDbTable} SET tanggal = '${DateFormat.yMd().format(setUbahTanggal)}' WHERE id = ?''',[catetanMhsModel.id]
-          );
-          catetanMhsController.getCatetanMhsData();
-        });
+        DateTime? setUbahTanggal = await showDatePicker(
+            context: context,
+            initialDate: DateTime.now(),
+            firstDate: DateTime(2023),
+            lastDate: DateTime(2100));
+    
+        if(setUbahTanggal != null && setUbahTanggal != DateTime.now()){
+          setState(() {
+            // String formattedDate = DateFormat.yMd().format(setUbahTanggal);  bisa begini
+            DB.catetanMhsDB!.rawUpdate(
+                '''UPDATE ${DB.catetanMhsDbTable} SET tanggal = '${DateFormat.yMd().format(setUbahTanggal)}' WHERE id = ?''',[catetanMhsModel.id]
+            );
+            catetanMhsController.getCatetanMhsData();
+          });
+        }
       }
-    }
+
+      //...
 Saat mengubah tanggal kita tidak menggunakan controller namun langsung menggunakan query DML dari sql untuk update tanggal seperti pada code di atas menggunakan  perintah
 
     '''UPDATE ${DB.catetanMhsDbTable} SET tanggal = '${DateFormat.yMd().format(setUbahTanggal)}' WHERE id = ?''',[catetanMhsModel.id]
-xx
