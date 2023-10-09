@@ -40,7 +40,7 @@ Buatlah file-file seperti di atas pada project yang dibuat pada praktikum kali i
 
 ---
 Code pada CatetanMhsModel.dart
-
+```dart
     class CatetanMhsModel {
       int? id;
       String? tanggal;
@@ -84,7 +84,7 @@ Code pada CatetanMhsModel.dart
         entryTime = json['entryTime'];
       }
     }
-
+```
 ### Penjelasan
 Dalam class CatetanMhsModel merupakan model untuk memuat kerangka data yang akan digunakan untuk create update input delete data pada database, sehingga ketika class CatetanMhsModel dipanggil maka bisa menggunakan atribut-atribut yang terdapat pada class CatetanMhsModel. Di dalam class CatetanMhsModel juga terdapat method tojson dan method overloading yang bernama CatetanMhsModel.fromJson, method tojson digunakan ketika user melakukan 'input' data ke database dan method overloading CatetanMhsModel.fromJson digunakan untuk user membaca data dari database.
 
