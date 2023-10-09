@@ -1398,6 +1398,66 @@ Tidak hanya pengosongan record pada field tugas1, tugas2, tugas3 saja namun untu
 
 Menghapus record dapat memanggil method show_deleteRecordBottomSheet(). isi dari show_deleteRecordBottomSheet()
 
+    //...
+
+    show_deleteRecordBottomSheet(BuildContext context, CatetanMhsModel catetanMhsModel){
+      Get.bottomSheet(
+        Container(
+          width: double.infinity,
+          height: MediaQuery.of(context).size.height/5.7,
+          decoration: BoxDecoration(
+            color: Color(0xff352F44),
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            )
+          ),
+          child: Column(
+            children: [
+              Container(
+                height: 7,
+                width: MediaQuery.of(context).size.width/2,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.black
+                ),
+              ),
+              Spacer(),
+              Container(
+                padding: EdgeInsets.only(bottom: 30),
+                child: Text('delete record?', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),),
+              ),
+              Padding(
+                padding: EdgeInsets.only(bottom: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    YesOrNo_Button(
+                        text: 'Yes',
+                        color: Color(0xff5C5470),
+                        onTap: (){
+                          catetanMhsController.delete(catetanMhsModel);
+                          catetanMhsController.getCatetanMhsData();
+                          Get.back();
+                        },
+                    ),
+                    YesOrNo_Button(
+                        text: 'No',
+                        color: Color(0xffB9B4C7),
+                        onTap: (){
+                          Get.back();
+                        }
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
+        )
+      );
+    }
+
+    //...
 
 Di dalam bottom sheet terdapat button yang bertuliskan 'Yes' dan 'No', button akan kita buat widget terpisah di luar method yang digunakan untuk menampilkan bottom sheet seperti berikut
 
@@ -1460,3 +1520,4 @@ Tadi kita membuat fitur untuk mengubah tanggal, saat mengubah tanggal kita meman
 Saat mengubah tanggal kita tidak menggunakan controller namun langsung menggunakan query DML dari sql untuk update tanggal seperti pada code di atas menggunakan  perintah
 
     '''UPDATE ${DB.catetanMhsDbTable} SET tanggal = '${DateFormat.yMd().format(setUbahTanggal)}' WHERE id = ?''',[catetanMhsModel.id]
+xxx
