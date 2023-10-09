@@ -1213,4 +1213,6 @@ di dalam Column kitaakan membuat tampilan untuk menampilkan tanggal, icon edit u
                             ),
 Dalam 1 record terdapat 3 field yang diisi(tugas1, tugas2, tugas3), pada code di atas terdapat masing-masing icon restart alt untuk mengosongkan isi dari tugas1, tugas2, tugas3 dengan memanggil show_emptyTugas1BottomSheet(), show_emptyTugas2BottomSheet(), show_emptyTugas3BottomSheet yang memunculkan bottom sheet dan memberi pertanyaan apakah isi tersebut ingin dikosongklan atau tidak seperti pada contoh dibawah
 
-xx![]()
+![bottom sheet](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%206/bottom%20sheet%20for%20tugas.PNG)
+
+
