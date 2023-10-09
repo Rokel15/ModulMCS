@@ -1544,6 +1544,7 @@ code pada AddDataPage.dart
     class _AddDataPageState extends State<AddDataPage> {
       final CatetanMhsController catetanMhsController = Get.put(CatetanMhsController());
     
+      int pilihWarna = 1;
       String pilihTanggal = 'Select Date';
     
       Future selectDate(BuildContext context) async{
@@ -1559,9 +1560,7 @@ code pada AddDataPage.dart
           });
         }
       }
-    
-      int pilihWarna = 1;
-    
+      
       TextEditingController tugas1 = TextEditingController();
       TextEditingController tugas2 = TextEditingController();
       TextEditingController tugas3 = TextEditingController();
@@ -1748,4 +1747,90 @@ code pada AddDataPage.dart
     }
 ```
 ### Penjelasan
-xxx
+Pertama kita membuat method untuk mengatur tanggal
+    
+    String pilihTanggal = 'Select Date';
+  
+    Future selectDate(BuildContext context) async{
+      final DateTime? setDate = await showDatePicker(
+          context: context,
+          initialDate: DateTime.now(),
+          firstDate: DateTime(2023),
+          lastDate: DateTime(2100),
+      );
+      if(setDate != null && setDate != DateTime.now()){
+        setState(() {
+          this.pilihTanggal = DateFormat.yMd().format(setDate).toString();
+        });
+      }
+    }
+Apabila selectDate() dipanggil maka user dapat mengatur tanggal dan variabel akan berubah sesuai tanggal yang ditentukan oleh user. 
+
+    TextEditingController tugas1 = TextEditingController();
+    TextEditingController tugas2 = TextEditingController();
+    TextEditingController tugas3 = TextEditingController();
+Sedangkan variabel tugas1, tugas2, tugas3 merupakan controller yang digunakan untuk menyimpan isi dari textfield. Untuk membentuk halaman yang digunakan untuk mengisi/menambah data ke database masih sama menggunakan Scaffold() dan body pada Scaffold diisi dengan ListView() yang dikasih padding pada bagian atas kiri dan kanan
+
+    @override
+    Widget build(BuildContext context) {
+      return Scaffold(
+        appBar: AppBar(),
+        body: Padding(
+          padding: const EdgeInsets.only(top: 20, left: 15, right: 15),
+          child: ListView(...)
+        )
+children pada ListView() terdapat Container sebagai heading/pembuka pada halaman
+        
+        child: ListView(
+          children: [
+            Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(13),
+                border: Border.all(color: Colors.white),
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.white,
+                      offset: Offset(0.0, 0.1),
+                      blurRadius: 10.0
+                  )
+                ],
+                color: Color(0xff2E3840),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(13),
+                child: Text('Add your note', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600))),
+            ),
+          
+          //...
+          ]  
+        )
+boxShadow digunakan untuk membuat bayangan berwarna pada garis tepi
+
+        child: ListView(
+          children: [
+          //...
+
+          //pilih tanggal
+          Container(
+            padding: EdgeInsets.only(top: 40, left: 10, right: 10, bottom: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('$pilihTanggal', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),),
+                  GestureDetector(
+                    child: Icon(Icons.edit_calendar),
+                    onTap: (){
+                      selectDate(context);
+                    },
+                  )
+                ],
+            ),
+          ),
+
+          //...
+          ]  
+        )
+widget selanjutnya pada kode di atas digunakan untuk user dapat memilih tanggal, hasil dari widget yang dibuat seperti di atas akan menjadi seperti berikut
+
+![select date](xxx)
