@@ -1834,3 +1834,55 @@ boxShadow digunakan untuk membuat bayangan berwarna pada garis tepi
 widget selanjutnya pada kode di atas digunakan untuk user dapat memilih tanggal, hasil dari widget yang dibuat seperti di atas akan menjadi seperti berikut
 
 ![select date](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%206/user%20can%20select%20date.PNG)
+
+Widget selanjutnya untuk pemilihan warna
+
+        child: ListView(
+          children: [
+          //...
+
+          //pilih warna
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Container(
+                // padding: EdgeInsets.only(top: 30, bottom: 0),
+                child: Wrap(
+                  children: List<Widget>.generate(
+                      4, (index) {
+                        return GestureDetector(
+                          child: Container(
+                            margin: EdgeInsets.only(left: 13, right: 8),
+                            height: MediaQuery.of(context).size.width / 13,
+                            width: MediaQuery.of(context).size.width / 13,
+                            decoration: BoxDecoration(
+                              borderRadius : BorderRadius.circular(15),
+                              color:
+                              index==0? Color(0xff4C4C6D) :
+                              index==1? Color(0xff6F61C0) :
+                              index==2? Colors.blue[900] :
+                              Colors.pink[500]
+                            ),
+                            child:
+                            pilihWarna==index?
+                            Icon(Icons.done_all) : Container(),
+                          ),
+                          onTap: (){
+                            setState(() {
+                              pilihWarna = index;
+                            });
+                          },
+                        );
+                  }),
+                ),
+              ),
+            ],
+          ),
+
+          //...
+          ]  
+        )
+pilihWarna adalah variabel yang sudah dideklarasi di awal, yang digunakan untuk menampung value dari index. kita membuat di dalam wrap me-generate 4 Container() yang dibungkus dengan GestureDetector(). Tiap Container memiliki warna yang berbeda-beda berdasarkan index, Container memiliki child icon done_all sesuai value yang ada pada variabel pilihWarna, dan dengan onTap akan menentukan value dari variabel pilihWarna. Jadi apabila user me-klik salah satu yang ada pada 4 Container tersebut maka Container yang diklik akan memiliki tanda done_all(tanda check), hasil dari widget yang dibuat akan menghasilkan tampilan sebagai berikut
+
+![select color]()
+
