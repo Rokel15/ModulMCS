@@ -1882,7 +1882,9 @@ Widget selanjutnya untuk pemilihan warna
           //...
           ]  
         )
-pilihWarna adalah variabel yang sudah dideklarasi di awal, yang digunakan untuk menampung value dari index. kita membuat di dalam wrap me-generate 4 Container() yang dibungkus dengan GestureDetector(). Tiap Container memiliki warna yang berbeda-beda berdasarkan index, Container memiliki child icon done_all sesuai value yang ada pada variabel pilihWarna, dan dengan onTap akan menentukan value dari variabel pilihWarna. Jadi apabila user me-klik salah satu yang ada pada 4 Container tersebut maka Container yang diklik akan memiliki tanda done_all(tanda check), hasil dari widget yang dibuat akan menghasilkan tampilan sebagai berikut
+pilihWarna adalah variabel yang sudah dideklarasi di awal, yang digunakan untuk menampung value dari index. kita membuat di dalam wrap me-generate 4 Container() yang dibungkus dengan GestureDetector(). Tiap Container memiliki warna yang berbeda-beda berdasarkan index, Container memiliki child icon done_all sesuai value yang ada pada variabel pilihWarna, dan dengan onTap akan menentukan value dari variabel pilihWarna. Jadi apabila user me-klik salah satu yang ada pada 4 Container tersebut maka Container yang diklik akan memiliki icon done_all(tanda check), hasil dari widget yang dibuat akan menghasilkan tampilan sebagai berikut
 
-![select color]()
+![select color](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%206/select%20color.PNG)
+
+Karena dari awal deklarasi variabel pilihWarna adalah 1 maka Container pada index ke 1 yang memiliki icon done_all(tanda chech)
 
