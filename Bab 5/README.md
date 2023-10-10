@@ -1888,3 +1888,128 @@ pilihWarna adalah variabel yang sudah dideklarasi di awal, yang digunakan untuk 
 
 Karena dari awal deklarasi variabel pilihWarna adalah 1 maka Container pada index ke 1 yang memiliki icon done_all(tanda chech)
 
+Selanjutnya membentuk widget untuk user mengisi field tugas1, tugas2, tugas3
+
+        child: ListView(
+          children: [
+          //...
+
+          //isi tugas 1
+          Container(
+            padding: EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 40),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Tugas 1', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
+                TextFormField(
+                  controller: tugas1,
+                  maxLines: 5,
+                  textAlign: TextAlign.justify,
+                  decoration: InputDecoration(
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.purpleAccent)
+                    )
+                  ),
+                )
+              ],
+            ),
+          ),
+
+          //isi tugas 2
+          Container(
+            padding: EdgeInsets.only(top: 40, left: 10, right: 10, bottom: 40),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Tugas 2', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
+                TextFormField(
+                  controller: tugas2,
+                  maxLines: 5,
+                  textAlign: TextAlign.justify,
+                  decoration: InputDecoration(
+                      focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Colors.purpleAccent)
+                      )
+                  ),
+                )
+              ],
+            ),
+          ),
+
+          //isi tugas 3
+          Container(
+            padding: EdgeInsets.only(top: 40, left: 10, right: 10, bottom: 40),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Tugas 3', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
+                TextFormField(
+                  controller: tugas3,
+                  maxLines: 5,
+                  textAlign: TextAlign.justify,
+                  decoration: InputDecoration(
+                      focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Colors.purpleAccent)
+                      )
+                  ),
+                )
+              ],
+            ),
+          ),
+
+          //...
+          ]  
+        )
+
+
+dan terakhir adalah membuat button untuk menyimpan data ke database
+
+        child: ListView(
+          children: [
+          //...
+
+          //save button
+          Container(
+            padding: EdgeInsets.only(bottom: 40),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                IconButton(
+                    icon: Icon(Icons.save_outlined),
+                    onPressed: (){
+                      add_to_catetanMhs();
+                      Get.back();
+                    }
+                )
+              ],
+            ),
+          )
+          
+          //...
+          ]  
+        )
+pada onPressed memanggil add_to_catetanMhs() untuk menyimpan data ke database, sehingga kita juga harus membuat add_to_catetanMhs()
+
+    //...
+    
+    @override
+    Widget build(BuildContext context) {
+  
+    //...
+    
+    }
+  
+    add_to_catetanMhs() async{
+      await catetanMhsController.addCatetanMhs(
+        catetanMhsModel: CatetanMhsModel(
+            tanggal: pilihTanggal,
+            warna: pilihWarna,
+            tugas1: tugas1.text,
+            tugas2: tugas2.text,
+            tugas3: tugas3.text,
+        ),
+      );
+      catetanMhsController.getCatetanMhsData();
+    }
+
+Kita juga harus memanggil catetanMhsController.getCatetanMhsData() agar data yang ada di database langsung terbaca dan dapat ditampilkan
