@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mcs_bab_2/models/cat.dart';
+
+import '../models/cat.dart';
 
 class DetailPage extends StatefulWidget {
-  // Cat cat;
-  // DetailPage({super.key, required this.cat});
   const DetailPage({Key? key, required this.cat}) : super(key: key);
   final Cat cat;
+
   @override
   State<DetailPage> createState() => _DetailPageState();
 }
