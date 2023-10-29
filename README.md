@@ -9,7 +9,7 @@ Pada praktikum bab 4 kita tidak akan berfokus pada tampilan, namun kita akan fok
 
 tampilan aplikasi akan seperti berikut
 
-[MainPage](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%205/MainPage.PNG)
+![MainPage](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%205/MainPage.PNG)
 
 tampilan di atas adalah tampilan utama, apabila user memasukan data dan press tombol input maka data akan masuk ke database dan data diambil dari database lalu ditampilkan pada bagian hasil input pada halaman aplikasi
 
