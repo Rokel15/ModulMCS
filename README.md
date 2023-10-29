@@ -19,3 +19,15 @@ lalu icon-icon yang berada di sebelah data hasil input memiliki masing-masing fu
 
 ![icons](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%205/icons%20in%20mainpage.PNG)
 
+Icons.delete_forever digunakann untuk menghapus 1 document(jika di database sql disebutnya 1 record)
+
+Icons.arrow_circle_down digunakan untuk mengubah number menjadi berkurang
+
+Icons.arrow_circle_up digunakan untuk mengubah number menjadi bertambah
+
+Icons.chevron_right digunakan untuk berpindah halaman ke halaman EditPage
+
+adapun halaman EditPage adalah sebagai berikut
+![EditPage](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%205/Editpage.PNG)
+
+terdapat juga button delete dan update, apa yang diperbarui pada head dan body apabila user menekan tombol button update maka data pada database akan berubah dan halaman aplikasi akan balik ke halaman MainPage.
