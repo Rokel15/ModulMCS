@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "832998685014",
+    "project_id": "mcs-bab4-firestore-56c19",
+    "storage_bucket": "mcs-bab4-firestore-56c19.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:832998685014:android:f82457d3d0c77e3b657ef7",
+        "android_client_info": {
+          "package_name": "com.example.bab_4_mcs"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdOGYv42YssxLO6Vif3qV4dTyex3OfDj4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:832998685014:android:310931540a0769ee657ef7",
+        "android_client_info": {
+          "package_name": "com.example.mcs_firestore"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdOGYv42YssxLO6Vif3qV4dTyex3OfDj4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:832998685014:android:aba9bd3c897e563e657ef7",
+        "android_client_info": {
+          "package_name": "com.example.test_connect_firebase1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdOGYv42YssxLO6Vif3qV4dTyex3OfDj4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
