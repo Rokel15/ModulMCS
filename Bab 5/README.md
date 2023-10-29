@@ -2259,3 +2259,16 @@ perubahan data yang dilakukan user pada textformfield akan disimpan oleh control
               '''UPDATE ${DB.catetanMhsDbTable} SET tugas3 = '${tugas3.text}' WHERE id = ?''',[catetanMhsModel!.id]
           );
 catetanMhsController.getCatetanMhsData(); agar data dapat dibaca langsung membaca dan Get.back(); untuk kembali ke halaman awal.
+
+---
+## Laporan Pendahuluan(LP)
+1. Jelaskan apa itu Database SQL!
+
+2. Jelaskan apa itu DDL dan DML!
+   
+3. Jelaskan apa itu SQFLite!
+ 
+4. Apa peran database dan bagaimana jika suatu sistem informasi tidak memiliki database?
+
+## Laporan Akhir(LA)
+1. Berikan kesimpulan singkat pada Bab 5!
