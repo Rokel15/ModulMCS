@@ -6,4 +6,11 @@ Bab sebelumnya kita mempelajari database yang disimpan di storage lokal, dan pad
 
 Pada praktikum bab 4 kita tidak akan berfokus pada tampilan, namun kita akan fokus pada fungsi yaitu bagaimana cara membuat database, mengambil data dari database dan melalukan perubahan pada database(update dan delete)
 
-tampilan aplikasi akan seperti beriku
+tampilan aplikasi akan seperti berikut
+
+[MainPage](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%205/MainPage.PNG)
+
+tampilan di atas adalah tampilan utama, apabila user memasukan data dan press tombol input maka data akan masuk ke database dan data diambil dari database lalu ditampilkan pada bagian hasil input pada halaman aplikasi
+
+
+
