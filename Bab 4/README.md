@@ -373,7 +373,7 @@ Kemudian di bawahnya terdapat elevatedbutton
           ),
 dengan button ini kita menambahkan data dari TextFormField ke collection lalu TextFormField dikosongkan kembali. Di website firebase akam terlihat bahwa data telah masuk ke database seperti gambar di bawah
 
-![]()
+![data di firestore](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%205/hasil%20input%20data.PNG)
 
 Selanjutnya tepat di bawah tulisan 'hasil input :' kita akan menampilkan data yang dibaca dari database menggunakan Strea,Builder()
 
