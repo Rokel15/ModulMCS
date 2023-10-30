@@ -111,3 +111,30 @@ class MyApp extends StatelessWidget {
 }
 ```
 Penjelasan code
+
+    void main() async{
+      WidgetsFlutterBinding.ensureInitialized();
+      await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+      runApp(const MyApp());
+    }
+Buatlah void main menjadi asynchronous, dalam body main tambahkan WidgetsFlutterBinding.ensureInitialized(); untuk memastikan sebelum aplikasi berjalan  inisialisasi yang diperlukan untuk pengelolaan widget, rendering, dan fungsi-fungsi dasar lainnya telah selesai dan tambahkan await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform); untuk menginisialisasi firebase pada aplikasi.
+
+    class MyApp extends StatelessWidget {
+      const MyApp({super.key});
+    
+      @override
+      Widget build(BuildContext context) {
+        return MaterialApp(
+          title: 'mcs bab4',
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            colorScheme: ColorScheme.dark(),
+            useMaterial3: true,
+          ),
+          home: const MainPage(),
+        );
+      }
+    }
+Untuk bagian ini masih sama seperti bab-bab sebelumnya. Ketika aplikasi berjalan halaman awal aplikasi adalah halaman yang dibentuk dari class MainPage().
+
+code pada MainPage.dart
