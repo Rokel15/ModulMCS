@@ -252,9 +252,6 @@ class _MainPageState extends State<MainPage> {
                       number: (e.data() as dynamic)['number'].toString(),
                       onDelete: (){collectionReference.doc(e.id).delete();},
                       numberDecrement: (){
-                        // testingFirestore.doc(e.id).update({'number': e.data()?['number'] - 1});
-                        //dulu sih caranya begini anjir, asulah semenjak update
-
                         Map<String, dynamic> data = e.data() as Map<String, dynamic>;
                         int number = data['number'] as int;
                         collectionReference.doc(e.id).update({'number': number - 1});
