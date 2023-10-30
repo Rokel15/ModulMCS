@@ -31,3 +31,24 @@ adapun halaman EditPage adalah sebagai berikut
 ![EditPage](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%205/Editpage.PNG)
 
 terdapat juga button delete dan update, apa yang diperbarui pada head dan body apabila user menekan tombol button update maka data pada database akan berubah dan halaman aplikasi akan balik ke halaman MainPage.
+
+---
+### Konfigurasi Firebase
+Kita akan mengatur agar firebase dapat terhubung dengan aplikasi, konfigurasi firebase yang akan kita kerjakan bisa dilihat pada dokumentasi [https://firebase.google.com/docs/cli#install-cli-windows](https://firebase.google.com/docs/cli#install-cli-windows) dan [https://firebase.google.com/docs/flutter/setup?platform=android](https://firebase.google.com/docs/flutter/setup?platform=android). Kita melakukan konfigurasi firebase menggunakan CLI.
+
+1 Unduh [node js](https://nodejs.org/en) dan install [node js](https://nodejs.org/en)
+
+2. setelah melakukan instalasi tambahkan path C:\Users\<nama user pada perangkat>\AppData\Local\Pub\Cache\bin ke environment user variable
+
+3. Buka command prompt(cmd)
+
+4. ketik pada cmd npm install -g firebase-tools untuk melakukan instalasi tools dari firebase. Tunggu hingga proses instalasi selesai
+```cmd
+npm install -g firebase-tools
+```
+
+5. lalu ketik firebase login, nanti akan terdapat url dan langsung diarahkan ke browser dengan url yang dituju untuk login akun google
+```cmd
+firebase login
+```
+6. rfneifernio
