@@ -1,4 +1,4 @@
-# Bab 6
+# Bab 4
 # Firestore
 ### Pada bab ini kita akan mempelajari firestore
 Firebase adalah layanan yang disediakan oleh google dan dapat digunakan oleh pengembang aplikasi mobile ataupun web, dengan adanya firebase para pengembang dapat mengembangkan aplikasi tanpa harus membangun back end dari awal. Salah satu fitur yang terdapat pada firebase adalah firestore, firestore adalah database berbentuk document (nosql).
@@ -46,9 +46,12 @@ Kita akan mengatur agar firebase dapat terhubung dengan aplikasi, konfigurasi fi
 ```cmd
 npm install -g firebase-tools
 ```
-
 5. lalu ketik firebase login, nanti akan terdapat url dan langsung diarahkan ke browser dengan url yang dituju untuk login akun google
 ```cmd
 firebase login
 ```
-6. rfneifernio
+6. Jika sudah login dan apabila sebelumnya pernah membuat project pada firebase maka list dari project yang pernah dibuat tersebut dapat dilihat dengan mengunakan command firebase projects:list
+```cmd
+firebase projects:list
+```
+8. ss
