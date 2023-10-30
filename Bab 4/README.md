@@ -65,4 +65,8 @@ dart pub global activate flutterfire_cli
 ```cmd
 flutterfire configure
 ```
-12. gkji
+12. Nanti akan muncul file firebase_options.dart pada folder lib yang dibuat secara otomatis setelah memasukkan command flutterfire configure
+
+![]{}
+
+14. 14
