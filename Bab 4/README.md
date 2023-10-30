@@ -380,52 +380,52 @@ Data pada gambar di atas hanyalah contoh apabila user memasukkan head = "qwer" u
 Selanjutnya pada halaman aplikasi tepat di bawah tulisan 'hasil input :' kita akan menampilkan data yang dibaca dari database menggunakan Strea,Builder()
 
 
-          Container(
-            width: double.infinity,
-            child: StreamBuilder(
-              stream: collectionReference.snapshots(),
-              builder: (_, snapshot){
-                if(snapshot.hasData){
-                  return Column(
-                    children: snapshot.data!.docs.map((e)
-                    => ShowData(
-                      head: (e.data() as dynamic)['head'].toString(),
-                      body: (e.data() as dynamic)['body'].toString(),
-                      number: (e.data() as dynamic)['number'].toString(),
-                      onDelete: (){collectionReference.doc(e.id).delete();},
-                      numberDecrement: (){
-                        // testingFirestore.doc(e.id).update({'number': e.data()?['number'] - 1});
-                        //dulu sih caranya begini anjir, asulah semenjak update
-
-                        Map<String, dynamic> data = e.data() as Map<String, dynamic>;
-                        int number = data['number'] as int;
-                        collectionReference.doc(e.id).update({'number': number - 1});
-                      },
-                      numberIncrement: (){
-                        Map<String, dynamic> data = e.data() as Map<String, dynamic>;
-                        int number = data['number'] as int;
-                        collectionReference.doc(e.id).update({'number': number + 1});
-                      },
-                      toEditPage: () async{
-                        DocumentSnapshot documentSnapshot = await collectionReference.doc(e.id).get();
-                        Navigator.push(context, MaterialPageRoute(
-                          builder: (context){
-                            return EditPage(documentSnapshot: documentSnapshot);
-                          },
-                        ));
-                      },
-                    )).toList(),
-                  );
-                } else{
-                  return Center(child: CircularProgressIndicator());
-                }
+    Container(
+      width: double.infinity,
+      child: StreamBuilder(
+        stream: collectionReference.snapshots(),
+        builder: (_, snapshot){
+          if(snapshot.hasData){
+            return Column(
+              children: snapshot.data!.docs.map((e)
+              => ShowData(
+                head: (e.data() as dynamic)['head'].toString(),
+                body: (e.data() as dynamic)['body'].toString(),
+                number: (e.data() as dynamic)['number'].toString(),
+                onDelete: (){collectionReference.doc(e.id).delete();},
+                numberDecrement: (){
+                  // testingFirestore.doc(e.id).update({'number': e.data()?['number'] - 1});
+                  //dulu sih caranya begini anjir, asulah semenjak update
+  
+                  Map<String, dynamic> data = e.data() as Map<String, dynamic>;
+                  int number = data['number'] as int;
+                  collectionReference.doc(e.id).update({'number': number - 1});
                 },
-            ),
-          )
+                numberIncrement: (){
+                  Map<String, dynamic> data = e.data() as Map<String, dynamic>;
+                  int number = data['number'] as int;
+                  collectionReference.doc(e.id).update({'number': number + 1});
+                },
+                toEditPage: () async{
+                  DocumentSnapshot documentSnapshot = await collectionReference.doc(e.id).get();
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context){
+                      return EditPage(documentSnapshot: documentSnapshot);
+                    },
+                  ));
+                },
+              )).toList(),
+            );
+          } else{
+            return Center(child: CircularProgressIndicator());
+          }
+          },
+      ),
+    )
 StreamBuilder() bersifat relatime, appabila kita melakukan perubahan baik melalui aplikasi ataupun langsung dari firestore maka data yang dibaca dengan StreamBuilder() akan langsung berubah sesuai yang ada pada firestore. Pada code di atas memiliki return Column(). Di dalam Column tidak seperti List biasanya namun akan dibuat menjadi children: snapshot.data!.docs.map((e) => ShowData()).toList dimana kita akan mapping data lalu kita konversi ke dalam bentuk list dengan toList(). Adapun ShowData() adalah sebuah class yang digunakan untuk menampilkan data yang ada pada firestore, oleh karena itu class ShowData memiliki constructor seperti head, body, number, onDelete, numberDecrement dan numberIncrement.
-
+```
 head: (e.data() as dynamic)['head'].toString(),
-
+```
 constructor head akan diisi untuk menampilkan 'head' dari firestore
 
 body: (e.data() as dynamic)['body'].toString(),
