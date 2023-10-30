@@ -67,6 +67,10 @@ flutterfire configure
 ```
 12. Nanti akan muncul file firebase_options.dart pada folder lib yang dibuat secara otomatis setelah memasukkan command flutterfire configure
 
-![]{}
+![](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%205/firebase_options.dart.png)
 
-14. 14
+14. Tambahkan package firebase_core: ^2.20.0(versi ini adalah terbaru saat modul ini dibuat, mungkin nanti ada perubahan) ke pubspec.yaml dan juga tambahkan package cloud_firestore: ^4.12.1(versi ini adalah terbaru saat modul ini dibuat, mungkin nanti ada perubahan) karena kita akan menggunakan firestore untuk menyimpan data.
+
+---
+### Membuat Aplikasi
+
