@@ -37,7 +37,7 @@ terdapat juga button delete dan update, apa yang diperbarui pada head dan body a
 ### Konfigurasi Firebase
 Kita akan mengatur agar firebase dapat terhubung dengan aplikasi, konfigurasi firebase yang akan kita kerjakan bisa dilihat pada dokumentasi [https://firebase.google.com/docs/cli#install-cli-windows](https://firebase.google.com/docs/cli#install-cli-windows) dan [https://firebase.google.com/docs/flutter/setup?platform=android](https://firebase.google.com/docs/flutter/setup?platform=android). Kita melakukan konfigurasi firebase menggunakan CLI.
 
-1 Unduh [node js](https://nodejs.org/en) dan install [node js](https://nodejs.org/en)
+1. Unduh [node js](https://nodejs.org/en) dan install [node js](https://nodejs.org/en)
 
 2. setelah melakukan instalasi tambahkan path C:\Users\<nama user pada perangkat>\AppData\Local\Pub\Cache\bin ke environment user variable
 
