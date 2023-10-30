@@ -28,6 +28,7 @@ Icons.arrow_circle_up digunakan untuk mengubah number menjadi bertambah
 Icons.chevron_right digunakan untuk berpindah halaman ke halaman EditPage
 
 adapun halaman EditPage adalah sebagai berikut
+
 ![EditPage](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%205/Editpage.PNG)
 
 terdapat juga button delete dan update, apa yang diperbarui pada head dan body apabila user menekan tombol button update maka data pada database akan berubah dan halaman aplikasi akan balik ke halaman MainPage.
@@ -54,4 +55,14 @@ firebase login
 ```cmd
 firebase projects:list
 ```
-8. ss
+8. Lakukan instalasi flutterfire cli
+```cmd
+dart pub global activate flutterfire_cli
+```
+9. Pergi ke flutter project directory yang anda buat
+
+10. Ketik flutterfire configure untuk konfigurasi firebase dalam project
+```cmd
+flutterfire configure
+```
+12. gkji
