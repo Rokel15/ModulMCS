@@ -73,4 +73,41 @@ flutterfire configure
 
 ---
 ### Membuat Aplikasi
+PErhatikan file-file berikut
 
+![project files](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%205/project%20files.PNG)
+
+buatlah file Mainpage.dart, EditPage.dart, ShowData.dart. Lalu kita mulai untuk membuat aplikasinya
+
+code pada main.dart
+```dart
+import 'package:bab_4_mcs/firebase_options.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+
+import 'MainPage.dart';
+
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'mcs bab4',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        colorScheme: ColorScheme.dark(),
+        useMaterial3: true,
+      ),
+      home: const MainPage(),
+    );
+  }
+}
+```
