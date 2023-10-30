@@ -371,4 +371,53 @@ Kemudian di bawahnya terdapat elevatedbutton
               },
             ),
           ),
-dengan button ini kita menambahkan data dari TextFormField ke collection lalu TextFormField dikosongkan kembali
+dengan button ini kita menambahkan data dari TextFormField ke collection lalu TextFormField dikosongkan kembali. Di website firebase akam terlihat bahwa data telah masuk ke database seperti gambar di bawah
+
+![]()
+
+Selanjutnya tepat di bawah tulisan 'hasil input :' kita akan menampilkan data yang dibaca dari database menggunakan Strea,Builder()
+
+```dart
+          Container(
+            width: double.infinity,
+            child: StreamBuilder(
+              stream: collectionReference.snapshots(),
+              builder: (_, snapshot){
+                if(snapshot.hasData){
+                  return Column(
+                    children: snapshot.data!.docs.map((e)
+                    => ShowData(
+                      head: (e.data() as dynamic)['head'].toString(),
+                      body: (e.data() as dynamic)['body'].toString(),
+                      number: (e.data() as dynamic)['number'].toString(),
+                      onDelete: (){collectionReference.doc(e.id).delete();},
+                      numberDecrement: (){
+                        // testingFirestore.doc(e.id).update({'number': e.data()?['number'] - 1});
+                        //dulu sih caranya begini anjir, asulah semenjak update
+
+                        Map<String, dynamic> data = e.data() as Map<String, dynamic>;
+                        int number = data['number'] as int;
+                        collectionReference.doc(e.id).update({'number': number - 1});
+                      },
+                      numberIncrement: (){
+                        Map<String, dynamic> data = e.data() as Map<String, dynamic>;
+                        int number = data['number'] as int;
+                        collectionReference.doc(e.id).update({'number': number + 1});
+                      },
+                      toEditPage: () async{
+                        DocumentSnapshot documentSnapshot = await collectionReference.doc(e.id).get();
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context){
+                            return EditPage(documentSnapshot: documentSnapshot);
+                          },
+                        ));
+                      },
+                    )).toList(),
+                  );
+                } else{
+                  return Center(child: CircularProgressIndicator());
+                }
+                },
+            ),
+          )
+```
