@@ -24,15 +24,6 @@ class ShowData extends StatefulWidget {
 }
 
 class _ShowDataState extends State<ShowData> {
-  TextEditingController isiHead = TextEditingController();
-
-  @override
-  void initState() {
-    isiHead.text = widget.head;
-    // TODO: implement initState
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Row(
