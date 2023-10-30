@@ -286,3 +286,89 @@ class _MainPageState extends State<MainPage> {
   }
 }
 ```
+Penjelasan code
+
+    TextEditingController headController = TextEditingController();
+    TextEditingController bodyController = TextEditingController();
+    TextEditingController numberController = TextEditingController();
+Membuat controller untuk TextFormField yang akan dimuat pada halaman aplikasi dan Tambahkan dispose untuk menghindari kebocoran penyimpanan aplikasi
+
+    @override
+    void dispose() {
+      headController.dispose();
+      bodyController.dispose();
+      numberController.dispose();
+      super.dispose();
+    }
+
+Di dalam method build buatlah instance dari firestore dan buatlah koleksi dengan anam bebas(jika di database sql sebutannya adalah nama table)
+    
+    @override
+    Widget build(BuildContext context) {
+      FirebaseFirestore firestore = FirebaseFirestore.instance;
+      CollectionReference collectionReference = firestore.collection('mcs bab 4');
+  
+      return Scaffold(
+        appBar: AppBar(title: Text('mcs bab 4'), backgroundColor: Colors.black,),
+        body: ListView(...)
+      );
+    }
+Property body pada Scaffold menggunakan ListView dan di dalam ListView terdapat beberapa widget
+
+          Row(
+            children: [
+              Text('head : '),
+              Expanded(
+                child: TextFormField(
+                  controller: headController,
+                  decoration: InputDecoration(hintText: 'head',),
+                ),
+              ),
+            ],
+          ),
+
+          Row(
+            children: [
+              Text('body : '),
+              Expanded(
+                child: TextFormField(
+                  controller: bodyController,
+                  decoration: InputDecoration(hintText: 'body',),
+                ),
+              ),
+            ],
+          ),
+
+          Row(
+            children: [
+              Text('number : '),
+              Expanded(
+                child: TextFormField(
+                  controller: numberController,
+                  decoration: InputDecoration(hintText: 'number',),
+                  keyboardType: TextInputType.number,
+                  inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
+                ),
+              ),
+            ],
+          ),
+Di setiap Row terdapat TextFormField dengan controller dan hintText yang sudah ditentukan, pada TextFormField yang terakhir keyboardType diatur agar tipe keyboard yang muncul hanya angka saja dan inputFormatters dibuat agar hanya angka saja yang dapat masuk ke dalam TextFormField.
+
+Kemudian di bawahnya terdapat elevatedbutton
+
+          Center(
+            child: ElevatedButton(
+              child: Text('input'),
+              onPressed: (){
+                collectionReference.add({
+                  'head' : headController.text,
+                  'body' : bodyController.text,
+                  'number' : int.parse(numberController.text),
+                });
+                headController.text = '';
+                bodyController.text = '';
+                numberController.text = '';
+              },
+            ),
+          ),
+dengan button ini kita menambahkan data dari TextFormField ke collection lalu TextFormField dikosongkan kembali
