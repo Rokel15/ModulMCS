@@ -379,7 +379,7 @@ Data pada gambar di atas hanyalah contoh apabila user memasukkan head = "qwer" u
 
 Selanjutnya pada halaman aplikasi tepat di bawah tulisan 'hasil input :' kita akan menampilkan data yang dibaca dari database menggunakan Strea,Builder()
 
-```dart
+
           Container(
             width: double.infinity,
             child: StreamBuilder(
@@ -422,7 +422,6 @@ Selanjutnya pada halaman aplikasi tepat di bawah tulisan 'hasil input :' kita ak
                 },
             ),
           )
-```
 StreamBuilder() bersifat relatime, appabila kita melakukan perubahan baik melalui aplikasi ataupun langsung dari firestore maka data yang dibaca dengan StreamBuilder() akan langsung berubah sesuai yang ada pada firestore. Pada code di atas memiliki return Column(). Di dalam Column tidak seperti List biasanya namun akan dibuat menjadi children: snapshot.data!.docs.map((e) => ShowData()).toList dimana kita akan mapping data lalu kita konversi ke dalam bentuk list dengan toList(). Adapun ShowData() adalah sebuah class yang digunakan untuk menampilkan data yang ada pada firestore, oleh karena itu class ShowData memiliki constructor seperti head, body, number, onDelete, numberDecrement dan numberIncrement.
 
 head: (e.data() as dynamic)['head'].toString(),
