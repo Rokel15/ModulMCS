@@ -536,9 +536,33 @@ class _ShowDataState extends State<ShowData> {
 ```
 Penjelasan code
 
-Kita membuat constructor pada class ShowData, dari constructor tersebut data yang didapatkan bermacam-macam digunakan ke dalam widget sesuai kegunaannya, misal
+Kita membuat constructor pada class ShowData, dari constructor tersebut data yang didapatkan bermacam-macam digunakan ke dalam widget sesuai kegunaannya, seperti
 ```
 Text('head : ${widget.head}'),
 Text('body : ${widget.body}'),
 ```
 digunakan untuk menampilkan data dari firestore
+```ewe
+Row(
+  children: [
+    GestureDetector(
+      child: Icon(Icons.delete_forever),
+      onTap: (){widget.onDelete();},
+    ),
+
+    GestureDetector(
+      child: Icon(Icons.arrow_circle_down),
+      onTap: (){widget.numberDecrement();},
+    ),
+    Text(widget.number),
+    GestureDetector(
+      child: Icon(Icons.arrow_circle_up),
+      onTap: (){widget.numberIncrement();},
+    ),
+
+    GestureDetector(
+      child: Icon(Icons.chevron_right),
+      onTap: (){widget.toEditPage();},
+    )
+```
+
