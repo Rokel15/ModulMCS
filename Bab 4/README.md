@@ -451,6 +451,17 @@ numberIncrement: (){
 },
 ```
 constructor numberIncrement akan diisi untuk membuat perubahan pada nilai number ditambah 1 setiap kali user klik Icons.arrow_circle_up
+```
+toEditPage: () async{
+  DocumentSnapshot documentSnapshot = await collectionReference.doc(e.id).get();
+  Navigator.push(context, MaterialPageRoute(
+    builder: (context){
+      return EditPage(documentSnapshot: documentSnapshot);
+    },
+  ));
+},
+```
+constructor toEditPage akan diisi untuk perpindahan halaman ke EditPage. Halaman EditPage dibentuk dari class EditPage yang nantinya digunakan untuk melakukan perubahan data, class EditPage mempunyai constructor untuk mengisi documentSnapshot, agar ketika class EditPage dipanggil dari MainPage data documentSnapshot dapat dikirim ke class EditPage. documentSnapshot berisi = await collectionReference.doc(e.id).get(); untuk mengambil nilai document dengan method get()
 
 Membuat class ShowData pada file ShowData.dart
 
@@ -482,15 +493,6 @@ class ShowData extends StatefulWidget {
 }
 
 class _ShowDataState extends State<ShowData> {
-  TextEditingController isiHead = TextEditingController();
-
-  @override
-  void initState() {
-    isiHead.text = widget.head;
-    // TODO: implement initState
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -510,7 +512,6 @@ class _ShowDataState extends State<ShowData> {
               child: Icon(Icons.delete_forever),
               onTap: (){widget.onDelete();},
             ),
-
 
             GestureDetector(
               child: Icon(Icons.arrow_circle_down),
@@ -533,3 +534,11 @@ class _ShowDataState extends State<ShowData> {
   }
 }
 ```
+Penjelasan code
+
+Kita membuat constructor pada class ShowData, dari constructor tersebut data yang didapatkan bermacam-macam digunakan ke dalam widget sesuai kegunaannya, misal
+```
+Text('head : ${widget.head}'),
+Text('body : ${widget.body}'),
+```
+digunakan untuk menampilkan data dari firestore
