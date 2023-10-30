@@ -375,7 +375,9 @@ dengan button ini kita menambahkan data dari TextFormField ke collection lalu Te
 
 ![data di firestore](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%205/hasil%20input%20data.PNG)
 
-Selanjutnya tepat di bawah tulisan 'hasil input :' kita akan menampilkan data yang dibaca dari database menggunakan Strea,Builder()
+Data pada gambar di atas hanyalah contoh apabila user memasukkan head = "qwer" untuk body = "qwertyuiop" dan number = 3
+
+Selanjutnya pada halaman aplikasi tepat di bawah tulisan 'hasil input :' kita akan menampilkan data yang dibaca dari database menggunakan Strea,Builder()
 
 ```dart
           Container(
@@ -421,3 +423,32 @@ Selanjutnya tepat di bawah tulisan 'hasil input :' kita akan menampilkan data ya
             ),
           )
 ```
+StreamBuilder() bersifat relatime, appabila kita melakukan perubahan baik melalui aplikasi ataupun langsung dari firestore maka data yang dibaca dengan StreamBuilder() akan langsung berubah sesuai yang ada pada firestore. Pada code di atas memiliki return Column(). Di dalam Column tidak seperti List biasanya namun akan dibuat menjadi children: snapshot.data!.docs.map((e) => ShowData()).toList dimana kita akan mapping data lalu kita konversi ke dalam bentuk list dengan toList(). Adapun ShowData() adalah sebuah class yang digunakan untuk menampilkan data yang ada pada firestore, oleh karena itu class ShowData memiliki constructor seperti head, body, number, onDelete, numberDecrement dan numberIncrement.
+
+head: (e.data() as dynamic)['head'].toString(),
+
+constructor head akan diisi untuk menampilkan 'head' dari firestore
+
+body: (e.data() as dynamic)['body'].toString(),
+
+constructor body akan diisi untuk menampilkan 'body' dari firestore
+
+number: (e.data() as dynamic)['number'].toString(),
+
+constructor number akan diisi untuk menampilkan 'number' dari firestore
+
+onDelete: (){collectionReference.doc(e.id).delete();},
+
+constructor onDelete akan diisi untuk menghapus 1 document(1 record) dari firestore
+
+numberDecrement: (){
+  Map<String, dynamic> data = e.data() as Map<String, dynamic>;
+  int number = data['number'] as int;
+  collectionReference.doc(e.id).update({'number': number - 1});
+}
+
+numberIncrement: (){
+  Map<String, dynamic> data = e.data() as Map<String, dynamic>;
+  int number = data['number'] as int;
+  collectionReference.doc(e.id).update({'number': number + 1});
+},
