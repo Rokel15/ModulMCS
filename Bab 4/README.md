@@ -1,16 +1,54 @@
-# bab_4_mcs
+# Bab 6
+# Firestore
+### Pada bab ini kita akan mempelajari firestore
+Firebase adalah layanan yang disediakan oleh google dan dapat digunakan oleh pengembang aplikasi mobile ataupun web, dengan adanya firebase para pengembang dapat mengembangkan aplikasi tanpa harus membangun back end dari awal. Salah satu fitur yang terdapat pada firebase adalah firestore, firestore adalah database berbentuk document (nosql).
+## Praktikum Bab 4
+Bab sebelumnya kita mempelajari database yang disimpan di storage lokal, dan pada praktikum kali ini kita akan membuat database yang berjalan secara online
 
-A new Flutter project.
+Pada praktikum bab 4 kita tidak akan berfokus pada tampilan, namun kita akan fokus pada fungsi yaitu bagaimana cara membuat database, mengambil data dari database dan melalukan perubahan pada database(update dan delete)
 
-## Getting Started
+tampilan aplikasi akan seperti berikut
 
-This project is a starting point for a Flutter application.
+![MainPage](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%205/MainPage.PNG)
 
-A few resources to get you started if this is your first Flutter project:
+tampilan di atas adalah tampilan utama, apabila user memasukan data dan press tombol input maka data akan masuk ke database dan data diambil dari database lalu ditampilkan di bawah tulisan hasil input pada halaman aplikasi
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+![hasil input](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%205/hasil%20input.PNG)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+lalu icon-icon yang berada di sebelah data hasil input memiliki masing-masing fungsi
+
+![icons](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%205/icons%20in%20mainpage.PNG)
+
+Icons.delete_forever digunakann untuk menghapus 1 document(jika di database sql disebutnya 1 record)
+
+Icons.arrow_circle_down digunakan untuk mengubah number menjadi berkurang
+
+Icons.arrow_circle_up digunakan untuk mengubah number menjadi bertambah
+
+Icons.chevron_right digunakan untuk berpindah halaman ke halaman EditPage
+
+adapun halaman EditPage adalah sebagai berikut
+![EditPage](https://github.com/Rokel15/testing_modulMCS/blob/main/Images/bab%205/Editpage.PNG)
+
+terdapat juga button delete dan update, apa yang diperbarui pada head dan body apabila user menekan tombol button update maka data pada database akan berubah dan halaman aplikasi akan balik ke halaman MainPage.
+
+---
+### Konfigurasi Firebase
+Kita akan mengatur agar firebase dapat terhubung dengan aplikasi, konfigurasi firebase yang akan kita kerjakan bisa dilihat pada dokumentasi [https://firebase.google.com/docs/cli#install-cli-windows](https://firebase.google.com/docs/cli#install-cli-windows) dan [https://firebase.google.com/docs/flutter/setup?platform=android](https://firebase.google.com/docs/flutter/setup?platform=android). Kita melakukan konfigurasi firebase menggunakan CLI.
+
+1 Unduh [node js](https://nodejs.org/en) dan install [node js](https://nodejs.org/en)
+
+2. setelah melakukan instalasi tambahkan path C:\Users\<nama user pada perangkat>\AppData\Local\Pub\Cache\bin ke environment user variable
+
+3. Buka command prompt(cmd)
+
+4. ketik pada cmd npm install -g firebase-tools untuk melakukan instalasi tools dari firebase. Tunggu hingga proses instalasi selesai
+```cmd
+npm install -g firebase-tools
+```
+
+5. lalu ketik firebase login, nanti akan terdapat url dan langsung diarahkan ke browser dengan url yang dituju untuk login akun google
+```cmd
+firebase login
+```
+6. rfneifernio
