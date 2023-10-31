@@ -586,13 +586,11 @@ class EditPage extends StatefulWidget {
 class _EditPageState extends State<EditPage> {
   TextEditingController headController = TextEditingController();
   TextEditingController bodyController = TextEditingController();
-  TextEditingController numberController = TextEditingController();
 
   @override
   void dispose() {
     headController.dispose();
     bodyController.dispose();
-    numberController.dispose();
     super.dispose();
   }
   @override
@@ -660,3 +658,109 @@ class _EditPageState extends State<EditPage> {
 ```
 Penjelasan code
 
+Kita sediakan terlebih dahulu controllernya dan juga disposenya untuk menghindari kebocoran memori aplikasi, karena nanti kita akan membuat TextFormField untuk mengisi pembaruan data pada firestore
+```
+class EditPage extends StatefulWidget {
+
+  //...
+
+}
+class _EditPageState extends State<EditPage> {
+  TextEditingController headController = TextEditingController();
+  TextEditingController bodyController = TextEditingController();
+
+  @override
+  void dispose() {
+    headController.dispose();
+    bodyController.dispose();
+    super.dispose();
+  }
+  @override
+  Widget build(BuildContext context) {
+    //...
+  }
+}
+```
+Membuat variabel data
+```
+class EditPage extends StatefulWidget {
+
+  //...
+
+}
+class _EditPageState extends State<EditPage> {
+  
+  //...
+  
+  @override
+  Widget build(BuildContext context) {
+    Map<String, dynamic> data = widget.documentSnapshot.data() as Map<String, dynamic>;
+
+    headController.text = data['head'];
+    bodyController.text = data['body'];
+
+    return Scaffold(
+        appBar: AppBar(title: Text('Edit Page'),),
+        body: ListView(
+          //...
+        )
+    );
+  }
+}
+```
+variabel data menampung documentSnapshot dan dibuat sebagai Map dengan Map, lalu headController.text = data['head']; dan bodyController.text = data['body']; agar ketika halaman EditPage dibuka maka TextFormField sudah memiliki isi dari documentSnapshot.
+
+Lalu berikutnya pada Button
+```
+class EditPage extends StatefulWidget {
+
+  //...
+
+}
+
+class _EditPageState extends State<EditPage> {
+
+  //...
+  
+  @override
+  Widget build(BuildContext context) {
+
+    //...
+
+    return Scaffold(
+      appBar: AppBar(title: Text('Edit Page'),),
+      body: ListView(
+        children: [
+          //...
+
+          SizedBox(height: 15,),
+
+          Row(mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              ElevatedButton(
+                child: Text('Delete'),
+                onPressed: (){
+                  widget.documentSnapshot.reference.delete();
+                  Navigator.of(context).pop();
+                },
+              ),
+              ElevatedButton(
+                child: Text('Update'),
+                onPressed: (){
+                  widget.documentSnapshot.reference.update({
+                    'head' : headController.text,
+                    'body' : bodyController.text,
+                    // data['body'] : body.text, bentuk seperti ini tidak bisa
+                  },);
+                  Navigator.of(context).pop();
+                },
+              )
+            ],
+          )
+        ],
+      ),
+    );
+  }
+}
+```
+Untuk button yang bertuliskan delete digunakan untuk menghapus 1 document(1 record) dengan documentSnapshot.reference.delete(); dan button yang bertuliskan update digunakan untuk memperbarui data dengan format mapping dan pastikan penamaan sama dengan yang ada di document, misal yang terdapat pada document adalah 'head' maka saat update juga harus sama persis 'head'.
