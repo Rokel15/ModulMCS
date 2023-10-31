@@ -544,7 +544,7 @@ Text('body : ${widget.body}'),
 digunakan untuk menampilkan data dari firestore
 
 adapun yg lainnya
-```c++
+```flutter
 Row(
   children: [
     GestureDetector(
