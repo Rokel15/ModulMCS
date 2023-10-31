@@ -774,5 +774,5 @@ Untuk button yang bertuliskan delete digunakan untuk menghapus 1 document(1 reco
 3. Jelaskan apa itu cloud firestore!
 
 4. Seberapa penting peranan database noSQL pada suatu sistem!
-## Laporan Akhir
+## Laporan Akhir(LA)
 1. Berikan kesimpulan singkat pada Bab 4!
