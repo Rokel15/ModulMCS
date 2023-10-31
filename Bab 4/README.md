@@ -764,3 +764,15 @@ class _EditPageState extends State<EditPage> {
 }
 ```
 Untuk button yang bertuliskan delete digunakan untuk menghapus 1 document(1 record) dengan documentSnapshot.reference.delete(); dan button yang bertuliskan update digunakan untuk memperbarui data dengan format mapping dan pastikan penamaan sama dengan yang ada di document, misal yang terdapat pada document adalah 'head' maka saat update juga harus sama persis 'head'.
+
+---
+## Laporan pendahuluan(LP)
+1. Jelaskan apa itu database noSQL!
+
+2. Jelaskan apa itu firebase!
+
+3. Jelaskan apa itu cloud firestore!
+
+4. Seberapa penting peranan database noSQL pada suatu sistem!
+## Laporan Akhir
+1. Berikan kesimpulan singkat pada Bab 4!
