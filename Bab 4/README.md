@@ -542,7 +542,9 @@ Text('head : ${widget.head}'),
 Text('body : ${widget.body}'),
 ```
 digunakan untuk menampilkan data dari firestore
-```ewe
+
+adapun yg lainnya
+```java
 Row(
   children: [
     GestureDetector(
@@ -565,4 +567,4 @@ Row(
       onTap: (){widget.toEditPage();},
     )
 ```
-
+Menggunakan function onDelete(), numberDecrement(), numberIncrement() dan toEditPage()
