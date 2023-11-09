@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "190883304174",
+    "firebase_url": "https://proj1-e49dc-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "proj1-e49dc",
+    "storage_bucket": "proj1-e49dc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:190883304174:android:54b2a575ef5d69fd5e99ff",
+        "android_client_info": {
+          "package_name": "com.example.led_controller"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXlJUp6ehUfmQM5RgSoJDmn5kXLk94w8s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:190883304174:android:12d7b5f31e1144545e99ff",
+        "android_client_info": {
+          "package_name": "com.example.test_rtdb1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXlJUp6ehUfmQM5RgSoJDmn5kXLk94w8s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
