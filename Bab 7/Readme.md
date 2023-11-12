@@ -10,15 +10,15 @@
   <img align="right" src="images/linkedin.png" width="30">
 </a>
 <br/><br/>
-<h4 align="right">Creator : Muhamad Sandi Hidayat</h4>
+<h4 align="right">By Muhamad Sandi Hidayat</h4>
 <br/><br/>
 
 ## Tujuan
-Bab ini akan memberikan panduan langkah demi langkah tentang bagaimana menghubungkan mikrokontroler ESP32 dengan aplikasi Flutter melalui layanan Firebase Realtime Database. Anda akan belajar cara mengirim dan mengambil data antara ESP32 dan aplikasi Flutter menggunakan Firebase sebagai perantara.
+Bab ini akan memberikan panduan langkah demi langkah tentang bagaimana menghubungkan mikrokontroler ESP32 dengan aplikasi Flutter melalui layanan Firebase Realtime Database. Anda akan belajar cara mengirim dan mengambil data antara Mikrokontroler ESP8266 dan aplikasi Flutter menggunakan Firebase sebagai perantara.
 
 ## Teori
-###	Apa itu ESP32?
-ESP32 adalah modul mikrokontroler yang memiliki kemampuan WiFi dan Bluetooth. Modul ini sangat cocok untuk berbagai aplikasi IoT dan pengembangan prototipe.
+###	Apa itu Mikrokontroler NodeMCU ESP8266?
+Mikrokontroler sendiri merupakan sebuah komputer kecil yang dikemas dalam bentuk chip IC (Integrated Circuit) serta dirancang untuk melakukan tugas maupun operasi tertentu. NodeMCU ESP8266 adalah Microcontroller yang sudah dilengkapi dengan modul WIFI ESP8266 didalamnya, jadi NodeMCU sama seperti Arduino, tapi kelebihannya sudah memiliki WIFI, sehingga Modul ini sangat cocok untuk berbagai aplikasi IoT dan pengembangan prototipe.
 
 ###	Apa itu Firebase Realtime Database?
 Firebase Realtime Database adalah layanan database cloud yang dapat digunakan untuk menyimpan dan menyinkronkan data secara realtime antara berbagai perangkat. 
@@ -407,3 +407,53 @@ Penjelasan singkat dari program logic tombol:
 •	Variabel lainnya digunakan untuk mengatur teks dan warna tombol
 •	Metode btnOn() dan btnOff() ini berfungsi mengontrol perubahan status tombol dan nilai yang disimpan di Firebase Database.
 
+
+## Mengkoneksikan Mikrokontroller ke Firebase
+
+Untuk mengkoneksikan mikrokontroller dengan Firebase, download file "esp8266 program.rar" pada kumpulan folder bab 7 di atas.
+
+<p align="center">
+  <img align="center" src="images/mikon1.png" width="1080">
+</p>
+
+Ekstrak file rar tersebut, lalu buka dan jalankan file pada "esp8266 program\contohProgramArduino\contohProgramArduino.ino". 
+<p align="center">
+  <img align="center" src="images/mikon2.jpg" width="640">
+</p>
+Dalam program mikrokontroller tesebut, ganti nama SSID dan Password dari WiFi yang digunakan oleh kalian. Selain itu, API_KEY dan DATABASE_URL perlu diganti sesuai dengan projek Firebase masing-masing. Berikut Cara mendapatkan API_KEY dan DATABASE_URL:
+1. Pada Firebase buka Project Settings -> Service accounts -> Database secrets
+
+<p align="center">
+  <img align="center" src="images/mikon3.png" width="640">
+</p>
+2. Lalu copy token secrets dan paste pada API_KEY didalam program Mikrokontroler.
+
+<p align="center">
+  <img align="center" src="images/mikon4.jpg" width="640">
+  <br/><br/>
+  <img align="center" src="images/mikon5.jpg" width="720">
+</p>
+3. Selanjutnya kembali ke Firebase dan buka Realtime Database. Lalu copy url project tersebut dan paste pada DATABASE_URL didalam program Mikrokontroler.
+
+<p align="center">
+  <img align="center" src="images/mikon6.jpg" width="640">
+  <br/><br/>
+  <img align="center" src="images/mikon7.jpg" width="720">
+</p>
+
+Setelah merubah SSID, Password, API_KEY, dan DATABASE_URL. Program tersebut sudah bisa diupload kedalam mikrokontroler.
+
+catatan tambahan: 
+•	Hubungkan pin 'out' pada sensor DHT 11 ke pin 'D5' pada mikrokontroler esp8266, dan pin '+' & pin '-' pada sensor DHT 11 ke pin '3.3v' dan pin 'gnd' pada mikrokontroler esp8266.
+•	Hubungkan pin positif LED ke pin 'D2' pada mikrokontroler esp8266, dan pin negatif LED ke pin 'GND' pada mikrokontroler esp8266.
+
+
+
+---
+## Laporan Pendahuluan(LP)
+1. Berikan penjelasan mengenai Firebase Realtime Database!
+
+2. Jelaskan apa itu Mikrokontroler NodeMCU ESP8266!
+
+## Laporan Akhir(LA)
+1. Berikan kesimpulan singkat pada Bab 7!
