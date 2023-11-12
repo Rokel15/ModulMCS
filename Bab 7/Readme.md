@@ -407,7 +407,7 @@ Penjelasan singkat dari program logic tombol:
 •	Variabel lainnya digunakan untuk mengatur teks dan warna tombol
 •	Metode btnOn() dan btnOff() ini berfungsi mengontrol perubahan status tombol dan nilai yang disimpan di Firebase Database.
 
-
+---
 ## Mengkoneksikan Mikrokontroller ke Firebase
 
 Untuk mengkoneksikan mikrokontroller dengan Firebase, download file "esp8266 program.rar" pada kumpulan folder bab 7 di atas.
