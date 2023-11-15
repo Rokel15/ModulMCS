@@ -39,51 +39,51 @@ Perhatikan file-file berikut.
 Buatlah file-file seperti di atas pada project yang dibuat pada praktikum kali ini
 
 ---
-Code pada CatetanMhsModel.dart
+Code pada catatan_model.dart
 ```dart
-    class CatetanMhsModel {
-      int? id;
-      String? tanggal;
-      int? warna;
-      String? tugas1;
-      String? tugas2;
-      String? tugas3;
-      String? entryTime;
-    
-      CatetanMhsModel({
-        this.id,
-        required this.tanggal,
-        required this.warna,
-        required this.tugas1,
-        required this.tugas2,
-        required this.tugas3,
-        this.entryTime,
-      });
-    
-      //toJson
-      Map<String, dynamic> tojson(){
-        final Map<String, dynamic> data = new Map<String, dynamic>();
-        data['id'] = this.id;
-        data['tanggal'] = this.tanggal;
-        data['warna'] = this.warna;
-        data['tugas1'] = this.tugas1;
-        data['tugas2'] = this.tugas2;
-        data['tugas3'] = this.tugas3;
-        data['entryTime'] = this.entryTime;
-        return data;
-      }
-    
-      //fromJson
-      CatetanMhsModel.fromJson(Map<String, dynamic> json){
-        id = json['id'];
-        tanggal = json['tanggal'];
-        warna = json['warna'];
-        tugas1 = json['tugas1'];
-        tugas2 = json['tugas2'];
-        tugas3 = json['tugas3'];
-        entryTime = json['entryTime'];
-      }
-    }
+    class Catatan {
+  int? id;
+  String? tanggal;
+  int? warna;
+  String? tugas1;
+  String? tugas2;
+  String? tugas3;
+  String? entryTime;
+
+  Catatan({
+    this.id,
+    required this.tanggal,
+    required this.warna,
+    required this.tugas1,
+    required this.tugas2,
+    required this.tugas3,
+    this.entryTime,
+  });
+
+  //toJson
+  Map<String, dynamic> tojson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['tanggal'] = tanggal;
+    data['warna'] = warna;
+    data['tugas1'] = tugas1;
+    data['tugas2'] = tugas2;
+    data['tugas3'] = tugas3;
+    data['entryTime'] = entryTime;
+    return data;
+  }
+
+  //fromJson
+  Catatan.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    tanggal = json['tanggal'];
+    warna = json['warna'];
+    tugas1 = json['tugas1'];
+    tugas2 = json['tugas2'];
+    tugas3 = json['tugas3'];
+    entryTime = json['entryTime'];
+  }
+}
 ```
 ### Penjelasan
 Dalam class CatetanMhsModel merupakan model untuk memuat kerangka data yang akan digunakan untuk create update input delete data pada database, sehingga ketika class CatetanMhsModel dipanggil maka bisa menggunakan atribut-atribut yang terdapat pada class CatetanMhsModel. Di dalam class CatetanMhsModel juga terdapat method tojson dan method overloading yang bernama CatetanMhsModel.fromJson, method tojson digunakan ketika user melakukan 'input' data ke database dan method overloading CatetanMhsModel.fromJson digunakan untuk user membaca data dari database.
