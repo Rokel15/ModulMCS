@@ -90,36 +90,33 @@ class _AddDataPageState extends State<AddDataPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Container(
-                  // padding: EdgeInsets.only(top: 30, bottom: 0),
-                  child: Wrap(
-                    children: List<Widget>.generate(4, (index) {
-                      return GestureDetector(
-                        child: Container(
-                          margin: const EdgeInsets.only(left: 13, right: 8),
-                          height: MediaQuery.of(context).size.width / 13,
-                          width: MediaQuery.of(context).size.width / 13,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15),
-                              color: index == 0
-                                  ? const Color(0xff4C4C6D)
-                                  : index == 1
-                                      ? const Color(0xff6F61C0)
-                                      : index == 2
-                                          ? Colors.blue[900]
-                                          : Colors.pink[500]),
-                          child: pilihWarna == index
-                              ? const Icon(Icons.done_all)
-                              : Container(),
-                        ),
-                        onTap: () {
-                          setState(() {
-                            pilihWarna = index;
-                          });
-                        },
-                      );
-                    }),
-                  ),
+                Wrap(
+                  children: List<Widget>.generate(4, (index) {
+                    return GestureDetector(
+                      child: Container(
+                        margin: const EdgeInsets.only(left: 13, right: 8),
+                        height: MediaQuery.of(context).size.width / 13,
+                        width: MediaQuery.of(context).size.width / 13,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            color: index == 0
+                                ? const Color(0xff4C4C6D)
+                                : index == 1
+                                    ? const Color(0xff6F61C0)
+                                    : index == 2
+                                        ? Colors.blue[900]
+                                        : Colors.pink[500]),
+                        child: pilihWarna == index
+                            ? const Icon(Icons.done_all)
+                            : Container(),
+                      ),
+                      onTap: () {
+                        setState(() {
+                          pilihWarna = index;
+                        });
+                      },
+                    );
+                  }),
                 ),
               ],
             ),

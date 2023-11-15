@@ -3,14 +3,14 @@ import 'package:mcs_bab_5/catatan_model.dart';
 
 class DB {
   static Database? catatanDb;
-  static const String catatanDbTable = 'catetanMhs';
+  static const String catatanDbTable = 'catatan';
 
   static Future<void> initCatatanDb() async {
     if (catatanDb != null) {
       return;
     }
     try {
-      String path = '${await getDatabasesPath()}/catetanMhs.db';
+      String path = '${await getDatabasesPath()}/catatan.db';
       catatanDb = await openDatabase(path, version: 1, onCreate: (db, version) {
         const sql = '''CREATE TABLE $catatanDbTable(
           id INTEGER PRIMARY KEY AUTOINCREMENT,
