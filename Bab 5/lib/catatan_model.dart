@@ -1,4 +1,4 @@
-class CatetanMhsModel {
+class Catatan {
   int? id;
   String? tanggal;
   int? warna;
@@ -7,7 +7,7 @@ class CatetanMhsModel {
   String? tugas3;
   String? entryTime;
 
-  CatetanMhsModel({
+  Catatan({
     this.id,
     required this.tanggal,
     required this.warna,
@@ -18,20 +18,20 @@ class CatetanMhsModel {
   });
 
   //toJson
-  Map<String, dynamic> tojson(){
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['tanggal'] = this.tanggal;
-    data['warna'] = this.warna;
-    data['tugas1'] = this.tugas1;
-    data['tugas2'] = this.tugas2;
-    data['tugas3'] = this.tugas3;
-    data['entryTime'] = this.entryTime;
+  Map<String, dynamic> tojson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['tanggal'] = tanggal;
+    data['warna'] = warna;
+    data['tugas1'] = tugas1;
+    data['tugas2'] = tugas2;
+    data['tugas3'] = tugas3;
+    data['entryTime'] = entryTime;
     return data;
   }
 
   //fromJson
-  CatetanMhsModel.fromJson(Map<String, dynamic> json){
+  Catatan.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     tanggal = json['tanggal'];
     warna = json['warna'];

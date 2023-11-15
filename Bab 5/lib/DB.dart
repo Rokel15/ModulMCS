@@ -1,21 +1,18 @@
 import 'package:sqflite/sqflite.dart';
-import 'package:mcs_bab_5/CatetanMhsModel.dart';
+import 'package:mcs_bab_5/catatan_model.dart';
 
-class DB{
-  static Database? catetanMhsDB;
-  static final String catetanMhsDbTable = 'catetanMhs';
+class DB {
+  static Database? catatanDb;
+  static const String catatanDbTable = 'catetanMhs';
 
-  static Future<void> initcatetanMhsDb() async{
-    if(catetanMhsDB!=null){
+  static Future<void> initCatatanDb() async {
+    if (catatanDb != null) {
       return;
-    } try{
-      String path = await getDatabasesPath() + '/catetanMhs.db';
-      catetanMhsDB = await openDatabase(
-        path,
-        version: 1,
-        onCreate: (db, version){
-          final sql =
-          '''CREATE TABLE $catetanMhsDbTable(
+    }
+    try {
+      String path = '${await getDatabasesPath()}/catetanMhs.db';
+      catatanDb = await openDatabase(path, version: 1, onCreate: (db, version) {
+        const sql = '''CREATE TABLE $catatanDbTable(
           id INTEGER PRIMARY KEY AUTOINCREMENT,
           tanggal STRING,
           warna INTEGER,
@@ -25,68 +22,68 @@ class DB{
           entryTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP
           )
           ''';
-          return db.execute(sql);
-        }
-      );
-    } catch(e){
+        return db.execute(sql);
+      });
+    } catch (e) {
       return;
     }
   }
 
   //insert
-  static Future<int> insert(CatetanMhsModel catetanMhsModel) async{
-    return await catetanMhsDB?.insert(catetanMhsDbTable, catetanMhsModel.tojson())??1;
+  static Future<int> insert(Catatan catatan) async {
+    return await catatanDb?.insert(catatanDbTable, catatan.tojson()) ?? 1;
   }
 
   //retrieve
-  static Future<List<Map<String, dynamic>>> query() async{
-    return await catetanMhsDB!.query(
-      catetanMhsDbTable,
-      orderBy: 'entryTime DESC'
-    );
+  static Future<List<Map<String, dynamic>>> query() async {
+    return await catatanDb!.query(catatanDbTable, orderBy: 'entryTime DESC');
   }
 
   //delete
-  static delete(CatetanMhsModel catetanMhsModel) async{
-    return await catetanMhsDB!.delete(
-        catetanMhsDbTable,
-        where: 'id=?',
-        whereArgs: [catetanMhsModel.id]
-    );
+  static delete(Catatan catatan) async {
+    return await catatanDb!
+        .delete(catatanDbTable, where: 'id=?', whereArgs: [catatan.id]);
   }
 
   //update warna 0
-  static updateWarna0(int id) async{
-    return await catetanMhsDB!.rawUpdate('''UPDATE $catetanMhsDbTable SET warna = 0 WHERE id = ?''', [id]);
+  static updateWarna0(int id) async {
+    return await catatanDb!.rawUpdate(
+        '''UPDATE $catatanDbTable SET warna = 0 WHERE id = ?''', [id]);
   }
 
   //update warna 1
-  static updateWarna1(int id) async{
-    return await catetanMhsDB!.rawUpdate('''UPDATE $catetanMhsDbTable SET warna = 1 WHERE id = ?''', [id]);
+  static updateWarna1(int id) async {
+    return await catatanDb!.rawUpdate(
+        '''UPDATE $catatanDbTable SET warna = 1 WHERE id = ?''', [id]);
   }
 
   //update warna 2
-  static updateWarna2(int id) async{
-    return await catetanMhsDB!.rawUpdate('''UPDATE $catetanMhsDbTable SET warna = 2 WHERE id = ?''', [id]);
+  static updateWarna2(int id) async {
+    return await catatanDb!.rawUpdate(
+        '''UPDATE $catatanDbTable SET warna = 2 WHERE id = ?''', [id]);
   }
 
   //update warna 3
-  static updateWarna3(int id) async{
-    return await catetanMhsDB!.rawUpdate('''UPDATE $catetanMhsDbTable SET warna = 3 WHERE id = ?''', [id]);
+  static updateWarna3(int id) async {
+    return await catatanDb!.rawUpdate(
+        '''UPDATE $catatanDbTable SET warna = 3 WHERE id = ?''', [id]);
   }
 
   //empty tugas 1
-  static emptyTugas1(int id) async{
-    return await catetanMhsDB!.rawUpdate('''UPDATE $catetanMhsDbTable SET tugas1 = '' WHERE id = ?''', [id]);
+  static emptyTugas1(int id) async {
+    return await catatanDb!.rawUpdate(
+        '''UPDATE $catatanDbTable SET tugas1 = '' WHERE id = ?''', [id]);
   }
 
   //empty tugas 2
-  static emptyTugas2(int id) async{
-    return await catetanMhsDB!.rawUpdate('''UPDATE $catetanMhsDbTable SET tugas2 = '' WHERE id = ?''', [id]);
+  static emptyTugas2(int id) async {
+    return await catatanDb!.rawUpdate(
+        '''UPDATE $catatanDbTable SET tugas2 = '' WHERE id = ?''', [id]);
   }
 
   //empty tugas 3
-  static emptyTugas3(int id) async{
-    return await catetanMhsDB!.rawUpdate('''UPDATE $catetanMhsDbTable SET tugas3 = '' WHERE id = ?''', [id]);
+  static emptyTugas3(int id) async {
+    return await catatanDb!.rawUpdate(
+        '''UPDATE $catatanDbTable SET tugas3 = '' WHERE id = ?''', [id]);
   }
 }

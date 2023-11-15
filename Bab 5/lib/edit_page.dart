@@ -1,27 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mcs_bab_5/CatetanMhsController.dart';
+import 'package:mcs_bab_5/catatan_controller.dart';
 import 'DB.dart';
-import 'CatetanMhsModel.dart';
+import 'catatan_model.dart';
 
 class EditPage extends StatefulWidget {
-  CatetanMhsModel? catetanMhsModel;
+  final Catatan? catatan;
 
-  EditPage({
-    required this.catetanMhsModel
-  });
+  const EditPage({super.key, required this.catatan});
 
   @override
-  State<EditPage> createState() => _EditPageState(catetanMhsModel: catetanMhsModel);
+  State<EditPage> createState() => _EditPageState();
 }
 
 class _EditPageState extends State<EditPage> {
-  CatetanMhsModel? catetanMhsModel;
-
-  _EditPageState({
-    required this.catetanMhsModel
-  });
-
   TextEditingController tugas1 = TextEditingController();
   TextEditingController tugas2 = TextEditingController();
   TextEditingController tugas3 = TextEditingController();
@@ -29,17 +21,17 @@ class _EditPageState extends State<EditPage> {
   @override
   void initState() {
     super.initState();
-    tugas1.text = widget.catetanMhsModel?.tugas1 ?? '';
-    tugas2.text = widget.catetanMhsModel?.tugas2 ?? '';
-    tugas3.text = widget.catetanMhsModel?.tugas3 ?? '';
+    tugas1.text = widget.catatan?.tugas1 ?? '';
+    tugas2.text = widget.catatan?.tugas2 ?? '';
+    tugas3.text = widget.catatan?.tugas3 ?? '';
   }
 
   @override
   Widget build(BuildContext context) {
-    final CatetanMhsController catetanMhsController = Get.put(CatetanMhsController());
+    final CatatanController catatanController = Get.put(CatatanController());
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(0),
+        preferredSize: const Size.fromHeight(0),
         child: AppBar(),
       ),
       body: Material(
@@ -52,26 +44,31 @@ class _EditPageState extends State<EditPage> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(13),
                   border: Border.all(color: Colors.white),
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
                         color: Colors.white,
                         offset: Offset(0.0, 0.1),
-                        blurRadius: 10.0
-                    )
+                        blurRadius: 10.0)
                   ],
-                  color: Color(0xff2E3840),
+                  color: const Color(0xff2E3840),
                 ),
-                child: Padding(
-                    padding: const EdgeInsets.all(13),
-                    child: Text('Edit your note', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600))),
+                child: const Padding(
+                    padding: EdgeInsets.all(13),
+                    child: Text('Edit your note',
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.w600))),
               ),
               // Tugas 1
               Padding(
-                padding: EdgeInsets.only(top: 40, bottom: 20),
+                padding: const EdgeInsets.only(top: 40, bottom: 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Tugas 1', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),),
+                    const Text(
+                      'Tugas 1',
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                    ),
                     TextFormField(
                       controller: tugas1,
                       maxLines: null,
@@ -81,11 +78,15 @@ class _EditPageState extends State<EditPage> {
               ),
               //Tugas 2
               Padding(
-                padding: EdgeInsets.only(top: 20, bottom: 20),
+                padding: const EdgeInsets.only(top: 20, bottom: 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Tugas 2', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),),
+                    const Text(
+                      'Tugas 2',
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                    ),
                     TextFormField(
                       controller: tugas2,
                       maxLines: null,
@@ -95,11 +96,15 @@ class _EditPageState extends State<EditPage> {
               ),
               //Tugas 3
               Padding(
-                padding: EdgeInsets.only(top: 20, bottom: 20),
+                padding: const EdgeInsets.only(top: 20, bottom: 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Tugas 3', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),),
+                    const Text(
+                      'Tugas 3',
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                    ),
                     TextFormField(
                       controller: tugas3,
                       maxLines: null,
@@ -114,19 +119,20 @@ class _EditPageState extends State<EditPage> {
 
       //save
       floatingActionButton: FloatingActionButton(
-        child:
-        Icon(Icons.save,),
-        onPressed: () async{
-          await DB.catetanMhsDB!.rawUpdate(
-              '''UPDATE ${DB.catetanMhsDbTable} SET tugas1 = '${tugas1.text}' WHERE id = ?''',[catetanMhsModel!.id]
-          );
-          await DB.catetanMhsDB!.rawUpdate(
-              '''UPDATE ${DB.catetanMhsDbTable} SET tugas2 = '${tugas2.text}' WHERE id = ?''',[catetanMhsModel!.id]
-          );
-          await DB.catetanMhsDB!.rawUpdate(
-              '''UPDATE ${DB.catetanMhsDbTable} SET tugas3 = '${tugas3.text}' WHERE id = ?''',[catetanMhsModel!.id]
-          );
-          catetanMhsController.getCatetanMhsData();
+        child: const Icon(
+          Icons.save,
+        ),
+        onPressed: () async {
+          await DB.catatanDb!.rawUpdate(
+              '''UPDATE ${DB.catatanDbTable} SET tugas1 = '${tugas1.text}' WHERE id = ?''',
+              [widget.catatan?.id]);
+          await DB.catatanDb!.rawUpdate(
+              '''UPDATE ${DB.catatanDbTable} SET tugas2 = '${tugas2.text}' WHERE id = ?''',
+              [widget.catatan?.id]);
+          await DB.catatanDb!.rawUpdate(
+              '''UPDATE ${DB.catatanDbTable} SET tugas3 = '${tugas3.text}' WHERE id = ?''',
+              [widget.catatan?.id]);
+          catatanController.getCatatanData();
           Get.back();
         },
       ),

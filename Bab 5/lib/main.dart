@@ -1,26 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'displayPage.dart';
+import 'display_page.dart';
 import 'DB.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await DB.initcatetanMhsDb();
-  runApp(catetanMhs());
+  await DB.initCatatanDb();
+  runApp(const CatatanApp());
 }
 
-class catetanMhs extends StatelessWidget {
-  const catetanMhs({Key? key}) : super(key: key);
+class CatatanApp extends StatelessWidget {
+  const CatatanApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'catetan Mhs',
+      title: 'Catatan App',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.dark()
-      ),
-      home: displayPage(),
+      theme: ThemeData(colorScheme: const ColorScheme.dark()),
+      home: const DisplayPage(),
     );
   }
 }
