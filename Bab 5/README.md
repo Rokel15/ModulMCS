@@ -86,7 +86,7 @@ class Catatan {
 }
 ```
 ### Penjelasan
-Dalam class Catatan merupakan model untuk memuat kerangka data yang akan digunakan untuk create update input delete data pada database, sehingga ketika class Catatan dipanggil maka bisa menggunakan atribut-atribut yang terdapat pada class CatetanMhsModel. Di dalam class Catatan juga terdapat method tojson dan method overloading yang bernama Catatan.fromJson, method tojson digunakan ketika user melakukan 'input' data ke database dan method overloading Catatan.fromJson digunakan untuk user membaca data dari database.
+Dalam class Catatan merupakan model untuk memuat kerangka data yang akan digunakan untuk create update input delete data pada database, sehingga ketika class Catatan dipanggil maka bisa menggunakan atribut-atribut yang terdapat pada class Catatan. Di dalam class Catatan juga terdapat method tojson dan method overloading yang bernama Catatan.fromJson, method tojson digunakan ketika user melakukan 'input' data ke database dan method overloading Catatan.fromJson digunakan untuk user membaca data dari database.
 
 ---
 code pada DB.dart
