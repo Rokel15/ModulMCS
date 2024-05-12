@@ -1357,23 +1357,23 @@ Di dalam bottom sheet terdapat button yang bertuliskan 'Yes' dan 'No', button ak
 
 Tadi kita membuat fitur untuk mengubah tanggal, saat mengubah tanggal kita memanggil ubahTanggal() sehingga kita harus membuat method ubahTanggal(). Isi dari method ubahTanggal() adalah seperti berikut
   
-  Future<void> ubahTanggal(BuildContext context, Catatan catatan) async {
-    DateTime? setUbahTanggal = await showDatePicker(
-        context: context,
-        initialDate: DateTime.now(),
-        firstDate: DateTime(2023),
-        lastDate: DateTime(2100));
-
-    if (setUbahTanggal != null && setUbahTanggal != DateTime.now()) {
-      setState(() {
-        // String formattedDate = DateFormat.yMd().format(setUbahTanggal);  bisa begini
-        DB.catatanDb!.rawUpdate(
-            '''UPDATE ${DB.catatanDbTable} SET tanggal = '${DateFormat.yMd().format(setUbahTanggal)}' WHERE id = ?''',
-            [catatan.id]);
-        _catatanController.getCatatanData();
-      });
+    Future<void> ubahTanggal(BuildContext context, Catatan catatan) async {
+      DateTime? setUbahTanggal = await showDatePicker(
+          context: context,
+          initialDate: DateTime.now(),
+          firstDate: DateTime(2023),
+          lastDate: DateTime(2100));
+  
+      if (setUbahTanggal != null && setUbahTanggal != DateTime.now()) {
+        setState(() {
+          // String formattedDate = DateFormat.yMd().format(setUbahTanggal);  bisa begini
+          DB.catatanDb!.rawUpdate(
+              '''UPDATE ${DB.catatanDbTable} SET tanggal = '${DateFormat.yMd().format(setUbahTanggal)}' WHERE id = ?''',
+              [catatan.id]);
+          _catatanController.getCatatanData();
+        });
+      }
     }
-  }
 
       //...
 Saat mengubah tanggal kita tidak menggunakan controller namun langsung menggunakan query DML dari sql untuk update tanggal seperti pada code di atas menggunakan  perintah
