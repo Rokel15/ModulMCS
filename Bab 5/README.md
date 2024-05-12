@@ -1210,59 +1210,59 @@ Jadi untuk mengosongkan record pada filed tugas1, tugas2, tugas3 dengan memanggi
 Isi dari method showEmptyTugas1BottomSheet, showEmptyTugas2BottomSheet, showEmptyTugas3BottomSheet
 
     //...
-  showEmptyTugas1BottomSheet(BuildContext context, Catatan catatan) {
-    Get.bottomSheet(Container(
-      width: double.infinity,
-      height: MediaQuery.of(context).size.height / 5.7,
-      decoration: const BoxDecoration(
-          color: Color(0xff352F44),
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(20),
-            topRight: Radius.circular(20),
-          )),
-      child: Column(
-        children: [
-          Container(
-            height: 7,
-            width: MediaQuery.of(context).size.width / 2,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10), color: Colors.black),
-          ),
-          const Spacer(),
-          Container(
-            padding: const EdgeInsets.only(bottom: 30),
-            child: const Text(
-              'empty tugas 1?',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+    showEmptyTugas1BottomSheet(BuildContext context, Catatan catatan) {
+      Get.bottomSheet(Container(
+        width: double.infinity,
+        height: MediaQuery.of(context).size.height / 5.7,
+        decoration: const BoxDecoration(
+            color: Color(0xff352F44),
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            )),
+        child: Column(
+          children: [
+            Container(
+              height: 7,
+              width: MediaQuery.of(context).size.width / 2,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10), color: Colors.black),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                yesOrNoButton(
-                  text: 'Yes',
-                  color: const Color(0xff5C5470),
-                  onTap: () {
-                    _catatanController.emptyTugas1(catatan.id!);
-                    _catatanController.getCatatanData();
-                    Get.back();
-                  },
-                ),
-                yesOrNoButton(
-                    text: 'No',
-                    color: const Color(0xffB9B4C7),
+            const Spacer(),
+            Container(
+              padding: const EdgeInsets.only(bottom: 30),
+              child: const Text(
+                'empty tugas 1?',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  yesOrNoButton(
+                    text: 'Yes',
+                    color: const Color(0xff5C5470),
                     onTap: () {
+                      _catatanController.emptyTugas1(catatan.id!);
+                      _catatanController.getCatatanData();
                       Get.back();
-                    })
-              ],
-            ),
-          )
-        ],
-      ),
-    ));
-  }
+                    },
+                  ),
+                  yesOrNoButton(
+                      text: 'No',
+                      color: const Color(0xffB9B4C7),
+                      onTap: () {
+                        Get.back();
+                      })
+                ],
+              ),
+            )
+          ],
+        ),
+      ));
+    }
 
   //...
 Saat salah satu method ini dipanggil maka aplikasi akan memunculkan bottom sheet untuk bertanya kepada usetr apakah benar data ingin dihapus atau tidak.
