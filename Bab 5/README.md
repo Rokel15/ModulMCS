@@ -1333,28 +1333,28 @@ Menghapus record dapat memanggil method showDeleteRecordBottomSheet(). isi dari 
 
 Di dalam bottom sheet terdapat button yang bertuliskan 'Yes' dan 'No', button akan kita buat widget terpisah di luar method yang digunakan untuk menampilkan bottom sheet seperti berikut
 
-   yesOrNoButton(
-      {required String text, required Color color, required Function() onTap}) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        width: MediaQuery.of(context).size.width / 2.8,
-        height: MediaQuery.of(context).size.height / 17,
-        decoration: BoxDecoration(
-          color: color,
-          borderRadius: BorderRadius.circular(13),
+     yesOrNoButton(
+        {required String text, required Color color, required Function() onTap}) {
+      return GestureDetector(
+        onTap: onTap,
+        child: Container(
+          width: MediaQuery.of(context).size.width / 2.8,
+          height: MediaQuery.of(context).size.height / 17,
+          decoration: BoxDecoration(
+            color: color,
+            borderRadius: BorderRadius.circular(13),
+          ),
+          child: Center(
+            child: Text(text,
+                style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white)),
+          ),
         ),
-        child: Center(
-          child: Text(text,
-              style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white)),
-        ),
-      ),
-    );
+      );
+    }
   }
-}
 
 Tadi kita membuat fitur untuk mengubah tanggal, saat mengubah tanggal kita memanggil ubahTanggal() sehingga kita harus membuat method ubahTanggal(). Isi dari method ubahTanggal() adalah seperti berikut
   
