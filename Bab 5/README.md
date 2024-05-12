@@ -1275,59 +1275,59 @@ Menghapus record dapat memanggil method showDeleteRecordBottomSheet(). isi dari 
 
     //...
 
-  showDeleteRecordBottomSheet(BuildContext context, Catatan catatan) {
-    Get.bottomSheet(Container(
-      width: double.infinity,
-      height: MediaQuery.of(context).size.height / 5.7,
-      decoration: const BoxDecoration(
-          color: Color(0xff352F44),
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(20),
-            topRight: Radius.circular(20),
-          )),
-      child: Column(
-        children: [
-          Container(
-            height: 7,
-            width: MediaQuery.of(context).size.width / 2,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10), color: Colors.black),
-          ),
-          const Spacer(),
-          Container(
-            padding: const EdgeInsets.only(bottom: 30),
-            child: const Text(
-              'delete record?',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+    showDeleteRecordBottomSheet(BuildContext context, Catatan catatan) {
+      Get.bottomSheet(Container(
+        width: double.infinity,
+        height: MediaQuery.of(context).size.height / 5.7,
+        decoration: const BoxDecoration(
+            color: Color(0xff352F44),
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            )),
+        child: Column(
+          children: [
+            Container(
+              height: 7,
+              width: MediaQuery.of(context).size.width / 2,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10), color: Colors.black),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                yesOrNoButton(
-                  text: 'Yes',
-                  color: const Color(0xff5C5470),
-                  onTap: () {
-                    _catatanController.delete(catatan);
-                    _catatanController.getCatatanData();
-                    Get.back();
-                  },
-                ),
-                yesOrNoButton(
-                    text: 'No',
-                    color: const Color(0xffB9B4C7),
+            const Spacer(),
+            Container(
+              padding: const EdgeInsets.only(bottom: 30),
+              child: const Text(
+                'delete record?',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  yesOrNoButton(
+                    text: 'Yes',
+                    color: const Color(0xff5C5470),
                     onTap: () {
+                      _catatanController.delete(catatan);
+                      _catatanController.getCatatanData();
                       Get.back();
-                    })
-              ],
-            ),
-          )
-        ],
-      ),
-    ));
-  }
+                    },
+                  ),
+                  yesOrNoButton(
+                      text: 'No',
+                      color: const Color(0xffB9B4C7),
+                      onTap: () {
+                        Get.back();
+                      })
+                ],
+              ),
+            )
+          ],
+        ),
+      ));
+    }
 
     //...
 
